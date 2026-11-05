@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Ícone do Oruri: a ōruri cantando no galho (proposta A, aprovada em 1 nov 2026). -->
+  <defs>
+    <linearGradient id="aBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A62C2"/><stop offset="1" stop-color="#14397E"/></linearGradient>
+    <linearGradient id="cBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E50A2"/><stop offset="1" stop-color="#0F2350"/></linearGradient>
+    <clipPath id="bBody"><circle cx="470" cy="580" r="230"/></clipPath>
+    <clipPath id="bHead"><circle cx="610" cy="420" r="150"/></clipPath>
+    <clipPath id="cBody"><path d="M705 398 C700 334 642 300 590 305 C522 312 482 360 472 420 C404 452 334 522 302 600 L212 698 L244 724 L332 662 C404 692 502 690 572 640 C650 584 700 500 705 440 Z"/></clipPath>
+  </defs>
+
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#aBg)"/>
+    <g transform="translate(-40 10)">
+      <path d="M380 712 H760" stroke="#0F2350" stroke-opacity="0.55" stroke-width="22" stroke-linecap="round"/>
+      <path d="M520 668 L512 712 M566 660 L572 712" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+      <path d="M705 398 C700 334 642 300 590 305 C522 312 482 360 472 420 C404 452 334 522 302 600 L212 698 L244 724 L332 662 C404 692 502 690 572 640 C650 584 700 500 705 440 Z" fill="#FFFFFF"/>
+      <path d="M600 440 C540 470 470 530 420 610 C500 600 570 560 610 500 Z" fill="#C9D8F2"/>
+      <path d="M705 398 C703 372 690 350 668 336 C652 372 650 410 664 446 C680 450 696 446 705 440 Z" fill="#0F2350"/>
+      <circle cx="682" cy="378" r="12" fill="#FFFFFF"/>
+      <path d="M703 392 L790 372 L706 414 Z" fill="#FFFFFF"/>
+      <path d="M704 426 L784 442 L700 446 Z" fill="#FFFFFF"/>
+      <path d="M849 376 A60 60 0 0 1 849 444" stroke="#FFFFFF" stroke-width="22" stroke-linecap="round" fill="none"/>
+      <path d="M886 350 A105 105 0 0 1 886 470" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="22" stroke-linecap="round" fill="none"/>
+      <path d="M923 324 A150 150 0 0 1 923 496" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="22" stroke-linecap="round" fill="none"/>
+    </g>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="200 290 620 450">
+  <!-- Silhueta da ōruri para a barra de menus (imagem modelo: só a forma conta) -->
+  <g fill="#000">
+    <path d="M705 398 C700 334 642 300 590 305 C522 312 482 360 472 420 C404 452 334 522 302 600 L212 698 L244 724 L332 662 C404 692 502 690 572 640 C650 584 700 500 705 440 Z"/>
+    <path d="M703 392 L792 404 L704 432 Z"/>
+  </g>
+</svg>

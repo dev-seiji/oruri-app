@@ -1,0 +1,2155 @@
+# Traduções da interface do Oruri.
+# Cada bloco: "@ texto em inglês" (igual ao do código) e uma linha por idioma (es, pt, ja).
+# Depois de editar, rode: python3 Localization/build.py  (gera es.json, pt.json e ja.json e confere tudo).
+# Na Help e nas notas, "Settings › Output" etc. usam os nomes traduzidos das seções.
+
+@ Groq free limit reached for today's audio
+es: Límite gratuito de Groq alcanzado para el audio de hoy
+pt: Limite grátis da Groq atingido para o áudio de hoje
+ja: 本日の音声でGroqの無料枠の上限に達しました
+
+@ Groq free limit reached for this hour's audio
+es: Límite gratuito de Groq alcanzado para el audio de esta hora
+pt: Limite grátis da Groq atingido para o áudio desta hora
+ja: この1時間の音声でGroqの無料枠の上限に達しました
+
+@ Groq free limit reached for today's requests
+es: Límite gratuito de Groq alcanzado para las solicitudes de hoy
+pt: Limite grátis da Groq atingido para os pedidos de hoje
+ja: 本日のリクエストでGroqの無料枠の上限に達しました
+
+@ Groq free limit almost used: %ld%% of today's audio left
+es: Límite gratuito de Groq casi agotado: queda un %ld%% del audio de hoy
+pt: Limite grátis da Groq quase no fim: resta %ld%% do áudio de hoje
+ja: Groqの無料枠が残りわずか: 本日の音声は残り%ld%%
+
+@ Groq free limit almost used: %ld%% of this hour's audio left
+es: Límite gratuito de Groq casi agotado: queda un %ld%% del audio de esta hora
+pt: Limite grátis da Groq quase no fim: resta %ld%% do áudio desta hora
+ja: Groqの無料枠が残りわずか: この1時間の音声は残り%ld%%
+
+@ Groq free limit almost used: %ld%% of today's requests left
+es: Límite gratuito de Groq casi agotado: queda un %ld%% de las solicitudes de hoy
+pt: Limite grátis da Groq quase no fim: resta %ld%% dos pedidos de hoje
+ja: Groqの無料枠が残りわずか: 本日のリクエストは残り%ld%%
+
+@ Home
+es: Inicio
+pt: Início
+ja: ホーム
+
+@ Dictionary
+es: Diccionario
+pt: Dicionário
+ja: 辞書
+
+@ Dictation
+es: Dictado
+pt: Ditado
+ja: 音声入力
+
+@ Models
+es: Modelos
+pt: Modelos
+ja: モデル
+
+@ Usage
+es: Uso
+pt: Uso
+ja: 使用量
+
+@ Output
+es: Salida
+pt: Saída
+ja: 出力
+
+@ History & Privacy
+es: Historial y privacidad
+pt: Histórico e privacidade
+ja: 履歴とプライバシー
+
+@ Advanced
+es: Avanzado
+pt: Avançado
+ja: 詳細設定
+
+@ Help
+es: Ayuda
+pt: Ajuda
+ja: ヘルプ
+
+@ Updates
+es: Actualizaciones
+pt: Atualizações
+ja: アップデート
+
+@ No audio input device
+es: No hay ningún dispositivo de entrada de audio
+pt: Nenhum dispositivo de entrada de áudio
+ja: オーディオ入力デバイスがありません
+
+@ Couldn't create the recording file: %@
+es: No se pudo crear el archivo de grabación: %@
+pt: Não foi possível criar o arquivo da gravação: %@
+ja: 録音ファイルを作成できませんでした: %@
+
+@ Cancel
+es: Cancelar
+pt: Cancelar
+ja: キャンセル
+
+@ Press the keys together (Esc to cancel)
+es: Pulsa las teclas a la vez (Esc para cancelar)
+pt: Aperte as teclas juntas (Esc para cancelar)
+ja: キーを同時に押してください（Escでキャンセル）
+
+@ With Caps Lock, use only ⌃ ⌥ ⇧ ⌘ fn (no letters)
+es: Con Bloq Mayús, usa solo ⌃ ⌥ ⇧ ⌘ fn (sin letras)
+pt: Com o Caps Lock, use só ⌃ ⌥ ⇧ ⌘ fn (sem letras)
+ja: Caps Lockと組み合わせられるのは ⌃ ⌥ ⇧ ⌘ fn だけです（文字キーは不可）
+
+@ That key can't be used. Try another (Esc to cancel)
+es: Esa tecla no se puede usar. Prueba otra (Esc para cancelar)
+pt: Essa tecla não pode ser usada. Tente outra (Esc para cancelar)
+ja: そのキーは使えません。別のキーを試してください（Escでキャンセル）
+
+@ Hold at least one of ⌃ ⌥ ⇧ ⌘ fn with the key
+es: Mantén pulsada al menos una de ⌃ ⌥ ⇧ ⌘ fn junto con la tecla
+pt: Segure pelo menos uma de ⌃ ⌥ ⇧ ⌘ fn junto com a tecla
+ja: キーと一緒に ⌃ ⌥ ⇧ ⌘ fn のどれかを押してください
+
+@ Granted
+es: Concedido
+pt: Concedido
+ja: 許可済み
+
+@ Back to Home
+es: Volver al inicio
+pt: Voltar ao início
+ja: ホームに戻る
+
+@ Oruri
+es: Oruri
+pt: Oruri
+ja: Oruri
+
+@ Settings
+es: Ajustes
+pt: Ajustes
+ja: 設定
+
+@ Appearance
+es: Apariencia
+pt: Aparência
+ja: 外観
+
+@ Oruri Pro
+es: Oruri Pro
+pt: Oruri Pro
+ja: Oruri Pro
+
+@ Close
+es: Cerrar
+pt: Fechar
+ja: 閉じる
+
+@ Pro
+es: Pro
+pt: Pro
+ja: Pro
+
+@ Microphone access is off. Allow it in System Settings › Privacy & Security.
+es: El acceso al micrófono está desactivado. Actívalo en Ajustes del Sistema › Privacidad y seguridad.
+pt: O acesso ao microfone está desligado. Permita em Ajustes do Sistema › Privacidade e Segurança.
+ja: マイクへのアクセスがオフです。システム設定 › プライバシーとセキュリティ で許可してください。
+
+@ Some files were skipped: unsupported format.
+es: Se omitieron algunos archivos: formato no compatible.
+pt: Alguns arquivos foram pulados: formato não suportado.
+ja: 一部のファイルをスキップしました: 対応していない形式です。
+
+@ The audio for this recording is no longer on disk.
+es: El audio de esta grabación ya no está en el disco.
+pt: O áudio desta gravação não está mais no disco.
+ja: この録音の音声はもうディスクにありません。
+
+@ Copied · ⌘V
+es: Copiado · ⌘V
+pt: Copiado · ⌘V
+ja: コピーしました · ⌘V
+
+@ Copied · ⌘V · Allow Accessibility to paste
+es: Copiado · ⌘V · Permite Accesibilidad para pegar
+pt: Copiado · ⌘V · Permita a Acessibilidade para colar
+ja: コピーしました · ⌘V · ペーストするにはアクセシビリティを許可してください
+
+@ Copied — press ⌘V to paste
+es: Copiado: pulsa ⌘V para pegar
+pt: Copiado — aperte ⌘V para colar
+ja: コピーしました。⌘Vでペーストできます
+
+@ No speech detected
+es: No se detectó voz
+pt: Nenhuma fala detectada
+ja: 音声が検出されませんでした
+
+@ Transcription failed: %@
+es: La transcripción falló: %@
+pt: A transcrição falhou: %@
+ja: 文字起こしに失敗しました: %@
+
+@ Names and jargon, spelled your way. Add the correct spelling and close misspellings get fixed; add how a word is misheard if it still slips through. Stored only on this Mac.
+es: Nombres y jerga, escritos a tu manera. Añade la grafía correcta y se corrigen las variantes parecidas; añade cómo se oye mal una palabra si aun así se escapa. Se guarda solo en este Mac.
+pt: Nomes e jargões, escritos do seu jeito. Adicione a grafia certa e as parecidas são corrigidas; adicione como a palavra é ouvida errado se ainda escapar. Fica salvo só neste Mac.
+ja: 名前や専門用語を、あなたの書き方で。正しい表記を追加すると、近い誤りが自動で直ります。それでも聞き間違える場合は、聞こえ方も追加してください。このMacにだけ保存されます。
+
+@ hears it as
+es: lo oye como
+pt: ouve como
+ja: 聞こえ方
+
+@ Remove this spelling
+es: Eliminar esta grafía
+pt: Remover esta grafia
+ja: この表記を削除
+
+@ Add word
+es: Añadir palabra
+pt: Adicionar palavra
+ja: 単語を追加
+
+@ Correct spelling
+es: Grafía correcta
+pt: Grafia correta
+ja: 正しい表記
+
+@ e.g. Kubernetes
+es: p. ej. Kubernetes
+pt: ex.: Kubernetes
+ja: 例: Kubernetes
+
+@ Oruri hears it as (optional)
+es: Oruri lo oye como (opcional)
+pt: O Oruri ouve como (opcional)
+ja: Oruriでの聞こえ方（任意）
+
+@ Optional mishearing
+es: Error de escucha (opcional)
+pt: Como é ouvido errado (opcional)
+ja: 聞き間違い（任意）
+
+@ Add Word
+es: Añadir palabra
+pt: Adicionar palavra
+ja: 単語を追加
+
+@ Add multiple words
+es: Añadir varias palabras
+pt: Adicionar várias palavras
+ja: 複数の単語を追加
+
+@ Paste words or phrases, one per line. Two spreadsheet columns also work: correct spelling, then how it's heard.
+es: Pega palabras o frases, una por línea. También sirven dos columnas de una hoja de cálculo: la grafía correcta y luego cómo se oye.
+pt: Cole palavras ou frases, uma por linha. Duas colunas de planilha também funcionam: a grafia certa e depois como é ouvida.
+ja: 単語やフレーズを1行に1つずつ貼り付けてください。スプレッドシートの2列（正しい表記、聞こえ方）も使えます。
+
+@ Review corrections
+es: Revisar correcciones
+pt: Revisar correções
+ja: 修正を確認
+
+@ Drop audio files to transcribe
+es: Suelta archivos de audio para transcribirlos
+pt: Solte arquivos de áudio para transcrever
+ja: 音声ファイルをドロップして文字起こし
+
+@ See usage
+es: Ver uso
+pt: Ver uso
+ja: 使用量を見る
+
+@ Listening… click to stop
+es: Escuchando… haz clic para detener
+pt: Ouvindo… clique para parar
+ja: 聞き取り中… クリックで停止
+
+@ Transcribing…
+es: Transcribiendo…
+pt: Transcrevendo…
+ja: 文字起こし中…
+
+@ Hold
+es: Mantén
+pt: Segure
+ja: どこでも
+
+@ anywhere, or click
+es: en cualquier app, o haz clic
+pt: em qualquer lugar, ou clique
+ja: を長押し、またはクリック
+
+@ Recent
+es: Recientes
+pt: Recentes
+ja: 最近
+
+@ See all %ld ›
+es: Ver las %ld ›
+pt: Ver todas (%ld) ›
+ja: すべて表示（%ld）›
+
+@ No recordings yet. Hold the key and talk, or drop an audio file here.
+es: Todavía no hay grabaciones. Mantén la tecla y habla, o suelta aquí un archivo de audio.
+pt: Nenhuma gravação ainda. Segure a tecla e fale, ou solte um arquivo de áudio aqui.
+ja: まだ録音がありません。キーを押しながら話すか、ここに音声ファイルをドロップしてください。
+
+@ Transcription failed
+es: La transcripción falló
+pt: A transcrição falhou
+ja: 文字起こしに失敗しました
+
+@ Copied
+es: Copiado
+pt: Copiado
+ja: コピーしました
+
+@ Copy to Clipboard
+es: Copiar al portapapeles
+pt: Copiar para a área de transferência
+ja: クリップボードにコピー
+
+@ Regenerate transcription
+es: Volver a transcribir
+pt: Transcrever de novo
+ja: もう一度文字起こし
+
+@ Remove this entry
+es: Eliminar esta entrada
+pt: Remover este item
+ja: この項目を削除
+
+@ Everything stays on this Mac
+es: Todo se queda en este Mac
+pt: Tudo fica neste Mac
+ja: すべてこのMacの中に保存されます
+
+@ Transcribing files… %ld left
+es: Transcribiendo archivos… quedan %ld
+pt: Transcrevendo arquivos… faltam %ld
+ja: ファイルを文字起こし中… 残り%ld件
+
+@ Drop audio or MP4 anywhere to transcribe
+es: Suelta audio o MP4 en cualquier parte para transcribir
+pt: Solte áudio ou MP4 em qualquer lugar para transcrever
+ja: 音声やMP4をどこにでもドロップして文字起こし
+
+@ Choose audio or video files to transcribe
+es: Elegir archivos de audio o vídeo para transcribir
+pt: Escolher arquivos de áudio ou vídeo para transcrever
+ja: 文字起こしする音声・動画ファイルを選ぶ
+
+@ Choose files to transcribe
+es: Elige archivos para transcribir
+pt: Escolha arquivos para transcrever
+ja: 文字起こしするファイルを選択
+
+@ Transcribe
+es: Transcribir
+pt: Transcrever
+ja: 文字起こし
+
+@ Back
+es: Atrás
+pt: Voltar
+ja: 戻る
+
+@ History
+es: Historial
+pt: Histórico
+ja: 履歴
+
+@ Speech model
+es: Modelo de voz
+pt: Modelo de fala
+ja: 音声モデル
+
+@ No recordings yet
+es: Todavía no hay grabaciones
+pt: Nenhuma gravação ainda
+ja: まだ録音がありません
+
+@ Hold the key and talk, or click the microphone on Home
+es: Mantén la tecla y habla, o haz clic en el micrófono de Inicio
+pt: Segure a tecla e fale, ou clique no microfone do Início
+ja: キーを押しながら話すか、ホームのマイクをクリックしてください
+
+@ No results found
+es: No hay resultados
+pt: Nenhum resultado
+ja: 結果が見つかりません
+
+@ Try different search terms
+es: Prueba con otras palabras
+pt: Tente outras palavras
+ja: 別のキーワードで検索してください
+
+@ Heard: %@
+es: Se oyó: %@
+pt: Ouvido: %@
+ja: 認識結果: %@
+
+@ Stop
+es: Detener
+pt: Parar
+ja: 停止
+
+@ Record
+es: Grabar
+pt: Gravar
+ja: 録音
+
+@ System Default
+es: Predeterminado del sistema
+pt: Padrão do sistema
+ja: システムのデフォルト
+
+@ Unavailable
+es: No disponible
+pt: Indisponível
+ja: 利用できません
+
+@ Microphone
+es: Micrófono
+pt: Microfone
+ja: マイク
+
+@ No microphones available
+es: No hay micrófonos disponibles
+pt: Nenhum microfone disponível
+ja: 使えるマイクがありません
+
+@ Search in transcriptions
+es: Buscar en las transcripciones
+pt: Buscar nas transcrições
+ja: 文字起こしを検索
+
+@ Can't reach Ollama at %@ — is it running? (ollama serve)
+es: No se puede conectar con Ollama en %@. ¿Está en marcha? (ollama serve)
+pt: Não foi possível conectar ao Ollama em %@ — ele está rodando? (ollama serve)
+ja: %@ のOllamaに接続できません。起動していますか？（ollama serve）
+
+@ Connected
+es: Conectado
+pt: Conectado
+ja: 接続しました
+
+@ Connected — model ready
+es: Conectado: modelo listo
+pt: Conectado — modelo pronto
+ja: 接続しました。モデルの準備ができています
+
+@ Welcome to Oruri
+es: Te damos la bienvenida a Oruri
+pt: Boas-vindas ao Oruri
+ja: Oruriへようこそ
+
+@ Dictate anywhere on your Mac — everything stays on it
+es: Dicta en cualquier parte de tu Mac, y todo se queda en él
+pt: Dite em qualquer lugar do seu Mac — e tudo fica nele
+ja: Macのどこでも音声入力。データはすべてMacの中に
+
+@ Start dictating
+es: Empezar a dictar
+pt: Começar a ditar
+ja: 音声入力を始める
+
+@ Continue
+es: Continuar
+pt: Continuar
+ja: 続ける
+
+@ Grant Access
+es: Permitir acceso
+pt: Permitir acesso
+ja: アクセスを許可
+
+@ Hold fn (default)
+es: Mantener fn (predeterminado)
+pt: Segurar fn (padrão)
+ja: fnを長押し（デフォルト）
+
+@ Hold Right Command
+es: Mantener Comando derecho
+pt: Segurar o Command direito
+ja: 右Commandを長押し
+
+@ Emoji stays available with fn Space, and you can pick any key or combination later in Settings.
+es: Los emojis siguen disponibles con fn Espacio, y puedes elegir cualquier tecla o combinación más tarde en Ajustes.
+pt: Os emojis continuam disponíveis com fn Espaço, e você pode escolher qualquer tecla ou combinação depois em Ajustes.
+ja: 絵文字は引き続き fn＋スペース で使えます。キーや組み合わせはあとから設定で変更できます。
+
+@ You can pick any key or combination later in Settings.
+es: Puedes elegir cualquier tecla o combinación más tarde en Ajustes.
+pt: Você pode escolher qualquer tecla ou combinação depois em Ajustes.
+ja: キーや組み合わせはあとから設定で変更できます。
+
+@ On: dictations come out tidy with Ollama. Set it up in Settings › Output.
+es: Activado: los dictados salen limpios con Ollama. Configúralo en Ajustes › Salida.
+pt: Ligado: os ditados saem caprichados com o Ollama. Configure em Ajustes › Saída.
+ja: オン: Ollamaで音声入力がきれいに整います。設定 › 出力 で設定してください。
+
+@ Off: dictations are inserted exactly as transcribed. You can turn this on later in Settings.
+es: Desactivado: los dictados se insertan tal como se transcriben. Puedes activarlo más tarde en Ajustes.
+pt: Desligado: os ditados entram exatamente como foram transcritos. Dá para ligar depois em Ajustes.
+ja: オフ: 文字起こしの結果をそのまま入力します。あとから設定でオンにできます。
+
+@ First, two permissions
+es: Primero, dos permisos
+pt: Primeiro, duas permissões
+ja: まず、2つの許可
+
+@ Oruri needs to hear you and type for you. Once both are granted, setup moves on by itself.
+es: Oruri necesita oírte y escribir por ti. Cuando concedas los dos, la configuración sigue sola.
+pt: O Oruri precisa ouvir você e digitar por você. Quando as duas forem concedidas, a configuração segue sozinha.
+ja: Oruriはあなたの声を聞き、代わりに入力します。両方を許可すると自動で次へ進みます。
+
+@ To hear your dictation.
+es: Para oír tu dictado.
+pt: Para ouvir o seu ditado.
+ja: 音声入力を聞き取るため。
+
+@ Accessibility
+es: Accesibilidad
+pt: Acessibilidade
+ja: アクセシビリティ
+
+@ So the dictate key works everywhere and text lands in the app you're using.
+es: Para que la tecla de dictado funcione en todas partes y el texto llegue a la app que estás usando.
+pt: Para a tecla de ditado funcionar em todo lugar e o texto chegar no app que você está usando.
+ja: 音声入力キーをどこでも使え、使っているアプリに文字が入るようにするため。
+
+@ Choose your dictate key
+es: Elige tu tecla de dictado
+pt: Escolha sua tecla de ditado
+ja: 音声入力キーを選ぶ
+
+@ Hold it down to talk, release to insert the text.
+es: Mantenla pulsada para hablar y suéltala para insertar el texto.
+pt: Segure para falar e solte para inserir o texto.
+ja: 押している間に話し、離すと文字が入力されます。
+
+@ fn
+es: fn
+pt: fn
+ja: fn
+
+@ right ⌘
+es: ⌘ derecho
+pt: ⌘ direito
+ja: 右⌘
+
+@ Pick a speech model
+es: Elige un modelo de voz
+pt: Escolha um modelo de fala
+ja: 音声モデルを選ぶ
+
+@ This is what turns your voice into text. On-device needs no key; Groq needs a free API key in Settings › Models.
+es: Es lo que convierte tu voz en texto. En el dispositivo no necesita clave; Groq necesita una clave de API gratuita en Ajustes › Modelos.
+pt: É o que transforma sua voz em texto. No dispositivo não precisa de chave; a Groq precisa de uma chave de API grátis em Ajustes › Modelos.
+ja: 声を文字に変える部分です。オンデバイスはキー不要。Groqには 設定 › モデル で無料のAPIキーが必要です。
+
+@ The language you'll dictate in
+es: El idioma en el que vas a dictar
+pt: O idioma em que você vai ditar
+ja: 音声入力する言語
+
+@ Punctuation & cleanup
+es: Puntuación y limpieza
+pt: Pontuação e limpeza
+ja: 句読点と整形
+
+@ Optionally tidy punctuation and formatting with a local Ollama model. Spoken punctuation, numbers and your dictionary always work, with no AI.
+es: Si quieres, ordena la puntuación y el formato con un modelo local de Ollama. La puntuación dictada, los números y tu diccionario funcionan siempre, sin IA.
+pt: Se quiser, arrume a pontuação e a formatação com um modelo local do Ollama. Pontuação falada, números e o seu dicionário sempre funcionam, sem IA.
+ja: 必要に応じて、ローカルのOllamaモデルで句読点や書式を整えます。読み上げた句読点、数字、辞書はAIなしでいつでも使えます。
+
+@ Clean up dictations with AI
+es: Limpiar los dictados con IA
+pt: Limpar os ditados com IA
+ja: AIで音声入力を整える
+
+@ Stop Recording
+es: Detener grabación
+pt: Parar gravação
+ja: 録音を停止
+
+@ Start Recording
+es: Empezar a grabar
+pt: Começar a gravar
+ja: 録音を開始
+
+@ Open Oruri
+es: Abrir Oruri
+pt: Abrir o Oruri
+ja: Oruriを開く
+
+@ Settings...
+es: Ajustes…
+pt: Ajustes…
+ja: 設定…
+
+@ About & Updates…
+es: Acerca de y actualizaciones…
+pt: Sobre e atualizações…
+ja: 情報とアップデート…
+
+@ Oruri Pro…
+es: Oruri Pro…
+pt: Oruri Pro…
+ja: Oruri Pro…
+
+@ Quit
+es: Salir
+pt: Sair
+ja: 終了
+
+@ Show Onboarding…
+es: Mostrar la bienvenida…
+pt: Mostrar as boas-vindas…
+ja: 初期設定をもう一度表示…
+
+@ Search settings
+es: Buscar en ajustes
+pt: Buscar nos ajustes
+ja: 設定を検索
+
+@ History on
+es: Historial activado
+pt: Histórico ligado
+ja: 履歴オン
+
+@ History off
+es: Historial desactivado
+pt: Histórico desligado
+ja: 履歴オフ
+
+@ Free plan
+es: Plan gratuito
+pt: Plano grátis
+ja: 無料プラン
+
+@ Groq · %ld%% used
+es: Groq · %ld%% usado
+pt: Groq · %ld%% usado
+ja: Groq · %ld%%使用
+
+@ FAQ & contact
+es: Preguntas y contacto
+pt: Perguntas e contato
+ja: よくある質問と連絡先
+
+@ Already on but pasting doesn't work? Remove Oruri from Privacy & Security › Accessibility, add it back, then relaunch.
+es: ¿Ya está activado pero no pega? Quita Oruri de Privacidad y seguridad › Accesibilidad, vuelve a añadirlo y abre la app de nuevo.
+pt: Já está ligado, mas não cola? Remova o Oruri de Privacidade e Segurança › Acessibilidade, adicione de novo e reabra o app.
+ja: オンなのにペーストできない場合は、プライバシーとセキュリティ › アクセシビリティ からOruriを削除して追加し直し、アプリを再起動してください。
+
+@ Recording trigger
+es: Atajo de grabación
+pt: Atalho de gravação
+ja: 録音のショートカット
+
+@ Pick one or more keys. Hold to talk, or double-tap for hands-free.
+es: Elige una o más teclas. Mantén para hablar o pulsa dos veces para el modo manos libres.
+pt: Escolha uma ou mais teclas. Segure para falar ou toque duas vezes para o modo mãos-livres.
+ja: 1つ以上のキーを選んでください。長押しで話す、2回押しでハンズフリーです。
+
+@ Remove this trigger
+es: Quitar este atajo
+pt: Remover este atalho
+ja: このショートカットを削除
+
+@ Any key works except Esc, F1–F12, Backspace and Enter. Caps Lock works as on/off (tap to start, tap to stop) and combines only with ⌃ ⌥ ⇧ ⌘ fn, not letters.
+es: Sirve cualquier tecla excepto Esc, F1–F12, Retroceso e Intro. Bloq Mayús funciona como encendido/apagado (pulsa para empezar y otra vez para parar) y solo se combina con ⌃ ⌥ ⇧ ⌘ fn, no con letras.
+pt: Qualquer tecla funciona, menos Esc, F1–F12, Backspace e Enter. O Caps Lock funciona como liga/desliga (toque para começar, toque para parar) e só combina com ⌃ ⌥ ⇧ ⌘ fn, não com letras.
+ja: Esc、F1〜F12、Backspace、Enter以外のキーが使えます。Caps Lockはオン/オフ式（押して開始、もう一度押して停止）で、組み合わせられるのは ⌃ ⌥ ⇧ ⌘ fn だけです（文字キーは不可）。
+
+@ Combined shortcut…
+es: Atajo combinado…
+pt: Atalho combinado…
+ja: 組み合わせショートカット…
+
+@ Either side
+es: Cualquier lado
+pt: Qualquer lado
+ja: 左右どちらでも
+
+@ Left
+es: Izquierda
+pt: Esquerda
+ja: 左
+
+@ Right
+es: Derecha
+pt: Direita
+ja: 右
+
+@ Add another
+es: Añadir otra
+pt: Adicionar outra
+ja: 追加
+
+@ Esc
+es: Esc
+pt: Esc
+ja: Esc
+
+@ %@ models
+es: Modelos de %@
+pt: Modelos de %@
+ja: %@のモデル
+
+@ %@ API key
+es: Clave de API de %@
+pt: Chave de API da %@
+ja: %@のAPIキー
+
+@ Audio is sent to %@'s servers — this engine is not on-device.
+es: El audio se envía a los servidores de %@: este motor no funciona en el dispositivo.
+pt: O áudio é enviado para os servidores da %@ — este motor não roda no dispositivo.
+ja: 音声は%@のサーバーに送信されます。このエンジンはオンデバイスではありません。
+
+@ Uses Apple's speech recognizer. Audio stays on this Mac when the language supports on-device recognition. The first use asks for Speech Recognition permission.
+es: Usa el reconocimiento de voz de Apple. El audio se queda en este Mac cuando el idioma admite reconocimiento en el dispositivo. La primera vez pide permiso de Reconocimiento de voz.
+pt: Usa o reconhecimento de fala da Apple. O áudio fica neste Mac quando o idioma permite reconhecimento no dispositivo. No primeiro uso, pede a permissão de Reconhecimento de Fala.
+ja: Appleの音声認識を使います。言語がオンデバイス認識に対応していれば、音声はこのMacから出ません。初回は音声認識の許可を求められます。
+
+@ Saved
+es: Guardada
+pt: Salva
+ja: 保存済み
+
+@ Save
+es: Guardar
+pt: Salvar
+ja: 保存
+
+@ Get a key
+es: Obtener una clave
+pt: Pegar uma chave
+ja: キーを取得
+
+@ Endpoint
+es: Endpoint
+pt: Endpoint
+ja: エンドポイント
+
+@ Model
+es: Modelo
+pt: Modelo
+ja: モデル
+
+@ Test connection
+es: Probar conexión
+pt: Testar conexão
+ja: 接続をテスト
+
+@ Keep at most %ld recordings
+es: Conservar como máximo %ld grabaciones
+pt: Manter no máximo %ld gravações
+ja: 最大%ld件まで保存
+
+@ Delete after %ld days
+es: Eliminar después de %ld días
+pt: Apagar depois de %ld dias
+ja: %ld日後に削除
+
+@ Both limits combine — whichever is hit first wins. Recordings still being processed are never deleted.
+es: Los dos límites se combinan: manda el que se alcance primero. Las grabaciones que aún se están procesando nunca se eliminan.
+pt: Os dois limites se somam — vale o que chegar primeiro. Gravações ainda em processamento nunca são apagadas.
+ja: 2つの上限は併用され、先に達したほうが適用されます。処理中の録音は削除されません。
+
+@ Delete All Recordings
+es: Eliminar todas las grabaciones
+pt: Apagar todas as gravações
+ja: すべての録音を削除
+
+@ Delete all recordings?
+es: ¿Eliminar todas las grabaciones?
+pt: Apagar todas as gravações?
+ja: すべての録音を削除しますか？
+
+@ Delete All
+es: Eliminar todo
+pt: Apagar tudo
+ja: すべて削除
+
+@ This removes every transcription and its audio. This action cannot be undone.
+es: Se eliminarán todas las transcripciones y su audio. Esta acción no se puede deshacer.
+pt: Isso apaga todas as transcrições e os áudios. Não dá para desfazer.
+ja: すべての文字起こしと音声が削除されます。この操作は元に戻せません。
+
+@ echo "$ORURI_TEXT" >> ~/dictations.txt
+es: echo "$ORURI_TEXT" >> ~/dictations.txt
+pt: echo "$ORURI_TEXT" >> ~/dictations.txt
+ja: echo "$ORURI_TEXT" >> ~/dictations.txt
+
+@ Available: ORURI_TEXT, ORURI_AUDIO_PATH, ORURI_TIMESTAMP, ORURI_DURATION (also as JSON on stdin).
+es: Disponibles: ORURI_TEXT, ORURI_AUDIO_PATH, ORURI_TIMESTAMP, ORURI_DURATION (también como JSON por stdin).
+pt: Disponíveis: ORURI_TEXT, ORURI_AUDIO_PATH, ORURI_TIMESTAMP, ORURI_DURATION (também como JSON no stdin).
+ja: 使える変数: ORURI_TEXT、ORURI_AUDIO_PATH、ORURI_TIMESTAMP、ORURI_DURATION（stdinにJSONでも渡されます）。
+
+@ %@ of 8 h
+es: %@ de 8 h
+pt: %@ de 8 h
+ja: %@ / 8時間
+
+@ %@ of 2 h
+es: %@ de 2 h
+pt: %@ de 2 h
+ja: %@ / 2時間
+
+@ %@ of %@
+es: %@ de %@
+pt: %@ de %@
+ja: %@ / %@
+
+@ %@ of audio · %ld requests
+es: %@ de audio · %ld solicitudes
+pt: %@ de áudio · %ld pedidos
+ja: 音声 %@ · リクエスト %ld件
+
+@ Free plan. On the paid plan this would be about %@.
+es: Plan gratuito. En el plan de pago esto costaría unos %@.
+pt: Plano grátis. No plano pago, isso daria cerca de %@.
+ja: 無料プランです。有料プランなら約%@になります。
+
+@ Counted on this Mac. When 15% or less of a Groq limit is left, a warning appears on Home. Ollama runs on this Mac and has no limit.
+es: Se cuenta en este Mac. Cuando queda un 15% o menos de un límite de Groq, aparece un aviso en Inicio. Ollama se ejecuta en este Mac y no tiene límite.
+pt: Contado neste Mac. Quando sobra 15% ou menos de um limite da Groq, aparece um aviso no Início. O Ollama roda neste Mac e não tem limite.
+ja: このMacで集計しています。Groqの上限の残りが15%以下になると、ホームに警告が表示されます。OllamaはこのMacで動くため上限はありません。
+
+@ This month
+es: Este mes
+pt: Este mês
+ja: 今月
+
+@ Search help
+es: Buscar en la ayuda
+pt: Buscar na ajuda
+ja: ヘルプを検索
+
+@ No results for "%@". Try other words, or email us below.
+es: No hay resultados para "%@". Prueba con otras palabras o escríbenos más abajo.
+pt: Nenhum resultado para "%@". Tente outras palavras ou mande um e-mail aqui embaixo.
+ja: 「%@」の結果はありません。別の言葉で探すか、下のメールでお問い合わせください。
+
+@ Found a bug or have an idea? Send us an email.
+es: ¿Encontraste un error o tienes una idea? Escríbenos un correo.
+pt: Achou um bug ou tem uma ideia? Mande um e-mail para a gente.
+ja: 不具合やアイデアがあれば、メールでお知らせください。
+
+@ Email copied
+es: Correo copiado
+pt: E-mail copiado
+ja: メールアドレスをコピーしました
+
+@ Copy
+es: Copiar
+pt: Copiar
+ja: コピー
+
+@ Copy email
+es: Copiar correo
+pt: Copiar e-mail
+ja: メールアドレスをコピー
+
+@ Automatic updates aren't available yet. New versions are installed by building the app again.
+es: Las actualizaciones automáticas aún no están disponibles. Las versiones nuevas se instalan compilando la app de nuevo.
+pt: As atualizações automáticas ainda não estão disponíveis. As versões novas são instaladas compilando o app de novo.
+ja: 自動アップデートにはまだ対応していません。新しいバージョンはアプリをビルドし直してインストールします。
+
+@ What's new in %@ — %@
+es: Novedades de la %@ — %@
+pt: Novidades da %@ — %@
+ja: %@の新機能 — %@
+
+@ To paste text into other apps and watch the recording shortcut.
+es: Para pegar texto en otras apps y detectar el atajo de grabación.
+pt: Para colar texto em outros apps e perceber o atalho de gravação.
+ja: 他のアプリに文字をペーストし、録音のショートカットを検知するため。
+
+@ Cancel shortcut
+es: Atajo para cancelar
+pt: Atalho para cancelar
+ja: キャンセルのショートカット
+
+@ Discards the recording.
+es: Descarta la grabación.
+pt: Descarta a gravação.
+ja: 録音を破棄します。
+
+@ Hold to record
+es: Mantener para grabar
+pt: Segurar para gravar
+ja: 長押しで録音
+
+@ Hold the shortcut to record, release to stop
+es: Mantén el atajo para grabar y suéltalo para parar
+pt: Segure o atalho para gravar e solte para parar
+ja: ショートカットを押している間録音し、離すと停止します
+
+@ Hands-free mode
+es: Modo manos libres
+pt: Modo mãos-livres
+ja: ハンズフリーモード
+
+@ Double-press the shortcut to lock recording on; press again to stop
+es: Pulsa dos veces el atajo para dejar la grabación fija; púlsalo otra vez para parar
+pt: Aperte o atalho duas vezes para travar a gravação; aperte de novo para parar
+ja: ショートカットを2回押すと録音が続きます。もう一度押すと停止します
+
+@ Play sound when recording starts
+es: Sonar al empezar a grabar
+pt: Tocar um som ao começar a gravar
+ja: 録音開始時にサウンドを鳴らす
+
+@ Pause media during recording
+es: Pausar la música al grabar
+pt: Pausar a música durante a gravação
+ja: 録音中はメディアを一時停止
+
+@ Pauses Spotify, Music or videos playing in Chrome and resumes them afterwards. Nothing happens if nothing is playing. For Chrome, turn on View › Developer › Allow JavaScript from Apple Events once.
+es: Pausa Spotify, Música o los vídeos que suenan en Chrome y los reanuda después. Si no suena nada, no hace nada. Para Chrome, activa una vez View › Developer › Allow JavaScript from Apple Events (Ver › Desarrollador en español).
+pt: Pausa o Spotify, o Música ou os vídeos tocando no Chrome e volta a tocar depois. Se nada estiver tocando, nada acontece. No Chrome, ligue uma vez View › Developer › Allow JavaScript from Apple Events (Visualizar › Desenvolvedor em português).
+ja: Spotify、ミュージック、Chromeで再生中の動画を一時停止し、終わったら再開します。何も再生していなければ何もしません。Chromeでは一度だけ「表示 › 開発 / 管理 › Apple Events からの JavaScript を許可」をオンにしてください。
+
+@ System Default follows the system input — switch headsets and it follows
+es: Predeterminado del sistema sigue la entrada del sistema: si cambias de auriculares, cambia con ellos
+pt: Padrão do sistema segue a entrada do sistema — trocou de fone, ele acompanha
+ja: 「システムのデフォルト」はシステムの入力に従います。ヘッドセットを替えても自動で切り替わります
+
+@ Select
+es: Elegir
+pt: Escolher
+ja: 選択
+
+@ Recordings directory
+es: Carpeta de grabaciones
+pt: Pasta das gravações
+ja: 録音の保存先
+
+@ Open in Finder
+es: Abrir en el Finder
+pt: Abrir no Finder
+ja: Finderで開く
+
+@ Transcription language
+es: Idioma de transcripción
+pt: Idioma da transcrição
+ja: 文字起こしの言語
+
+@ Number formatting
+es: Formato de números
+pt: Formato dos números
+ja: 数字の表記
+
+@ Spoken numbers become digits (English and Portuguese). Common idioms stay words.
+es: Los números dictados se convierten en cifras (inglés y portugués). Las expresiones comunes se quedan en palabras.
+pt: Números falados viram algarismos (inglês e português). Expressões comuns continuam por extenso.
+ja: 読み上げた数字を数字表記にします（英語とポルトガル語）。慣用句はそのままです。
+
+@ Remove filler words
+es: Quitar muletillas
+pt: Remover palavras de preenchimento
+ja: つなぎ言葉を削除
+
+@ Strip um, uh, hã, né… before inserting
+es: Quita um, uh, hã, né… antes de insertar
+pt: Tira um, uh, hã, né… antes de inserir
+ja: 入力前に「えー」「あの」などを取り除きます
+
+@ Clean up with an LLM
+es: Limpiar con un LLM
+pt: Limpar com um LLM
+ja: LLMで整える
+
+@ Fix punctuation and obvious errors after transcribing. If the result drops or invents too much, the original is kept.
+es: Corrige la puntuación y los errores evidentes después de transcribir. Si el resultado quita o inventa demasiado, se mantiene el original.
+pt: Corrige pontuação e erros óbvios depois de transcrever. Se o resultado cortar ou inventar demais, fica o original.
+ja: 文字起こし後に句読点や明らかな誤りを直します。削りすぎたり付け足しすぎたりした場合は、元の文章のままにします。
+
+@ Smart formatting
+es: Formato inteligente
+pt: Formatação inteligente
+ja: スマート書式
+
+@ Lists become bullets; emails and messages get greeting, paragraphs and sign-off on their own lines.
+es: Las listas se convierten en viñetas; los correos y mensajes llevan el saludo, los párrafos y la despedida en líneas separadas.
+pt: Listas viram tópicos; e-mails e mensagens ganham saudação, parágrafos e despedida em linhas separadas.
+ja: リストは箇条書きに、メールやメッセージは挨拶・本文・結びをそれぞれ改行します。
+
+@ Spoken edits
+es: Correcciones habladas
+pt: Correções faladas
+ja: 話して訂正
+
+@ Say "scratch that" or "quer dizer" and only the corrected version is inserted.
+es: Di "scratch that" o "quer dizer" y solo se inserta la versión corregida.
+pt: Diga "scratch that" ou "quer dizer" e só a versão corrigida é inserida.
+ja: 「scratch that」や「quer dizer」と言うと、訂正後の文だけが入力されます。
+
+@ Custom dictionary
+es: Diccionario personal
+pt: Dicionário personalizado
+ja: カスタム辞書
+
+@ Names and jargon, spelled your way
+es: Nombres y jerga, escritos a tu manera
+pt: Nomes e jargões, escritos do seu jeito
+ja: 名前や専門用語を、あなたの書き方で
+
+@ Fix sound-alikes
+es: Corregir parecidos
+pt: Corrigir parecidas
+ja: 似た音の語を修正
+
+@ Near-miss spellings (5+ letters, not real words) are corrected to a dictionary word.
+es: Las grafías casi correctas (5 letras o más, que no son palabras reales) se corrigen a una palabra del diccionario.
+pt: Grafias quase certas (5 letras ou mais, que não são palavras reais) são corrigidas para uma palavra do dicionário.
+ja: 惜しい表記（5文字以上で実在しない語）を辞書の単語に直します。
+
+@ Open dictionary
+es: Abrir diccionario
+pt: Abrir dicionário
+ja: 辞書を開く
+
+@ Copy to clipboard
+es: Copiar al portapapeles
+pt: Copiar para a área de transferência
+ja: クリップボードにコピー
+
+@ Also leave the transcription on the clipboard. When off, the previous clipboard contents are restored
+es: Deja también la transcripción en el portapapeles. Si está desactivado, se restaura lo que había antes en el portapapeles
+pt: Deixa a transcrição também na área de transferência. Desligado, o conteúdo anterior é restaurado
+ja: 文字起こしをクリップボードにも残します。オフにすると元のクリップボードの内容に戻します
+
+@ Auto-paste transcription
+es: Pegar la transcripción automáticamente
+pt: Colar a transcrição automaticamente
+ja: 文字起こしを自動でペースト
+
+@ Insert the transcription into the focused app (needs Accessibility)
+es: Inserta la transcripción en la app activa (necesita Accesibilidad)
+pt: Insere a transcrição no app em foco (precisa de Acessibilidade)
+ja: 前面のアプリに文字起こしを入力します（アクセシビリティが必要）
+
+@ Paste instead of typing
+es: Pegar en vez de escribir
+pt: Colar em vez de digitar
+ja: タイプせずにペースト
+
+@ ⌘V instead of synthetic keystrokes — helps in Electron apps and Messages
+es: ⌘V en vez de pulsaciones simuladas: ayuda en apps Electron y en Mensajes
+pt: ⌘V em vez de teclas simuladas — ajuda em apps Electron e no Mensagens
+ja: 疑似キー入力の代わりに⌘Vを使います。Electronアプリやメッセージで役立ちます
+
+@ Notify when no paste target
+es: Avisar si no hay dónde pegar
+pt: Avisar quando não houver onde colar
+ja: ペースト先がないときに知らせる
+
+@ “Copied — press ⌘V” if no text field is focused
+es: “Copiado: pulsa ⌘V” si no hay ningún campo de texto activo
+pt: “Copiado — aperte ⌘V” se nenhum campo de texto estiver em foco
+ja: 入力欄が選ばれていないときは「コピーしました。⌘Vでペースト」と表示
+
+@ Suppress blank audio
+es: Ignorar audio sin voz
+pt: Ignorar áudio sem fala
+ja: 無音の録音を無視
+
+@ Silently drop recordings with no speech
+es: Descarta sin avisar las grabaciones sin voz
+pt: Descarta sem avisar gravações sem fala
+ja: 声の入っていない録音を黙って破棄します
+
+@ Add space after sentence
+es: Añadir espacio tras la frase
+pt: Adicionar espaço depois da frase
+ja: 文の後にスペースを入れる
+
+@ Useful when dictating in bursts
+es: Útil cuando dictas a ratos
+pt: Útil quando você dita em partes
+ja: 区切りながら音声入力するときに便利です
+
+@ Save transcription history
+es: Guardar el historial de transcripciones
+pt: Salvar o histórico de transcrições
+ja: 文字起こしの履歴を保存
+
+@ Off = nothing is kept on disk — history lives in memory until you quit
+es: Desactivado = no se guarda nada en el disco; el historial vive en memoria hasta que cierras la app
+pt: Desligado = nada fica no disco — o histórico fica na memória até você fechar o app
+ja: オフにするとディスクには何も残りません。履歴は終了するまでメモリにだけ保持されます
+
+@ Transcriptions directory
+es: Carpeta de transcripciones
+pt: Pasta das transcrições
+ja: 文字起こしの保存先
+
+@ Limit number of recordings
+es: Limitar el número de grabaciones
+pt: Limitar o número de gravações
+ja: 録音の件数を制限
+
+@ Keep only the most recent recordings & transcriptions
+es: Conserva solo las grabaciones y transcripciones más recientes
+pt: Mantém só as gravações e transcrições mais recentes
+ja: 最新の録音と文字起こしだけを残します
+
+@ Delete old recordings
+es: Eliminar grabaciones antiguas
+pt: Apagar gravações antigas
+ja: 古い録音を削除
+
+@ Automatically remove recordings older than the chosen age
+es: Elimina automáticamente las grabaciones más antiguas que la edad elegida
+pt: Apaga automaticamente gravações mais antigas que o prazo escolhido
+ja: 指定した日数より古い録音を自動で削除します
+
+@ Light, dark, or follow the Mac's setting.
+es: Claro, oscuro o como esté el Mac.
+pt: Claro, escuro ou igual ao Mac.
+ja: ライト、ダーク、またはMacの設定に合わせる。
+
+@ Language
+es: Idioma
+pt: Idioma
+ja: 言語
+
+@ The language of Oruri's screens. Dictation keeps its own language in Output.
+es: El idioma de las pantallas de Oruri. El dictado tiene su propio idioma en Salida.
+pt: O idioma das telas do Oruri. O ditado tem o próprio idioma em Saída.
+ja: Oruriの画面の言語です。音声入力の言語は「出力」で別に設定します。
+
+@ Launch at login
+es: Abrir al iniciar sesión
+pt: Abrir ao iniciar sessão
+ja: ログイン時に起動
+
+@ Start automatically when you log in.
+es: Se abre solo cuando inicias sesión.
+pt: Abre sozinho quando você inicia a sessão.
+ja: ログインすると自動で起動します。
+
+@ Start in the menu bar
+es: Empezar en la barra de menús
+pt: Começar na barra de menus
+ja: メニューバーで起動
+
+@ Launch without the main window — open it from the menu bar icon.
+es: Se abre sin la ventana principal; ábrela desde el icono de la barra de menús.
+pt: Abre sem a janela principal — abra pelo ícone da barra de menus.
+ja: メインウインドウを開かずに起動します。メニューバーのアイコンから開けます。
+
+@ Verbatim in AI & terminal apps
+es: Literal en apps de IA y terminal
+pt: Literal em apps de IA e terminal
+ja: AIアプリとターミナルではそのまま入力
+
+@ Skip LLM cleanup in AI chats and terminals so prompts arrive word for word.
+es: Omite la limpieza con LLM en chats de IA y terminales para que los prompts lleguen palabra por palabra.
+pt: Pula a limpeza com LLM em chats de IA e terminais para os prompts chegarem palavra por palavra.
+ja: AIチャットやターミナルではLLMでの整形を行わず、プロンプトを話したとおりに入力します。
+
+@ Hold very long recordings
+es: Retener grabaciones muy largas
+pt: Segurar gravações muito longas
+ja: とても長い録音は保留
+
+@ Recordings over 5 minutes are copied instead of pasted.
+es: Las grabaciones de más de 5 minutos se copian en vez de pegarse.
+pt: Gravações com mais de 5 minutos são copiadas em vez de coladas.
+ja: 5分を超える録音はペーストせずにコピーします。
+
+@ Run a command after each transcription
+es: Ejecutar un comando después de cada transcripción
+pt: Rodar um comando depois de cada transcrição
+ja: 文字起こしのたびにコマンドを実行
+
+@ Runs via /bin/sh -c in the background.
+es: Se ejecuta con /bin/sh -c en segundo plano.
+pt: Roda via /bin/sh -c em segundo plano.
+ja: バックグラウンドで /bin/sh -c を使って実行します。
+
+@ Onboarding
+es: Bienvenida
+pt: Boas-vindas
+ja: 初期設定
+
+@ Reset the first-run flag and walk through setup again.
+es: Reinicia la configuración inicial y vuelve a recorrerla.
+pt: Reinicia a configuração inicial e passa por ela de novo.
+ja: 初回起動の状態に戻して、もう一度セットアップします。
+
+@ Show Onboarding
+es: Mostrar la bienvenida
+pt: Mostrar as boas-vindas
+ja: 初期設定を表示
+
+@ Groq
+es: Groq
+pt: Groq
+ja: Groq
+
+@ FREE PLAN
+es: PLAN GRATUITO
+pt: PLANO GRÁTIS
+ja: 無料プラン
+
+@ Audio · last 24 hours
+es: Audio · últimas 24 horas
+pt: Áudio · últimas 24 horas
+ja: 音声 · 過去24時間
+
+@ Audio · last hour
+es: Audio · última hora
+pt: Áudio · última hora
+ja: 音声 · 過去1時間
+
+@ Groq limits
+es: Límites de Groq
+pt: Limites da Groq
+ja: Groqの上限
+
+@ In use
+es: En uso
+pt: Em uso
+ja: 使用中
+
+@ Not selected
+es: Sin seleccionar
+pt: Não selecionado
+ja: 未選択
+
+@ Permissions
+es: Permisos
+pt: Permissões
+ja: 許可
+
+@ Trigger
+es: Atajo
+pt: Atalho
+ja: ショートカット
+
+@ While recording
+es: Mientras se graba
+pt: Durante a gravação
+ja: 録音中
+
+@ Input
+es: Entrada
+pt: Entrada
+ja: 入力
+
+@ API key
+es: Clave de API
+pt: Chave de API
+ja: APIキー
+
+@ On-device
+es: En el dispositivo
+pt: No dispositivo
+ja: オンデバイス
+
+@ Storage
+es: Almacenamiento
+pt: Armazenamento
+ja: 保存場所
+
+@ Numbers
+es: Números
+pt: Números
+ja: 数字
+
+@ Cleanup
+es: Limpieza
+pt: Limpeza
+ja: 整形
+
+@ Delivery
+es: Entrega
+pt: Entrega
+ja: 入力方法
+
+@ Privacy
+es: Privacidad
+pt: Privacidade
+ja: プライバシー
+
+@ Retention
+es: Conservación
+pt: Retenção
+ja: 保存期間
+
+@ App
+es: App
+pt: App
+ja: アプリ
+
+@ Safeguards
+es: Protecciones
+pt: Proteções
+ja: 安全対策
+
+@ Post-record hook
+es: Comando posterior
+pt: Comando pós-gravação
+ja: 録音後のコマンド
+
+@ Debug
+es: Depuración
+pt: Depuração
+ja: デバッグ
+
+@ Transcription
+es: Transcripción
+pt: Transcrição
+ja: 文字起こし
+
+@ Frequently asked questions
+es: Preguntas frecuentes
+pt: Perguntas frequentes
+ja: よくある質問
+
+@ Where to find things
+es: Dónde encontrar cada cosa
+pt: Onde fica cada coisa
+ja: 機能の場所
+
+@ Contact
+es: Contacto
+pt: Contato
+ja: お問い合わせ
+
+@ Off
+es: Desactivado
+pt: Desligado
+ja: オフ
+
+@ Smart
+es: Inteligente
+pt: Inteligente
+ja: スマート
+
+@ Prefer digits
+es: Preferir cifras
+pt: Preferir algarismos
+ja: 数字を優先
+
+@ Connecting...
+es: Conectando…
+pt: Conectando…
+ja: 接続中…
+
+@ October 2026
+es: Octubre de 2026
+pt: Outubro de 2026
+ja: 2026年10月
+
+@ Match system
+es: Como el sistema
+pt: Igual ao sistema
+ja: システムに合わせる
+
+@ Light
+es: Claro
+pt: Claro
+ja: ライト
+
+@ Dark
+es: Oscuro
+pt: Escuro
+ja: ダーク
+
+@ System
+es: Sistema
+pt: Sistema
+ja: システム
+
+@ Apple Speech · private, no key
+es: Apple Speech · privado, sin clave
+pt: Apple Speech · privado, sem chave
+ja: Apple Speech · プライベート、キー不要
+
+@ Cloud · very fast Whisper
+es: Nube · Whisper muy rápido
+pt: Nuvem · Whisper muito rápido
+ja: クラウド · とても速いWhisper
+
+@ Add your %@ API key in Settings › Models.
+es: Añade tu clave de API de %@ en Ajustes › Modelos.
+pt: Adicione sua chave de API da %@ em Ajustes › Modelos.
+ja: 設定 › モデル で%@のAPIキーを追加してください。
+
+@ Speech recognition permission was denied. Allow it in System Settings › Privacy & Security.
+es: Se denegó el permiso de reconocimiento de voz. Actívalo en Ajustes del Sistema › Privacidad y seguridad.
+pt: A permissão de reconhecimento de fala foi negada. Permita em Ajustes do Sistema › Privacidade e Segurança.
+ja: 音声認識の許可が拒否されました。システム設定 › プライバシーとセキュリティ で許可してください。
+
+@ On-device recognition isn't available for %@.
+es: El reconocimiento en el dispositivo no está disponible para %@.
+pt: O reconhecimento no dispositivo não está disponível para %@.
+ja: %@ ではオンデバイス認識を使えません。
+
+@ Transcription service error %ld: %@
+es: Error del servicio de transcripción %ld: %@
+pt: Erro do serviço de transcrição %ld: %@
+ja: 文字起こしサービスのエラー %ld: %@
+
+@ Auto-detect
+es: Detección automática
+pt: Detectar automaticamente
+ja: 自動検出
+
+@ Portuguese
+es: Portugués
+pt: Português
+ja: ポルトガル語
+
+@ English
+es: Inglés
+pt: Inglês
+ja: 英語
+
+@ Spanish
+es: Español
+pt: Espanhol
+ja: スペイン語
+
+@ French
+es: Francés
+pt: Francês
+ja: フランス語
+
+@ German
+es: Alemán
+pt: Alemão
+ja: ドイツ語
+
+@ Italian
+es: Italiano
+pt: Italiano
+ja: イタリア語
+
+@ Japanese
+es: Japonés
+pt: Japonês
+ja: 日本語
+
+@ Runs on this Mac. Uses the language picked in Output.
+es: Se ejecuta en este Mac. Usa el idioma elegido en Salida.
+pt: Roda neste Mac. Usa o idioma escolhido em Saída.
+ja: このMacで動きます。「出力」で選んだ言語を使います。
+
+@ Fastest, multilingual
+es: El más rápido, multilingüe
+pt: O mais rápido, multilíngue
+ja: 最速、多言語対応
+
+@ Most accurate Whisper, multilingual
+es: El Whisper más preciso, multilingüe
+pt: O Whisper mais preciso, multilíngue
+ja: 最も高精度なWhisper、多言語対応
+
+@ <1 min
+es: <1 min
+pt: <1 min
+ja: 1分未満
+
+@ %ld min
+es: %ld min
+pt: %ld min
+ja: %ld分
+
+@ %ld h
+es: %ld h
+pt: %ld h
+ja: %ld時間
+
+@ %ld h %02ld min
+es: %ld h %02ld min
+pt: %ld h %02ld min
+ja: %ld時間%02ld分
+
+@ Interrupted when Oruri closed. Retry from History.
+es: Se interrumpió al cerrar Oruri. Vuelve a intentarlo desde el Historial.
+pt: Interrompida quando o Oruri fechou. Tente de novo pelo Histórico.
+ja: Oruriの終了時に中断されました。履歴から再試行してください。
+
+@ The text didn't paste into the app
+es: El texto no se pegó en la app
+pt: O texto não colou no app
+ja: アプリに文字がペーストされない
+
+@ Oruri needs Accessibility to paste. Open Settings › Dictation and check that Accessibility shows Granted. Make sure the cursor is in a text field when you release the key.
+es: Oruri necesita Accesibilidad para pegar. Abre Ajustes › Dictado y comprueba que Accesibilidad diga Concedido. Asegúrate de que el cursor esté en un campo de texto al soltar la tecla.
+pt: O Oruri precisa da Acessibilidade para colar. Abra Ajustes › Ditado e veja se a Acessibilidade aparece como Concedido. Confira se o cursor está num campo de texto quando você solta a tecla.
+ja: ペーストにはアクセシビリティの許可が必要です。設定 › 音声入力 を開き、アクセシビリティが「許可済み」になっているか確認してください。キーを離すときに、カーソルが入力欄にあることも確認してください。
+
+@ Accessibility is on, but pasting still doesn't work
+es: Accesibilidad está activada, pero sigue sin pegar
+pt: A Acessibilidade está ligada, mas ainda não cola
+ja: アクセシビリティはオンなのにペーストできない
+
+@ The permission may belong to an older copy of the app. In System Settings › Privacy & Security › Accessibility, remove Oruri with the minus button, add it again with the plus button, then quit and reopen Oruri.
+es: Puede que el permiso sea de una copia anterior de la app. En Ajustes del Sistema › Privacidad y seguridad › Accesibilidad, quita Oruri con el botón menos, vuelve a añadirlo con el botón más y después cierra y abre Oruri.
+pt: A permissão pode ser de uma cópia antiga do app. Em Ajustes do Sistema › Privacidade e Segurança › Acessibilidade, remova o Oruri com o botão de menos, adicione de novo com o botão de mais e depois feche e abra o Oruri.
+ja: 古いアプリに許可が残っている可能性があります。システム設定 › プライバシーとセキュリティ › アクセシビリティ で、マイナスボタンでOruriを削除し、プラスボタンで追加し直してから、Oruriを再起動してください。
+
+@ The text was only copied, not pasted
+es: El texto solo se copió, no se pegó
+pt: O texto só foi copiado, não colado
+ja: 文字がコピーされただけでペーストされない
+
+@ This happens when no text field is focused, when Accessibility is off, or when a recording is longer than 5 minutes (long recordings are only copied, on purpose). Press ⌘V to paste it.
+es: Pasa cuando no hay ningún campo de texto activo, cuando Accesibilidad está desactivada o cuando una grabación dura más de 5 minutos (las grabaciones largas solo se copian, a propósito). Pulsa ⌘V para pegarlo.
+pt: Isso acontece quando nenhum campo de texto está em foco, quando a Acessibilidade está desligada ou quando a gravação passa de 5 minutos (gravações longas são só copiadas, de propósito). Aperte ⌘V para colar.
+ja: 入力欄が選ばれていない、アクセシビリティがオフ、または録音が5分を超えた（長い録音はあえてコピーだけにしています）場合に起こります。⌘Vでペーストしてください。
+
+@ The AI didn't change my text in Claude, ChatGPT or the Terminal
+es: La IA no cambió mi texto en Claude, ChatGPT o la Terminal
+pt: A IA não mexeu no meu texto no Claude, no ChatGPT ou no Terminal
+ja: Claude、ChatGPT、ターミナルでAIが文章を整えてくれない
+
+@ That's verbatim mode: in AI apps and terminals the text arrives exactly as spoken, so your instructions aren't rewritten. You can turn it off in Settings › Advanced.
+es: Es el modo literal: en las apps de IA y las terminales el texto llega tal como lo dijiste, para no reescribir tus instrucciones. Puedes desactivarlo en Ajustes › Avanzado.
+pt: É o modo literal: em apps de IA e terminais o texto chega exatamente como você falou, para suas instruções não serem reescritas. Dá para desligar em Ajustes › Avançado.
+ja: それは「そのまま入力」モードです。AIアプリやターミナルでは、指示が書き換えられないよう話したとおりに入力します。設定 › 詳細設定 でオフにできます。
+
+@ How do I correct myself while talking?
+es: ¿Cómo me corrijo mientras hablo?
+pt: Como me corrijo enquanto falo?
+ja: 話しながら言い直すには？
+
+@ Say the wrong part, a correction phrase and the right part: "send it to Pedro, errei, to Paulo" or "on Thursday, quer dizer, on Friday". You can also start a new sentence with "Não": "…tomorrow, right? Não, tomorrow, the day after tomorrow." Only the corrected version is kept.
+es: Di la parte equivocada, una expresión de corrección y la parte correcta: "manda para o Pedro, errei, para o Paulo" o "na quinta, quer dizer, na sexta". También puedes empezar una frase nueva con "Não": "…amanhã, né? Não, amanhã, depois de amanhã." Solo se conserva la versión corregida.
+pt: Fale a parte errada, uma expressão de correção e a parte certa: "manda pro Pedro, errei, pro Paulo" ou "na quinta, quer dizer, na sexta". Também dá para começar uma frase nova com "Não": "…amanhã, né? Não, amanhã, depois de amanhã." Só a versão corrigida fica.
+ja: 間違えた部分、訂正の言葉、正しい部分の順に話します。例:「manda pro Pedro, errei, pro Paulo」「na quinta, quer dizer, na sexta」。「Não」で新しい文を始めることもできます:「…amanhã, né? Não, amanhã, depois de amanhã.」訂正後の文だけが残ります。
+
+@ How do I dictate numbers, percentages and versions?
+es: ¿Cómo dicto números, porcentajes y versiones?
+pt: Como dito números, porcentagens e versões?
+ja: 数字、パーセント、バージョン番号を音声入力するには？
+
+@ Say them naturally: "vinte e cinco" becomes 25, "cem por cento" becomes 100% and "zero ponto dois ponto um" becomes 0.2.1. Choose Smart or Prefer digits in Settings › Output › Numbers.
+es: Dilos con naturalidad: "vinte e cinco" se convierte en 25, "cem por cento" en 100% y "zero ponto dois ponto um" en 0.2.1. Elige Inteligente o Preferir cifras en Ajustes › Salida › Números.
+pt: Fale normalmente: "vinte e cinco" vira 25, "cem por cento" vira 100% e "zero ponto dois ponto um" vira 0.2.1. Escolha Inteligente ou Preferir algarismos em Ajustes › Saída › Números.
+ja: 普通に話してください。「vinte e cinco」は25、「cem por cento」は100%、「zero ponto dois ponto um」は0.2.1になります。設定 › 出力 › 数字 で「スマート」か「数字を優先」を選べます。
+
+@ How does a shortcut with Caps Lock work?
+es: ¿Cómo funciona un atajo con Bloq Mayús?
+pt: Como funciona um atalho com Caps Lock?
+ja: Caps Lockを使ったショートカットの動き方は？
+
+@ Caps Lock works as on/off: tap the shortcut to start recording and tap it again to stop. With Caps Lock you can only combine ⌃ ⌥ ⇧ ⌘ fn, not letters.
+es: Bloq Mayús funciona como encendido/apagado: pulsa el atajo para empezar a grabar y otra vez para parar. Con Bloq Mayús solo puedes combinar ⌃ ⌥ ⇧ ⌘ fn, no letras.
+pt: O Caps Lock funciona como liga/desliga: toque no atalho para começar a gravar e toque de novo para parar. Com o Caps Lock dá para combinar só ⌃ ⌥ ⇧ ⌘ fn, não letras.
+ja: Caps Lockはオン/オフ式です。ショートカットを押すと録音が始まり、もう一度押すと止まります。Caps Lockと組み合わせられるのは ⌃ ⌥ ⇧ ⌘ fn だけで、文字キーは使えません。
+
+@ Which transcription engine should I use?
+es: ¿Qué motor de transcripción uso?
+pt: Qual motor de transcrição devo usar?
+ja: どの文字起こしエンジンを使えばいい？
+
+@ On-device is free, private and works offline. Groq is very fast and has a free plan; whisper-large-v3-turbo is the default and the quickest. Groq needs your own API key and accepts files up to about 25 MB (around 12 minutes).
+es: En el dispositivo es gratis, privado y funciona sin conexión. Groq es muy rápido y tiene plan gratuito; whisper-large-v3-turbo es el predeterminado y el más rápido. Groq necesita tu propia clave de API y acepta archivos de hasta unos 25 MB (unos 12 minutos).
+pt: No dispositivo é grátis, privado e funciona sem internet. A Groq é muito rápida e tem plano grátis; o whisper-large-v3-turbo é o padrão e o mais rápido. A Groq precisa da sua própria chave de API e aceita arquivos de até uns 25 MB (cerca de 12 minutos).
+ja: オンデバイスは無料でプライベート、オフラインでも使えます。Groqはとても速く、無料プランがあります。whisper-large-v3-turboが標準で、最も高速です。Groqには自分のAPIキーが必要で、ファイルは約25MB（約12分）まで対応します。
+
+@ How do I turn Ollama on, and use it in AI apps too?
+es: ¿Cómo activo Ollama y lo uso también en apps de IA?
+pt: Como ligo o Ollama e uso ele também em apps de IA?
+ja: Ollamaをオンにして、AIアプリでも使うには？
+
+@ Turn it on in Settings › Output › AI cleanup and pick Ollama: it then cleans every text you dictate. In AI apps and terminals (Claude, ChatGPT, Terminal, Cursor) the text skips cleanup and arrives exactly as spoken. To clean those too, turn off "Verbatim in AI & terminal apps" in Settings › Advanced; turn it back on to keep them word for word.
+es: Actívalo en Ajustes › Salida › Limpieza con IA y elige Ollama: a partir de ahí limpia todo lo que dictes. En las apps de IA y las terminales (Claude, ChatGPT, Terminal, Cursor) el texto no se limpia y llega tal como lo dijiste. Para limpiarlo también ahí, desactiva "Literal en apps de IA y terminal" en Ajustes › Avanzado; vuelve a activarlo para que lleguen palabra por palabra.
+pt: Ligue em Ajustes › Saída › Limpeza com IA e escolha Ollama: a partir daí ele limpa todo texto que você ditar. Em apps de IA e terminais (Claude, ChatGPT, Terminal, Cursor) o texto pula a limpeza e chega exatamente como você falou. Para limpar ali também, desligue "Literal em apps de IA e terminal" em Ajustes › Avançado; ligue de novo para eles voltarem a chegar palavra por palavra.
+ja: 設定 › 出力 › AIによる整形 でオンにしてOllamaを選ぶと、音声入力したすべての文章を整えます。AIアプリやターミナル（Claude、ChatGPT、ターミナル、Cursor）では整形せず、話したとおりに入力します。そこでも整えたい場合は、設定 › 詳細設定 の「AIアプリとターミナルではそのまま入力」をオフにしてください。オンに戻すと、また話したとおりに入力されます。
+
+@ How do I keep Ollama running for AI cleanup?
+es: ¿Cómo dejo Ollama siempre en marcha para la limpieza con IA?
+pt: Como deixo o Ollama sempre rodando para a limpeza com IA?
+ja: AIによる整形のためにOllamaを起動したままにするには？
+
+@ Settings › Output shows whether Ollama is running. If it's off, click Start Ollama there: no Terminal needed. When Ollama is off, a warning on Home takes you to that button. If you installed it with Homebrew, it also starts with your Mac from then on.
+es: Ajustes › Salida muestra si Ollama está en marcha. Si está apagado, haz clic en Encender Ollama ahí, sin usar la Terminal. Cuando Ollama está apagado, un aviso en Inicio te lleva a ese botón. Si lo instalaste con Homebrew, a partir de ahí también se abre con tu Mac.
+pt: Ajustes › Saída mostra se o Ollama está rodando. Se estiver desligado, clique em Ligar o Ollama ali, sem usar o Terminal. Quando o Ollama está desligado, um aviso no Início leva até esse botão. Se você instalou pelo Homebrew, a partir daí ele também liga junto com o Mac.
+ja: 設定 › 出力 でOllamaが動いているか確認できます。オフなら、そこにある「Ollamaを起動」をクリックするだけで、ターミナルは不要です。Ollamaがオフのときは、ホームの警告からそのボタンに移動できます。Homebrewでインストールした場合は、それ以降Macの起動時にも自動で起動します。
+
+@ How do I know if I'm running out of a limit?
+es: ¿Cómo sé si me estoy quedando sin límite?
+pt: Como sei se um limite está acabando?
+ja: 上限に近づいているか知るには？
+
+@ Open Settings › Usage: each bar shows how much you've used and turns red at 85%. When 15% or less of a limit or credit is left, a warning appears on Home. Ollama has no limit, so it isn't counted. The buttons at the bottom open the official limits page of each service.
+es: Abre Ajustes › Uso: cada barra muestra cuánto has usado y se pone roja al 85%. Cuando queda un 15% o menos de un límite o crédito, aparece un aviso en Inicio. Ollama no tiene límite, así que no se cuenta. Los botones de abajo abren la página oficial de límites de cada servicio.
+pt: Abra Ajustes › Uso: cada barrinha mostra quanto você já usou e fica vermelha em 85%. Quando sobra 15% ou menos de um limite ou crédito, aparece um aviso no Início. O Ollama não tem limite, então não é contado. Os botões lá embaixo abrem a página oficial de limites de cada serviço.
+ja: 設定 › 使用量 を開くと、各バーに使った量が表示され、85%で赤くなります。上限やクレジットの残りが15%以下になると、ホームに警告が出ます。Ollamaには上限がないため集計しません。下のボタンから各サービスの公式の上限ページを開けます。
+
+@ How do I change the app's language?
+es: ¿Cómo cambio el idioma de la app?
+pt: Como mudo o idioma do app?
+ja: アプリの言語を変えるには？
+
+@ Go to Settings › Advanced › Language and pick English, Español, Português or 日本語. Oruri switches right away. This only changes the screens: the language you dictate in is set in Settings › Output › Transcription language.
+es: Ve a Ajustes › Avanzado › Idioma y elige English, Español, Português o 日本語. Oruri cambia al instante. Esto solo cambia las pantallas: el idioma en el que dictas se elige en Ajustes › Salida › Idioma de transcripción.
+pt: Vá em Ajustes › Avançado › Idioma e escolha English, Español, Português ou 日本語. O Oruri muda na hora. Isso só muda as telas: o idioma em que você dita fica em Ajustes › Saída › Idioma da transcrição.
+ja: 設定 › 詳細設定 › 言語 で English、Español、Português、日本語 から選びます。すぐに切り替わります。変わるのは画面の表示だけで、音声入力の言語は 設定 › 出力 › 文字起こしの言語 で設定します。
+
+@ Where is my data stored?
+es: ¿Dónde se guardan mis datos?
+pt: Onde ficam os meus dados?
+ja: データはどこに保存される？
+
+@ Everything stays on this Mac: history and audio in ~/Library/Application Support/Oruri and API keys in the Keychain. Audio only leaves the Mac if you choose Groq.
+es: Todo se queda en este Mac: el historial y el audio en ~/Library/Application Support/Oruri y las claves de API en el Llavero. El audio solo sale del Mac si eliges Groq.
+pt: Tudo fica neste Mac: histórico e áudio em ~/Library/Application Support/Oruri e as chaves de API no Keychain. O áudio só sai do Mac se você escolher a Groq.
+ja: すべてこのMacに保存されます。履歴と音声は ~/Library/Application Support/Oruri、APIキーはキーチェーンです。音声がMacの外に出るのは、Groqを選んだときだけです。
+
+@ Record with the microphone button, see your stats and search your history. Drop audio or video files here, or click the folder button at the bottom right to choose them, and they're transcribed one by one.
+es: Graba con el botón del micrófono, mira tus estadísticas y busca en tu historial. Suelta aquí archivos de audio o vídeo, o haz clic en el botón de carpeta abajo a la derecha para elegirlos, y se transcriben uno por uno.
+pt: Grave pelo botão do microfone, veja seus números e busque no histórico. Solte arquivos de áudio ou vídeo aqui, ou clique no botão de pasta no canto inferior direito para escolher, e eles são transcritos um por um.
+ja: マイクボタンで録音し、統計を見たり履歴を検索したりできます。音声・動画ファイルをここにドロップするか、右下のフォルダボタンで選ぶと、1つずつ文字起こしされます。
+
+@ Add names and words so they're always spelled your way, one at a time or as a list.
+es: Añade nombres y palabras para que siempre se escriban a tu manera, de una en una o en lista.
+pt: Adicione nomes e palavras para saírem sempre do seu jeito, um por vez ou em lista.
+ja: 名前や単語を1つずつ、またはまとめて追加すると、いつもあなたの書き方で入力されます。
+
+@ Settings › Dictation
+es: Ajustes › Dictado
+pt: Ajustes › Ditado
+ja: 設定 › 音声入力
+
+@ Permissions, your dictation keys and combined shortcuts, hold to talk, hands-free, start sound, pausing music and the microphone.
+es: Permisos, tus teclas de dictado y atajos combinados, mantener para hablar, manos libres, sonido al empezar, pausa de la música y el micrófono.
+pt: Permissões, suas teclas de ditado e atalhos combinados, segurar para falar, mãos-livres, som ao começar, pausa da música e o microfone.
+ja: 許可、音声入力キーと組み合わせショートカット、長押しで話す、ハンズフリー、開始音、音楽の一時停止、マイク。
+
+@ Settings › Models
+es: Ajustes › Modelos
+pt: Ajustes › Modelos
+ja: 設定 › モデル
+
+@ Choose the transcription engine (On-device or Groq), the model and your API key.
+es: Elige el motor de transcripción (En el dispositivo o Groq), el modelo y tu clave de API.
+pt: Escolha o motor de transcrição (No dispositivo ou Groq), o modelo e a sua chave de API.
+ja: 文字起こしのエンジン（オンデバイスかGroq）、モデル、APIキーを選びます。
+
+@ Settings › Usage
+es: Ajustes › Uso
+pt: Ajustes › Uso
+ja: 設定 › 使用量
+
+@ How much of Groq's free limits you've used (audio per day and per hour, and the daily requests allowance, which refills on its own) and this month's cost in dollars. When 15% or less of any limit is left, a warning appears on Home.
+es: Cuánto has usado de los límites gratuitos de Groq (audio por día y por hora, y el cupo diario de solicitudes, que se recarga solo) y el coste del mes en dólares. Cuando queda un 15% o menos de un límite, aparece un aviso en Inicio.
+pt: Quanto você já usou dos limites grátis da Groq (áudio por dia e por hora, e o saldo diário de pedidos, que se recarrega sozinho) e o custo do mês em dólar. Quando sobra 15% ou menos de um limite, aparece um aviso no Início.
+ja: Groqの無料枠をどれだけ使ったか（1日・1時間あたりの音声と、自動で回復する1日のリクエスト枠）と、今月の費用（ドル）。上限の残りが15%以下になると、ホームに警告が出ます。
+
+@ Settings › Output
+es: Ajustes › Salida
+pt: Ajustes › Saída
+ja: 設定 › 出力
+
+@ Language, numbers, filler words, AI cleanup, the dictionary and how text is delivered (paste, type, clipboard).
+es: Idioma, números, muletillas, limpieza con IA, el diccionario y cómo se entrega el texto (pegar, escribir, portapapeles).
+pt: Idioma, números, palavras de preenchimento, limpeza com IA, o dicionário e como o texto é entregue (colar, digitar, área de transferência).
+ja: 言語、数字、つなぎ言葉、AIによる整形、辞書、文字の入力方法（ペースト、タイプ、クリップボード）。
+
+@ Settings › History & Privacy
+es: Ajustes › Historial y privacidad
+pt: Ajustes › Histórico e privacidade
+ja: 設定 › 履歴とプライバシー
+
+@ Turn history on or off, open the recordings folder, set retention limits or delete everything.
+es: Activa o desactiva el historial, abre la carpeta de grabaciones, pon límites de conservación o borra todo.
+pt: Ligue ou desligue o histórico, abra a pasta das gravações, defina limites de retenção ou apague tudo.
+ja: 履歴のオン/オフ、録音フォルダを開く、保存期間の設定、すべての削除。
+
+@ Settings › Advanced
+es: Ajustes › Avanzado
+pt: Ajustes › Avançado
+ja: 設定 › 詳細設定
+
+@ Appearance, the app's language, launch at login, start in the menu bar, verbatim mode in AI apps (turn it off to let Ollama clean text there too), long recordings and the post-record command.
+es: Apariencia, el idioma de la app, abrir al iniciar sesión, empezar en la barra de menús, el modo literal en apps de IA (desactívalo para que Ollama también limpie ahí), las grabaciones largas y el comando posterior.
+pt: Aparência, o idioma do app, abrir ao iniciar sessão, começar na barra de menus, o modo literal em apps de IA (desligue para o Ollama limpar ali também), gravações longas e o comando pós-gravação.
+ja: 外観、アプリの言語、ログイン時に起動、メニューバーで起動、AIアプリでの「そのまま入力」（オフにするとそこでもOllamaが整えます）、長い録音、録音後のコマンド。
+
+@ Settings › Updates
+es: Ajustes › Actualizaciones
+pt: Ajustes › Atualizações
+ja: 設定 › アップデート
+
+@ Your version and the notes of each release.
+es: Tu versión y las notas de cada versión.
+pt: Sua versão e as notas de cada versão.
+ja: 現在のバージョンと、各リリースの内容。
+
+@ Oruri now speaks Spanish, Portuguese and Japanese: pick the language in Settings › Advanced › Language. It always starts in English.
+es: Oruri ahora habla español, portugués y japonés: elige el idioma en Ajustes › Avanzado › Idioma. Siempre empieza en inglés.
+pt: O Oruri agora fala espanhol, português e japonês: escolha o idioma em Ajustes › Avançado › Idioma. Ele sempre começa em inglês.
+ja: Oruriがスペイン語、ポルトガル語、日本語に対応しました。設定 › 詳細設定 › 言語 で選べます。最初は必ず英語で起動します。
+
+@ Every screen switches on the spot: Home, Settings, Help, notices, the menu bar and these notes.
+es: Todas las pantallas cambian al instante: Inicio, Ajustes, Ayuda, los avisos, la barra de menús y estas notas.
+pt: Todas as telas mudam na hora: Início, Ajustes, Ajuda, os avisos, a barra de menus e estas notas.
+ja: ホーム、設定、ヘルプ、通知、メニューバー、このリリースノートまで、すべての画面がその場で切り替わります。
+
+@ The transcription language stays separate in Settings › Output, so you can use the app in one language and dictate in another.
+es: El idioma de transcripción sigue aparte en Ajustes › Salida, así que puedes usar la app en un idioma y dictar en otro.
+pt: O idioma da transcrição continua separado em Ajustes › Saída, então dá para usar o app num idioma e ditar em outro.
+ja: 文字起こしの言語は 設定 › 出力 で別に設定するので、アプリはある言語で使い、別の言語で音声入力できます。
+
+@ New folder button at the bottom right of Home: click it to choose audio or video files in Finder and add them to the transcription queue.
+es: Nuevo botón de carpeta abajo a la derecha en Inicio: haz clic para elegir archivos de audio o vídeo en el Finder y añadirlos a la cola de transcripción.
+pt: Novo botão de pasta no canto inferior direito do Início: clique para escolher arquivos de áudio ou vídeo no Finder e mandar para a fila de transcrição.
+ja: ホーム右下に新しいフォルダボタン。クリックするとFinderで音声・動画ファイルを選んで、文字起こしの順番待ちに追加できます。
+
+@ The safety check stays: if Ollama adds words you didn't say or drops too much, your original text is kept.
+es: La protección sigue: si Ollama añade palabras que no dijiste o quita demasiado, se mantiene tu texto original.
+pt: A trava continua: se o Ollama acrescentar palavras que você não disse ou cortar demais, fica o seu texto original.
+ja: 安全チェックはそのままです。言っていない言葉をOllamaが足したり削りすぎたりした場合は、元の文章を使います。
+
+@ New Help answer: how to turn Ollama on and how to use it in AI apps and terminals too.
+es: Nueva respuesta en la Ayuda: cómo activar Ollama y cómo usarlo también en apps de IA y terminales.
+pt: Resposta nova na Ajuda: como ligar o Ollama e como usá-lo também em apps de IA e terminais.
+ja: ヘルプに新しい回答: Ollamaのオンにし方と、AIアプリやターミナルでも使う方法。
+
+@ New Usage section in Settings: how much of Groq's free limits you've used, with a bar for audio per day, audio per hour and requests per day.
+es: Nueva sección Uso en Ajustes: cuánto has usado de los límites gratuitos de Groq, con una barra para el audio por día, el audio por hora y las solicitudes por día.
+pt: Nova seção Uso em Ajustes: quanto você já usou dos limites grátis da Groq, com uma barrinha para áudio por dia, áudio por hora e pedidos por dia.
+ja: 設定に「使用量」を追加。Groqの無料枠をどれだけ使ったかを、1日の音声、1時間の音声、1日のリクエストのバーで表示します。
+
+@ A warning appears on Home when 15% or less of a limit is left, with a button that opens Usage.
+es: Aparece un aviso en Inicio cuando queda un 15% o menos de un límite, con un botón que abre Uso.
+pt: Aparece um aviso no Início quando sobra 15% ou menos de um limite, com um botão que abre o Uso.
+ja: 上限の残りが15%以下になるとホームに警告が表示され、ボタンから使用量を開けます。
+
+@ Help now answers common questions: paste problems, spoken corrections, numbers, Caps Lock shortcuts, engines, Ollama and where your data is stored.
+es: La Ayuda ahora responde a las preguntas comunes: problemas al pegar, correcciones habladas, números, atajos con Bloq Mayús, motores, Ollama y dónde se guardan tus datos.
+pt: A Ajuda agora responde às perguntas comuns: problemas ao colar, correções faladas, números, atalhos com Caps Lock, motores, Ollama e onde ficam os seus dados.
+ja: ヘルプがよくある質問に答えるようになりました。ペーストの問題、話して訂正、数字、Caps Lockのショートカット、エンジン、Ollama、データの保存場所。
+
+@ New Where to find things guide: what's on each screen and in each Settings section.
+es: Nueva guía Dónde encontrar cada cosa: qué hay en cada pantalla y en cada sección de Ajustes.
+pt: Novo guia Onde fica cada coisa: o que tem em cada tela e em cada seção de Ajustes.
+ja: 新しいガイド「機能の場所」: 各画面と設定の各セクションにあるもの。
+
+@ A search field at the top of Help filters the questions and the guide as you type.
+es: Un campo de búsqueda arriba de la Ayuda filtra las preguntas y la guía mientras escribes.
+pt: Um campo de busca no topo da Ajuda filtra as perguntas e o guia enquanto você digita.
+ja: ヘルプ上部の検索欄に入力すると、質問とガイドが絞り込まれます。
+
+@ A smaller, simpler recording bubble in the same color: just the icon of the app you're dictating into and the lines of your voice.
+es: Una burbuja de grabación más pequeña y sencilla, del mismo color: solo el icono de la app en la que dictas y las líneas de tu voz.
+pt: Uma bolha de gravação menor e mais simples, na mesma cor: só o ícone do app em que você está ditando e as linhas da sua voz.
+ja: 録音バブルが同じ色のまま小さくシンプルに。入力先アプリのアイコンと声の波形だけを表示します。
+
+@ No more cancel and stop buttons on the bubble: release the key to stop, press Esc to cancel.
+es: La burbuja ya no tiene botones de cancelar y detener: suelta la tecla para parar y pulsa Esc para cancelar.
+pt: A bolha não tem mais os botões de cancelar e parar: solte a tecla para parar e aperte Esc para cancelar.
+ja: バブルからキャンセルと停止のボタンをなくしました。キーを離すと停止、Escでキャンセルです。
+
+@ A new look: no sidebar. The microphone sits in the middle of the window, with the microphone and speech model right below it and your numbers in one line.
+es: Un aspecto nuevo, sin barra lateral. El micrófono está en el centro de la ventana, con el micrófono y el modelo de voz justo debajo y tus números en una línea.
+pt: Um visual novo, sem barra lateral. O microfone fica no meio da janela, com o microfone e o modelo de fala logo abaixo e os seus números numa linha.
+ja: サイドバーのない新デザイン。ウインドウ中央にマイクがあり、その下にマイクと音声モデル、数字が1行で並びます。
+
+@ Settings opens as a drawer on the right, and each section expands to show its options.
+es: Ajustes se abre como un panel a la derecha, y cada sección se despliega para mostrar sus opciones.
+pt: Ajustes abre como uma gaveta à direita, e cada seção se abre para mostrar as opções.
+ja: 設定は右側のドロワーで開き、各セクションを展開してオプションを表示します。
+
+@ New appearance button at the top: a sun or a moon shows the current look, and a click picks System, Light or Dark. Also in the menu bar.
+es: Nuevo botón de apariencia arriba: un sol o una luna muestran el aspecto actual, y con un clic eliges Sistema, Claro u Oscuro. También en la barra de menús.
+pt: Novo botão de aparência no topo: um sol ou uma lua mostram o visual atual, e um clique escolhe Sistema, Claro ou Escuro. Também na barra de menus.
+ja: 上部に外観ボタンを追加。太陽か月のアイコンで今の外観を表し、クリックでシステム・ライト・ダークを選べます。メニューバーからも選べます。
+
+@ Combined shortcuts: in Settings › Dictation › Add another › Combined shortcut, press the keys together (⌃⇧ or ⌃⇧D) and they become your dictation shortcut. Hold to talk and double tap work the same.
+es: Atajos combinados: en Ajustes › Dictado › Añadir otra › Atajo combinado, pulsa las teclas a la vez (⌃⇧ o ⌃⇧D) y se convierten en tu atajo de dictado. Mantener para hablar y la doble pulsación funcionan igual.
+pt: Atalhos combinados: em Ajustes › Ditado › Adicionar outra › Atalho combinado, aperte as teclas juntas (⌃⇧ ou ⌃⇧D) e elas viram o seu atalho de ditado. Segurar para falar e o toque duplo funcionam do mesmo jeito.
+ja: 組み合わせショートカット: 設定 › 音声入力 › 追加 › 組み合わせショートカット でキーを同時に押す（⌃⇧ や ⌃⇧D）と、音声入力のショートカットになります。長押しと2回押しも同じように使えます。
+
+@ Caps Lock works as on/off: tap to start, tap again to stop. With Caps Lock, only ⌃ ⌥ ⇧ ⌘ fn can be combined.
+es: Bloq Mayús funciona como encendido/apagado: pulsa para empezar y otra vez para parar. Con Bloq Mayús solo se pueden combinar ⌃ ⌥ ⇧ ⌘ fn.
+pt: O Caps Lock funciona como liga/desliga: toque para começar e toque de novo para parar. Com o Caps Lock, só dá para combinar ⌃ ⌥ ⇧ ⌘ fn.
+ja: Caps Lockはオン/オフ式です。押すと開始、もう一度押すと停止します。Caps Lockと組み合わせられるのは ⌃ ⌥ ⇧ ⌘ fn だけです。
+
+@ Simple keys are picked by name (Fn, Command, Option, Control, Shift), then the side if you want: left, right or either.
+es: Las teclas simples se eligen por nombre (Fn, Command, Option, Control, Shift) y luego, si quieres, el lado: izquierdo, derecho o cualquiera.
+pt: As teclas simples são escolhidas pelo nome (Fn, Command, Option, Control, Shift) e depois, se quiser, o lado: esquerdo, direito ou qualquer um.
+ja: 単独のキーは名前（Fn、Command、Option、Control、Shift）で選び、必要なら左右も選べます（左、右、どちらでも）。
+
+@ Numbers with dots and commas stay together: versions like 0.2.1, decimals like 1,5 and times like 10:30 are no longer split.
+es: Los números con puntos y comas se mantienen juntos: versiones como 0.2.1, decimales como 1,5 y horas como 10:30 ya no se separan.
+pt: Números com ponto e vírgula ficam juntos: versões como 0.2.1, decimais como 1,5 e horários como 10:30 não se separam mais.
+ja: 点やカンマを含む数字が分かれなくなりました。0.2.1のようなバージョン、1,5のような小数、10:30のような時刻もそのままです。
+
+@ Spoken versions and decimals: "zero ponto dois ponto um" becomes 0.2.1 and "zero point two" becomes 0.2.
+es: Versiones y decimales dictados: "zero ponto dois ponto um" se convierte en 0.2.1 y "zero point two" en 0.2.
+pt: Versões e decimais falados: "zero ponto dois ponto um" vira 0.2.1 e "zero point two" vira 0.2.
+ja: 読み上げたバージョンや小数に対応:「zero ponto dois ponto um」は0.2.1、「zero point two」は0.2になります。
+
+@ Start in the menu bar now works: Oruri opens without its window and stays in the Dock and the menu bar. Click the Dock icon to open the window.
+es: Empezar en la barra de menús ya funciona: Oruri se abre sin ventana y se queda en el Dock y en la barra de menús. Haz clic en el icono del Dock para abrir la ventana.
+pt: Começar na barra de menus agora funciona: o Oruri abre sem a janela e fica no Dock e na barra de menus. Clique no ícone do Dock para abrir a janela.
+ja: 「メニューバーで起動」が使えるようになりました。Oruriはウインドウを開かずに起動し、Dockとメニューバーに常駐します。Dockのアイコンをクリックするとウインドウが開きます。
+
+@ Pastes into any app you can type in, including Claude, ChatGPT, Chrome and WhatsApp.
+es: Pega en cualquier app en la que se pueda escribir, incluidos Claude, ChatGPT, Chrome y WhatsApp.
+pt: Cola em qualquer app em que dá para digitar, incluindo Claude, ChatGPT, Chrome e WhatsApp.
+ja: Claude、ChatGPT、Chrome、WhatsAppなど、文字を入力できるアプリならどこにでもペーストします。
+
+@ Spoken corrections: say "errei", "quer dizer" or "não, …" and only the corrected version is kept, even after several corrections in a row.
+es: Correcciones habladas: di "errei", "quer dizer" o "não, …" y solo se conserva la versión corregida, incluso tras varias correcciones seguidas.
+pt: Correções faladas: diga "errei", "quer dizer" ou "não, …" e só a versão corrigida fica, mesmo depois de várias correções seguidas.
+ja: 話して訂正:「errei」「quer dizer」「não, …」と言うと、続けて何度訂正しても訂正後の文だけが残ります。
+
+@ Spoken percentages become the % sign: "100 por cento" turns into 100%.
+es: Los porcentajes dictados se convierten en el signo %: "100 por cento" pasa a ser 100%.
+pt: Porcentagens faladas viram o sinal %: "100 por cento" vira 100%.
+ja: 読み上げたパーセントは%記号になります:「100 por cento」は100%に。
+
+@ Dictate anywhere: hold your key, talk and release — the text lands where you're typing.
+es: Dicta en cualquier parte: mantén tu tecla, habla y suelta; el texto aparece donde estás escribiendo.
+pt: Dite em qualquer lugar: segure a tecla, fale e solte — o texto aparece onde você está digitando.
+ja: どこでも音声入力: キーを押しながら話して離すと、入力中の場所に文字が入ります。
+
+@ Spoken punctuation, filler-word removal, numbers as digits and a custom dictionary.
+es: Puntuación dictada, eliminación de muletillas, números en cifras y un diccionario personal.
+pt: Pontuação falada, remoção de palavras de preenchimento, números em algarismos e um dicionário personalizado.
+ja: 読み上げた句読点、つなぎ言葉の削除、数字表記、カスタム辞書。
+
+@ words
+es: palabras
+pt: palavras
+ja: 語
+
+@ sec saved
+es: s ahorrados
+pt: s economizados
+ja: 秒節約
+
+@ min saved
+es: min ahorrados
+pt: min economizados
+ja: 分節約
+
+@ sec dictating
+es: s dictando
+pt: s ditando
+ja: 秒の音声入力
+
+@ wpm
+es: ppm
+pt: ppm
+ja: 語/分
+
+@ Recording starts right away: pausing Music or Spotify no longer holds up the bubble or the key.
+es: La grabación empieza al instante: pausar Música o Spotify ya no retrasa la burbuja ni la tecla.
+pt: A gravação começa na hora: pausar o Música ou o Spotify não atrasa mais a bolha nem a tecla.
+ja: 録音がすぐに始まるようになりました。ミュージックやSpotifyの一時停止でバブルやキーが待たされなくなりました。
+
+@ Background noise no longer counts as speech: silent recordings are dropped instead of being sent for transcription.
+es: El ruido de fondo ya no cuenta como voz: las grabaciones en silencio se descartan en vez de enviarse a transcribir.
+pt: Ruído de fundo não conta mais como fala: gravações em silêncio são descartadas em vez de irem para a transcrição.
+ja: 周りの雑音を声として扱わなくなりました。無音の録音は文字起こしに送らず破棄します。
+
+@ Why does Ollama use memory while Oruri is open?
+es: ¿Por qué Ollama usa memoria mientras Oruri está abierto?
+pt: Por que o Ollama usa memória enquanto o Oruri está aberto?
+ja: Oruriを開いている間、Ollamaがメモリを使うのはなぜ？
+
+@ To answer in about a second, Oruri keeps the Ollama model loaded while it's open (around 2 GB with llama3.2). Without it, the first dictation after a while waited about 20 seconds. When you quit Oruri, the memory is freed.
+es: Para responder en un segundo, Oruri mantiene cargado el modelo de Ollama mientras está abierto (unos 2 GB con llama3.2). Sin esto, el primer dictado después de un rato esperaba unos 20 segundos. Al cerrar Oruri, la memoria se libera.
+pt: Para responder em cerca de um segundo, o Oruri mantém o modelo do Ollama carregado enquanto está aberto (uns 2 GB com o llama3.2). Sem isso, o primeiro ditado depois de um tempo esperava uns 20 segundos. Quando você fecha o Oruri, a memória é liberada.
+ja: 約1秒で応答できるよう、Oruriを開いている間はOllamaのモデルを読み込んだままにします（llama3.2で約2GB）。そうしないと、しばらく使わなかった後の最初の音声入力で約20秒待つことになります。Oruriを終了するとメモリは解放されます。
+
+@ November 2026
+es: Noviembre de 2026
+pt: Novembro de 2026
+ja: 2026年11月
+
+@ New name: Oruri, after the ōruri, a blue songbird from Japan.
+es: Nuevo nombre: Oruri, por el ōruri, un pájaro cantor azul de Japón.
+pt: Nome novo: Oruri, por causa da ōruri, um passarinho azul e cantor do Japão.
+ja: 新しい名前はOruri。日本の青い鳴き鳥、オオルリから取りました。
+
+@ New blue look, a new app icon and a new menu bar icon.
+es: Nuevo aspecto en azul, un nuevo icono de la app y un nuevo icono en la barra de menús.
+pt: Visual novo em azul, ícone novo do app e ícone novo na barra de menus.
+ja: 青を基調にした新しいデザイン、新しいアプリアイコン、新しいメニューバーアイコンになりました。
+
+@ Oruri Pro has a waitlist: click Pro at the top to join and hear when it's ready.
+es: Oruri Pro tiene lista de espera: haz clic en Pro, arriba, para apuntarte y enterarte cuando esté listo.
+pt: O Oruri Pro tem lista de espera: clique em Pro, no topo, para entrar e saber quando ficar pronto.
+ja: Oruri Proのウェイティングリストができました。上部のProをクリックして登録すると、準備ができたらお知らせします。
+
+@ Help › Contact has a Send email button that opens your email app.
+es: Ayuda › Contacto tiene un botón Enviar correo que abre tu app de correo.
+pt: Ajuda › Contato tem um botão Enviar e-mail que abre o seu app de e-mail.
+ja: ヘルプ › お問い合わせ に、メールアプリを開く「メールを送る」ボタンを追加しました。
+
+@ Noise, key clicks and breathing no longer turn into invented phrases.
+es: El ruido, los clics de teclas y la respiración ya no se convierten en frases inventadas.
+pt: Ruído, cliques de tecla e respiração não viram mais frases inventadas.
+ja: 雑音、キーのクリック音、息づかいが、でっち上げのフレーズにならなくなりました。
+
+@ Ollama stays loaded while Oruri is open, so AI cleanup answers in about a second.
+es: Ollama se queda cargado mientras Oruri está abierto, así que la limpieza con IA responde en un segundo.
+pt: O Ollama fica carregado enquanto o Oruri está aberto, então a limpeza por IA responde em cerca de um segundo.
+ja: Oruriを開いている間はOllamaを読み込んだままにするので、AIによる整形が約1秒で終わります。
+
+@ Groq uses its fastest model, whisper-large-v3-turbo, by default.
+es: Groq usa su modelo más rápido, whisper-large-v3-turbo, por defecto.
+pt: A Groq usa o modelo mais rápido, o whisper-large-v3-turbo, por padrão.
+ja: Groqでは最速のモデル whisper-large-v3-turbo を標準で使います。
+
+@ The bubble rises from the bottom center of the screen, just above the Dock.
+es: La burbuja sube desde el centro inferior de la pantalla, justo encima del Dock.
+pt: A bolha sobe do centro da parte de baixo da tela, logo acima do Dock.
+ja: バブルは画面下の中央、Dockのすぐ上から現れます。
+
+@ Transcription on this Mac with punctuation, or in the cloud with Groq using your own key.
+es: Transcripción en este Mac con puntuación, o en la nube con Groq usando tu propia clave.
+pt: Transcrição neste Mac com pontuação, ou na nuvem com a Groq usando a sua própria chave.
+ja: このMacで句読点付きの文字起こし、またはご自身のキーでGroqを使ったクラウドでの文字起こし。
+
+@ With Ollama chosen for AI cleanup, every text you dictate is cleaned, not just long or complex ones.
+es: Con Ollama elegido para la limpieza con IA, se limpia todo lo que dictas, no solo los textos largos o complejos.
+pt: Com o Ollama escolhido para a limpeza por IA, todo texto ditado é limpo, não só os longos ou complexos.
+ja: AIによる整形にOllamaを選ぶと、長い文や複雑な文だけでなく、音声入力したすべてのテキストを整形します。
+
+@ Send email
+es: Enviar correo
+pt: Enviar e-mail
+ja: メールを送る
+
+@ Opens your email app
+es: Abre tu app de correo
+pt: Abre o seu app de e-mail
+ja: メールアプリを開きます
+
+@ Oruri Pro is coming: cloud transcription that works right after you install, with no API key to set up. Join the waitlist to hear when it's ready.
+es: Oruri Pro está en camino: transcripción en la nube que funciona nada más instalar, sin configurar ninguna clave de API. Apúntate a la lista de espera para enterarte cuando esté listo.
+pt: O Oruri Pro está chegando: transcrição na nuvem que funciona logo depois de instalar, sem configurar nenhuma chave de API. Entre na lista de espera para saber quando ficar pronto.
+ja: Oruri Proは準備中です。インストールしてすぐに使えるクラウド文字起こしで、APIキーの設定は不要です。ウェイティングリストに登録すると、準備ができたらお知らせします。
+
+@ Join the waitlist
+es: Apuntarme a la lista de espera
+pt: Entrar na lista de espera
+ja: ウェイティングリストに登録
+
+@ Opens in your browser
+es: Se abre en tu navegador
+pt: Abre no navegador
+ja: ブラウザで開きます
+
+
+@ AI cleanup keeps what you said: if the AI changes a number, a name, a "not" or a word, or drops part of the sentence, your original text is used.
+es: La limpieza con IA mantiene lo que dijiste: si la IA cambia un número, un nombre, un "no" o una palabra, o quita parte de la frase, se usa tu texto original.
+pt: A limpeza por IA mantém o que você disse: se a IA mudar um número, um nome, um "não" ou uma palavra, ou tirar parte da frase, fica o seu texto original.
+ja: AIによる整形は話した内容を変えません。数字、名前、否定の言葉、単語を変えたり、文の一部を削ったりした場合は、元の文章を使います。
+
+@ Ollama no longer answers your dictation instead of cleaning it.
+es: Ollama ya no responde a tu dictado en lugar de limpiarlo.
+pt: O Ollama não responde mais ao seu ditado em vez de limpá-lo.
+ja: Ollamaが音声入力を整える代わりに返事をしてしまうことがなくなりました。
+
+@ Why does AI cleanup sometimes leave my text as it was?
+es: ¿Por qué la limpieza con IA a veces deja mi texto como estaba?
+pt: Por que a limpeza por IA às vezes deixa meu texto como estava?
+ja: AIによる整形で文章がそのままになることがあるのはなぜ？
+
+@ The AI may only tidy punctuation, capitals and spelling, and apply your spoken corrections. If it changes a number, a name, a "not" or a word, drops part of what you said or rewrites the sentence, Oruri keeps your original text instead, so the meaning never changes.
+es: La IA solo puede arreglar la puntuación, las mayúsculas y la ortografía, y aplicar tus correcciones habladas. Si cambia un número, un nombre, un "no" o una palabra, quita parte de lo que dijiste o reescribe la frase, Oruri mantiene tu texto original para que el sentido nunca cambie.
+pt: A IA só pode arrumar pontuação, maiúsculas e grafia, e aplicar as suas correções faladas. Se ela mudar um número, um nome, um "não" ou uma palavra, tirar parte do que você disse ou reescrever a frase, o Oruri mantém o seu texto original, para o sentido nunca mudar.
+ja: AIができるのは、句読点・大文字・つづりの修正と、話して訂正した内容の反映だけです。数字、名前、否定の言葉、単語を変えたり、話した内容の一部を削ったり、文を書き換えたりした場合は、意味が変わらないようにOruriは元の文章を使います。
+
+@ Ollama is off: AI cleanup is paused
+es: Ollama está apagado: la limpieza con IA está en pausa
+pt: O Ollama está desligado: a limpeza por IA está pausada
+ja: Ollamaがオフです: AIによる整形は一時停止中です
+
+@ Ollama isn't installed: AI cleanup is paused
+es: Ollama no está instalado: la limpieza con IA está en pausa
+pt: O Ollama não está instalado: a limpeza por IA está pausada
+ja: Ollamaがインストールされていません: AIによる整形は一時停止中です
+
+@ Open settings
+es: Abrir ajustes
+pt: Abrir ajustes
+ja: 設定を開く
+
+@ Ollama is running
+es: Ollama está en marcha
+pt: O Ollama está rodando
+ja: Ollamaは動作中です
+
+@ Ollama is off
+es: Ollama está apagado
+pt: O Ollama está desligado
+ja: Ollamaはオフです
+
+@ Ollama isn't installed
+es: Ollama no está instalado
+pt: O Ollama não está instalado
+ja: Ollamaがインストールされていません
+
+@ Checking Ollama…
+es: Comprobando Ollama…
+pt: Verificando o Ollama…
+ja: Ollamaを確認中…
+
+@ AI cleanup is working.
+es: La limpieza con IA funciona.
+pt: A limpeza por IA está funcionando.
+ja: AIによる整形は動作しています。
+
+@ AI cleanup is paused until it's on. Start it here, no Terminal needed.
+es: La limpieza con IA está en pausa hasta que se encienda. Enciéndelo aquí, sin usar la Terminal.
+pt: A limpeza por IA fica pausada até ele ligar. Ligue por aqui, sem usar o Terminal.
+ja: Ollamaがオンになるまで、AIによる整形は一時停止します。ターミナルを使わずにここから起動できます。
+
+@ Install it from ollama.com, then pull a model such as llama3.2.
+es: Instálalo desde ollama.com y luego descarga un modelo, como llama3.2.
+pt: Instale pelo ollama.com e depois baixe um modelo, como o llama3.2.
+ja: ollama.comからインストールし、llama3.2などのモデルをダウンロードしてください。
+
+@ This takes a second.
+es: Tarda un segundo.
+pt: Leva um segundo.
+ja: 少しお待ちください。
+
+@ Starting…
+es: Encendiendo…
+pt: Ligando…
+ja: 起動中…
+
+@ Start Ollama
+es: Encender Ollama
+pt: Ligar o Ollama
+ja: Ollamaを起動
+
+@ Download Ollama
+es: Descargar Ollama
+pt: Baixar o Ollama
+ja: Ollamaをダウンロード
+
+@ Settings › Output shows whether Ollama is running, with a Start Ollama button: no Terminal needed.
+es: Ajustes › Salida muestra si Ollama está en marcha, con un botón Encender Ollama: sin usar la Terminal.
+pt: Ajustes › Saída mostra se o Ollama está rodando, com um botão Ligar o Ollama: sem usar o Terminal.
+ja: 設定 › 出力 でOllamaが動いているか確認でき、「Ollamaを起動」ボタンで起動できます。ターミナルは不要です。
+
+@ When AI cleanup uses Ollama and it's off, a warning on Home takes you straight to that button.
+es: Cuando la limpieza con IA usa Ollama y está apagado, un aviso en Inicio te lleva directo a ese botón.
+pt: Quando a limpeza por IA usa o Ollama e ele está desligado, um aviso no Início leva direto a esse botão.
+ja: AIによる整形にOllamaを使っていてオフのときは、ホームの警告からそのボタンにすぐ移動できます。
+
+@ Requests · daily allowance
+es: Solicitudes · cupo diario
+pt: Pedidos · saldo diário
+ja: リクエスト · 1日の枠
+
+@ Groq counts requests as an allowance that refills: each one comes back about 43 seconds later. That's why it can be almost empty even after many requests this month.
+es: Groq cuenta las solicitudes como un cupo que se recarga: cada una vuelve unos 43 segundos después. Por eso puede estar casi vacío aunque hayas hecho muchas solicitudes este mes.
+pt: A Groq conta os pedidos como um saldo que se recarrega: cada um volta cerca de 43 segundos depois. Por isso ele pode estar quase vazio mesmo com muitos pedidos no mês.
+ja: Groqはリクエストを回復する枠として数えます。1回分は約43秒後に戻ります。そのため、今月たくさんリクエストしていても、ほとんど使っていないように見えることがあります。
+
+@ Settings › Usage now shows Groq's requests the way Groq counts them: a daily allowance that refills, with one request coming back about every 43 seconds.
+es: Ajustes › Uso ahora muestra las solicitudes de Groq como Groq las cuenta: un cupo diario que se recarga, con una solicitud que vuelve cada 43 segundos aproximadamente.
+pt: Ajustes › Uso agora mostra os pedidos da Groq do jeito que a Groq conta: um saldo diário que se recarrega, com um pedido voltando a cada 43 segundos, mais ou menos.
+ja: 設定 › 使用量 で、Groqのリクエストを Groq と同じ数え方で表示するようになりました。回復する1日の枠で、約43秒ごとに1回分戻ります。
+
+@ Behind-the-scenes cleanup: leftover options from older versions were removed. Nothing changes in how Oruri works, and your settings stay as they were.
+es: Limpieza interna: se quitaron opciones que habían quedado de versiones anteriores. Nada cambia en cómo funciona Oruri, y tus ajustes siguen igual.
+pt: Limpeza por dentro: saíram opções que tinham sobrado de versões antigas. Nada muda no jeito de usar o Oruri, e as suas configurações continuam as mesmas.
+ja: 内部の整理: 古いバージョンから残っていた設定項目を削除しました。Oruriの使い方は変わらず、設定もそのままです。
+
+@ To pause videos in Chrome, turn on View › Developer › Allow JavaScript from Apple Events in Chrome.
+es: Para pausar vídeos en Chrome, activa en Chrome View › Developer › Allow JavaScript from Apple Events (Ver › Desarrollador en español).
+pt: Para pausar vídeos no Chrome, ligue no Chrome View › Developer › Allow JavaScript from Apple Events (Visualizar › Desenvolvedor em português).
+ja: Chromeの動画を一時停止するには、Chromeで「表示 › 開発 / 管理 › Apple Events からの JavaScript を許可」をオンにしてください。
+
+@ Chrome didn't pause · see Settings › Dictation
+es: Chrome no se pausó · mira Ajustes › Dictado
+pt: O Chrome não pausou · veja Ajustes › Ditado
+ja: Chromeが一時停止しませんでした · 設定 › 音声入力 を確認
+
+@ Check again
+es: Comprobar de nuevo
+pt: Conferir de novo
+ja: もう一度確認
+
+@ Chrome: videos pause too
+es: Chrome: los vídeos también se pausan
+pt: Chrome: os vídeos também pausam
+ja: Chrome: 動画も一時停止します
+
+@ Chrome: needs one setting to pause videos
+es: Chrome: falta un ajuste para pausar vídeos
+pt: Chrome: falta uma opção para pausar vídeos
+ja: Chrome: 動画を一時停止するには設定が1つ必要です
+
+@ Chrome: open it to check
+es: Chrome: ábrelo para comprobar
+pt: Chrome: abra para conferir
+ja: Chrome: 確認するには開いてください
+
+@ Chrome: checking…
+es: Chrome: comprobando…
+pt: Chrome: verificando…
+ja: Chrome: 確認中…
+
+@ Waiting for your click…
+es: Esperando tu clic…
+pt: Esperando o seu clique…
+ja: クリックを待っています…
+
+@ Show me in Chrome
+es: Muéstramelo en Chrome
+pt: Me mostra no Chrome
+ja: Chromeで表示
+
+@ Couldn't open the menu. In Chrome, go to View › Developer › Allow JavaScript from Apple Events. You only need to do this once.
+es: No se pudo abrir el menú. En Chrome, ve a View › Developer › Allow JavaScript from Apple Events (Ver › Desarrollador en español). Solo hace falta una vez.
+pt: Não deu para abrir o menu. No Chrome, vá em View › Developer › Allow JavaScript from Apple Events (Visualizar › Desenvolvedor em português). Só precisa fazer uma vez.
+ja: メニューを開けませんでした。Chromeで「表示 › 開発 / 管理 › Apple Events からの JavaScript を許可」をオンにしてください。一度だけで大丈夫です。
+
+@ Chrome opens with the right menu: click Allow JavaScript from Apple Events. You only need to do this once.
+es: Chrome se abre con el menú correcto: haz clic en Allow JavaScript from Apple Events. Solo hace falta una vez.
+pt: O Chrome abre já no menu certo: clique em Allow JavaScript from Apple Events. Só precisa fazer uma vez.
+ja: Chromeが該当のメニューを開いた状態で表示されます。「Apple Events からの JavaScript を許可」をクリックしてください。一度だけで大丈夫です。
+
+@ Pause media now also pauses videos playing in Chrome and resumes them afterwards. Settings › Dictation shows whether Chrome allows it, with a button that takes you to the one setting it needs.
+es: Pausar multimedia ahora también pausa los vídeos de Chrome y los reanuda después. Ajustes › Dictado muestra si Chrome lo permite, con un botón que te lleva al único ajuste que necesita.
+pt: Pausar mídia agora também pausa os vídeos tocando no Chrome e volta a tocar depois. Ajustes › Ditado mostra se o Chrome deixa, com um botão que leva até a única opção necessária.
+ja: メディアの一時停止で、Chromeで再生中の動画も一時停止し、終わったら再開するようになりました。設定 › 音声入力 でChromeが許可しているか確認でき、必要な設定へ移動するボタンもあります。
+
+@ Security fixes: a long run of number words can no longer close the app, and Oruri is signed so other programs can't inject code into it and use its permissions.
+es: Correcciones de seguridad: una serie larga de números dichos ya no puede cerrar la app, y Oruri se firma de forma que otros programas no puedan inyectarle código y usar sus permisos.
+pt: Correções de segurança: uma sequência longa de números falados não fecha mais o app, e o Oruri é assinado de um jeito que outros programas não conseguem injetar código nele e usar as permissões dele.
+ja: セキュリティ修正: 数字の言葉を長く続けてもアプリが終了しなくなりました。また、他のプログラムがOruriにコードを注入して権限を使えないように署名しています。
+
+@ The buttons at the top right sit a little lower and further from the window edge.
+es: Los botones de arriba a la derecha quedan un poco más abajo y más lejos del borde de la ventana.
+pt: Os botões do canto superior direito ficaram um pouco mais abaixo e mais longe da borda da janela.
+ja: 右上のボタンを少し下げ、ウインドウの端から離しました。
+
+@ Paid cloud AI with your own key (one transcription engine and one cleanup option) was removed. AI cleanup now runs only on Ollama, on this Mac; if you used the removed engine, the app switches to On-device.
+es: Se quitó la IA de pago en la nube con clave propia (un motor de transcripción y una opción de limpieza). La limpieza por IA ahora usa solo Ollama, en este Mac; si usabas el motor quitado, la app pasa a En el dispositivo.
+pt: Saiu a IA paga na nuvem com chave própria (um motor de transcrição e uma opção de limpeza). A limpeza por IA agora usa só o Ollama, neste Mac; se você usava o motor que saiu, o app passa para No dispositivo.
+ja: 自分のキーで使う有料のクラウドAI（文字起こしエンジン1つと整形オプション1つ）を削除しました。AIによる整形は、このMacで動くOllamaだけになります。削除されたエンジンを使っていた場合は、オンデバイスに切り替わります。

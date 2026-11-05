@@ -1,0 +1,16 @@
+.DS_Store
+.build/
+build/
+.swiftpm/
+*.xcodeproj/xcuserdata/
+Icon/AppIcon.iconset/
+Icon/descartados/
+
+# Documentos locais (não vão para o GitHub)
+HANDOFF.md
+docs/
+Localization/.keys.json
+*.dmg
+*.p12
+*.cer
+.env

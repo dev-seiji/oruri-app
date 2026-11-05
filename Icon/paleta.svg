@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="790" viewBox="0 0 900 790"><rect width="900" height="790" fill="#FFFFFF"/>
+<rect x="20" y="20" width="80" height="90" rx="14" fill="#1E50A2" stroke="#00000022"/><rect x="100" y="20" width="80" height="90" rx="14" fill="#6E95E0" stroke="#00000022"/><rect x="92" y="20" width="16" height="90" fill="#6E95E0"/>
+<text x="210" y="54" font-family="Helvetica" font-size="26" font-weight="bold" fill="#1A1F2B">Primária (azul ruri)</text>
+<text x="210" y="86" font-family="Menlo" font-size="22" fill="#1E50A2">#1E50A2 · #6E95E0</text>
+<text x="560" y="54" font-family="Menlo" font-size="18" fill="#5D6573">brand</text>
+<text x="560" y="86" font-family="Helvetica" font-size="18" fill="#5D6573">botões, item selecionado, botão de gravar</text>
+<rect x="20" y="130" width="80" height="90" rx="14" fill="#0F2350" stroke="#00000022"/><rect x="100" y="130" width="80" height="90" rx="14" fill="#BCD0F5" stroke="#00000022"/><rect x="92" y="130" width="16" height="90" fill="#BCD0F5"/>
+<text x="210" y="164" font-family="Helvetica" font-size="26" font-weight="bold" fill="#1A1F2B">Azul-marinho</text>
+<text x="210" y="196" font-family="Menlo" font-size="22" fill="#1E50A2">#0F2350 · #BCD0F5</text>
+<text x="560" y="164" font-family="Menlo" font-size="18" fill="#5D6573">brandDeep</text>
+<text x="560" y="196" font-family="Helvetica" font-size="18" fill="#5D6573">títulos de destaque, avisos</text>
+<rect x="20" y="240" width="80" height="90" rx="14" fill="#E6EDF8" stroke="#00000022"/><rect x="100" y="240" width="80" height="90" rx="14" fill="#17233D" stroke="#00000022"/><rect x="92" y="240" width="16" height="90" fill="#17233D"/>
+<text x="210" y="274" font-family="Helvetica" font-size="26" font-weight="bold" fill="#1A1F2B">Azul suave</text>
+<text x="210" y="306" font-family="Menlo" font-size="22" fill="#1E50A2">#E6EDF8 · #17233D</text>
+<text x="560" y="274" font-family="Menlo" font-size="18" fill="#5D6573">brandSoft</text>
+<text x="560" y="306" font-family="Helvetica" font-size="18" fill="#5D6573">fundo do item selecionado</text>
+<rect x="20" y="350" width="80" height="90" rx="14" fill="#C99A1E" stroke="#00000022"/><rect x="100" y="350" width="80" height="90" rx="14" fill="#E3B94A" stroke="#00000022"/><rect x="92" y="350" width="16" height="90" fill="#E3B94A"/>
+<text x="210" y="384" font-family="Helvetica" font-size="26" font-weight="bold" fill="#1A1F2B">Dourado</text>
+<text x="210" y="416" font-family="Menlo" font-size="22" fill="#1E50A2">#C99A1E · #E3B94A</text>
+<text x="560" y="384" font-family="Menlo" font-size="18" fill="#5D6573">highlight</text>
+<text x="560" y="416" font-family="Helvetica" font-size="18" fill="#5D6573">plano Pro e detalhes</text>
+<rect x="20" y="460" width="80" height="90" rx="14" fill="#F4F6FA" stroke="#00000022"/><rect x="100" y="460" width="80" height="90" rx="14" fill="#161D2E" stroke="#00000022"/><rect x="92" y="460" width="16" height="90" fill="#161D2E"/>
+<text x="210" y="494" font-family="Helvetica" font-size="26" font-weight="bold" fill="#1A1F2B">Superfície</text>
+<text x="210" y="526" font-family="Menlo" font-size="22" fill="#1E50A2">#F4F6FA · #161D2E</text>
+<text x="560" y="494" font-family="Menlo" font-size="18" fill="#5D6573">statsBackground</text>
+<text x="560" y="526" font-family="Helvetica" font-size="18" fill="#5D6573">números, botões do topo</text>
+<rect x="20" y="570" width="80" height="90" rx="14" fill="#1A1F2B" stroke="#00000022"/><rect x="100" y="570" width="80" height="90" rx="14" fill="#E8ECF4" stroke="#00000022"/><rect x="92" y="570" width="16" height="90" fill="#E8ECF4"/>
+<text x="210" y="604" font-family="Helvetica" font-size="26" font-weight="bold" fill="#1A1F2B">Texto</text>
+<text x="210" y="636" font-family="Menlo" font-size="22" fill="#1E50A2">#1A1F2B · #E8ECF4</text>
+<text x="560" y="604" font-family="Menlo" font-size="18" fill="#5D6573">primaryText</text>
+<text x="560" y="636" font-family="Helvetica" font-size="18" fill="#5D6573">texto principal</text>
+<rect x="20" y="680" width="80" height="90" rx="14" fill="#D94A3D" stroke="#00000022"/><rect x="100" y="680" width="80" height="90" rx="14" fill="#E5675B" stroke="#00000022"/><rect x="92" y="680" width="16" height="90" fill="#E5675B"/>
+<text x="210" y="714" font-family="Helvetica" font-size="26" font-weight="bold" fill="#1A1F2B">Gravando</text>
+<text x="210" y="746" font-family="Menlo" font-size="22" fill="#1E50A2">#D94A3D · #E5675B</text>
+<text x="560" y="714" font-family="Menlo" font-size="18" fill="#5D6573">recording</text>
+<text x="560" y="746" font-family="Helvetica" font-size="18" fill="#5D6573">botão enquanto grava</text>
+</svg>
