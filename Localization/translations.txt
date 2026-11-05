@@ -2153,3 +2153,8 @@ ja: 右上のボタンを少し下げ、ウインドウの端から離しまし�
 es: Se quitó la IA de pago en la nube con clave propia (un motor de transcripción y una opción de limpieza). La limpieza por IA ahora usa solo Ollama, en este Mac; si usabas el motor quitado, la app pasa a En el dispositivo.
 pt: Saiu a IA paga na nuvem com chave própria (um motor de transcrição e uma opção de limpeza). A limpeza por IA agora usa só o Ollama, neste Mac; se você usava o motor que saiu, o app passa para No dispositivo.
 ja: 自分のキーで使う有料のクラウドAI（文字起こしエンジン1つと整形オプション1つ）を削除しました。AIによる整形は、このMacで動くOllamaだけになります。削除されたエンジンを使っていた場合は、オンデバイスに切り替わります。
+
+@ Settings › Help › Contact has the real support email, and the Pro window has a button to join the waitlist.
+es: Ajustes › Ayuda › Contacto tiene el correo de soporte real, y la ventana Pro tiene un botón para unirse a la lista de espera.
+pt: Ajustes › Ajuda › Contato tem o e-mail de suporte de verdade, e a janela Pro tem um botão para entrar na lista de espera.
+ja: 設定 › ヘルプ › お問い合わせに正式なサポート用メールアドレスを載せ、Proのウインドウにウェイトリストに登録するボタンを追加しました。

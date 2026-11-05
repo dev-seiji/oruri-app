@@ -1086,6 +1086,9 @@ struct UpdatesPane: View {
 
     /// Notas de versão do Oruri, da mais nova para a mais antiga.
     private let releases: [(version: String, date: String, notes: [String])] = [
+        ("0.6.1", "November 2026", [
+            "Settings › Help › Contact has the real support email, and the Pro window has a button to join the waitlist.",
+        ]),
         ("0.6.0", "November 2026", [
             "Paid cloud AI with your own key (one transcription engine and one cleanup option) was removed. AI cleanup now runs only on Ollama, on this Mac; if you used the removed engine, the app switches to On-device.",
         ]),

@@ -119,14 +119,14 @@ struct Settings: Codable, Equatable {
 /// Informações do app lidas do Info.plist.
 enum AppInfo {
     static var version: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.0"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.1"
     }
 
     /// E-mail de suporte, mostrado em Settings › Help › Contact.
-    static let supportEmail = "exemplo@gmail.com.br"
+    static let supportEmail = "oruri.app@gmail.com"
 
     /// Lista de espera do Oruri Pro. Sem link, a janela Pro não mostra o botão.
-    static let waitlistURL: URL? = nil
+    static let waitlistURL: URL? = URL(string: "https://tally.so/r/DqK4ZN")
 }
 
 /// Fase do ditado em andamento (mostrada no indicador flutuante).
