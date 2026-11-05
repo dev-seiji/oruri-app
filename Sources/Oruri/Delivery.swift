@@ -1,10 +1,13 @@
 import AppKit
 import ApplicationServices
 import ServiceManagement
+import os
 
 /// Coloca o texto final no app em foco.
 enum Delivery {
     enum Outcome { case pasted, typed, copiedOnly }
+
+    private static let log = Logger(subsystem: "com.seiji.oruri", category: "delivery")
 
     static var isAccessibilityTrusted: Bool { AXIsProcessTrusted() }
 
@@ -29,12 +32,39 @@ enum Delivery {
         if app.bundleIdentifier == Bundle.main.bundleIdentifier { return false }
         var focused: CFTypeRef?
         let appElement = AXUIElementCreateApplication(app.processIdentifier)
-        if AXUIElementCopyAttributeValue(appElement, kAXFocusedUIElementAttribute as CFString, &focused) == .success,
-           focused != nil { return true }
+        var result = AXUIElementCopyAttributeValue(appElement, kAXFocusedUIElementAttribute as CFString, &focused)
+        if result != .success {
+            // Apps Electron/Chromium só informam o foco depois de pedirem acessibilidade completa.
+            AXUIElementSetAttributeValue(appElement, "AXManualAccessibility" as CFString, kCFBooleanTrue)
+            result = AXUIElementCopyAttributeValue(appElement, kAXFocusedUIElementAttribute as CFString, &focused)
+        }
+        if result == .success, let focused, CFGetTypeID(focused) == AXUIElementGetTypeID() {
+            // Ter algo em foco não basta (uma página, a lista do Finder, um botão): só cola se for campo de escrever.
+            let element = focused as! AXUIElement
+            var role: CFTypeRef?
+            AXUIElementCopyAttributeValue(element, kAXRoleAttribute as CFString, &role)
+            var settable = DarwinBoolean(false)
+            AXUIElementIsAttributeSettable(element, kAXValueAttribute as CFString, &settable)
+            // Páginas (Chromium/Electron, Safari) marcam o que fica dentro de um campo editável com AXEditableAncestor.
+            var editable: CFTypeRef?
+            let insideEditable = AXUIElementCopyAttributeValue(element, "AXEditableAncestor" as CFString, &editable) == .success && editable != nil
+            let target = insideEditable || isTextInput(role: role as? String, valueSettable: settable.boolValue)
+            log.notice("paste target: app=\(app.bundleIdentifier ?? "?", privacy: .public) role=\((role as? String) ?? "nil", privacy: .public) settable=\(settable.boolValue) editable=\(insideEditable) -> \(target)")
+            return target
+        }
+        log.notice("paste target: app=\(app.bundleIdentifier ?? "?", privacy: .public) no focused element (AX \(result.rawValue))")
         // Apps feitos com Electron/Chromium (Claude, ChatGPT, Chrome, Slack, VS Code…) não informam o
         // elemento em foco ao macOS, mas aceitam ⌘V normalmente. Só não colamos no Finder sem campo em foco
         // (área de trabalho), onde não há onde escrever.
         return app.bundleIdentifier != "com.apple.finder"
+    }
+
+    /// Campo onde dá para escrever: caixas de texto, áreas de texto (inclusive campos editáveis de páginas) e buscas,
+    /// ou qualquer elemento cujo texto aceita ser trocado.
+    static func isTextInput(role: String?, valueSettable: Bool) -> Bool {
+        let textRoles: Set<String> = ["AXTextField", "AXTextArea", "AXComboBox", "AXSearchField"]
+        if let role, textRoles.contains(role) { return true }
+        return valueSettable && role != "AXWebArea"
     }
 
     static func deliver(_ text: String, settings: Settings, longRecording: Bool) -> Outcome {

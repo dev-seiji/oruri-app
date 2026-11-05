@@ -119,7 +119,7 @@ struct Settings: Codable, Equatable {
 /// Informações do app lidas do Info.plist.
 enum AppInfo {
     static var version: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.1"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.2"
     }
 
     /// E-mail de suporte, mostrado em Settings › Help › Contact.

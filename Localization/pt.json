@@ -407,6 +407,7 @@
  "Welcome to Oruri": "Boas-vindas ao Oruri",
  "What's new in %@ — %@": "Novidades da %@ — %@",
  "When AI cleanup uses Ollama and it's off, a warning on Home takes you straight to that button.": "Quando a limpeza por IA usa o Ollama e ele está desligado, um aviso no Início leva direto a esse botão.",
+ "When no text box is selected, the text is copied and \"Copied · ⌘V\" appears again, including in Chrome, Claude and other Electron apps.": "Quando nenhuma caixa de texto está selecionada, o texto é copiado e o aviso \"Copied · ⌘V\" volta a aparecer, inclusive no Chrome, no Claude e em outros apps Electron.",
  "Where is my data stored?": "Onde ficam os meus dados?",
  "Where to find things": "Onde fica cada coisa",
  "Which transcription engine should I use?": "Qual motor de transcrição devo usar?",

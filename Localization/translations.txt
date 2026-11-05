@@ -2158,3 +2158,8 @@ ja: 自分のキーで使う有料のクラウドAI（文字起こしエンジ�
 es: Ajustes › Ayuda › Contacto tiene el correo de soporte real, y la ventana Pro tiene un botón para unirse a la lista de espera.
 pt: Ajustes › Ajuda › Contato tem o e-mail de suporte de verdade, e a janela Pro tem um botão para entrar na lista de espera.
 ja: 設定 › ヘルプ › お問い合わせに正式なサポート用メールアドレスを載せ、Proのウインドウにウェイトリストに登録するボタンを追加しました。
+
+@ When no text box is selected, the text is copied and "Copied · ⌘V" appears again, including in Chrome, Claude and other Electron apps.
+es: Cuando no hay ningún cuadro de texto seleccionado, el texto se copia y vuelve a aparecer "Copied · ⌘V", también en Chrome, Claude y otras apps de Electron.
+pt: Quando nenhuma caixa de texto está selecionada, o texto é copiado e o aviso "Copied · ⌘V" volta a aparecer, inclusive no Chrome, no Claude e em outros apps Electron.
+ja: テキストボックスが選択されていないときは、テキストをコピーして「Copied · ⌘V」を再び表示します。Chrome、Claude などの Electron アプリでも同様です。

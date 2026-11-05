@@ -50,6 +50,20 @@ import Testing
         #expect(leftovers.isEmpty, "\(leftovers)")
     }
 
+    /// "Copied · ⌘V" quando não há caixa de escrever em foco: página, lista do Finder ou botão não contam como campo.
+    @Test func pasteTargetNeedsATextField() {
+        #expect(Delivery.isTextInput(role: "AXTextField", valueSettable: true))
+        #expect(Delivery.isTextInput(role: "AXTextArea", valueSettable: false))
+        #expect(Delivery.isTextInput(role: "AXComboBox", valueSettable: false))
+        #expect(!Delivery.isTextInput(role: "AXWebArea", valueSettable: false))
+        #expect(!Delivery.isTextInput(role: "AXWebArea", valueSettable: true))
+        #expect(!Delivery.isTextInput(role: "AXOutline", valueSettable: false))
+        #expect(!Delivery.isTextInput(role: "AXButton", valueSettable: false))
+        #expect(!Delivery.isTextInput(role: "AXToolbar", valueSettable: false)) // fora da caixa do Claude (5 nov)
+        #expect(!Delivery.isTextInput(role: nil, valueSettable: false))
+        #expect(Delivery.isTextInput(role: "AXGroup", valueSettable: true))
+    }
+
     /// A parte aberta não tem chave própria da OpenAI nem do Claude (só nomes de apps onde o texto é colado).
     @Test func noOpenAIOrClaudeKeys() throws {
         let root = URL(fileURLWithPath: #filePath)

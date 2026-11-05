@@ -407,6 +407,7 @@
  "Welcome to Oruri": "Oruriへようこそ",
  "What's new in %@ — %@": "%@の新機能 — %@",
  "When AI cleanup uses Ollama and it's off, a warning on Home takes you straight to that button.": "AIによる整形にOllamaを使っていてオフのときは、ホームの警告からそのボタンにすぐ移動できます。",
+ "When no text box is selected, the text is copied and \"Copied · ⌘V\" appears again, including in Chrome, Claude and other Electron apps.": "テキストボックスが選択されていないときは、テキストをコピーして「Copied · ⌘V」を再び表示します。Chrome、Claude などの Electron アプリでも同様です。",
  "Where is my data stored?": "データはどこに保存される？",
  "Where to find things": "機能の場所",
  "Which transcription engine should I use?": "どの文字起こしエンジンを使えばいい？",

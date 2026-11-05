@@ -7,7 +7,7 @@
 O Oruri é um app de ditado para macOS feito em SwiftUI: segure uma tecla, fale, e o texto aparece no app em que você está digitando.
 Ele também transcreve arquivos de áudio e vídeo que você arrasta para ele, um depois do outro.
 
-**Versão atual: 0.6.1** — as notas completas ficam em Settings › Updates, dentro do app.
+**Versão atual: 0.6.2** — as notas completas ficam em Settings › Updates, dentro do app.
 
 O nome vem da ōruri (オオルリ), um passarinho azul e cantor do Japão; o nome quer dizer "grande lápis-lazúli".
 

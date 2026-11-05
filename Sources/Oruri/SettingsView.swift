@@ -1086,6 +1086,9 @@ struct UpdatesPane: View {
 
     /// Notas de versão do Oruri, da mais nova para a mais antiga.
     private let releases: [(version: String, date: String, notes: [String])] = [
+        ("0.6.2", "November 2026", [
+            "When no text box is selected, the text is copied and \"Copied · ⌘V\" appears again, including in Chrome, Claude and other Electron apps.",
+        ]),
         ("0.6.1", "November 2026", [
             "Settings › Help › Contact has the real support email, and the Pro window has a button to join the waitlist.",
         ]),
