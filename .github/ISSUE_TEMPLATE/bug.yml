@@ -1,0 +1,53 @@
+name: Bug
+description: Something doesn't work as it should / Algo não funciona como deveria
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Don't paste API keys, passwords or personal dictated text here.
+        Obrigado por avisar! Não cole chaves de API, senhas nem textos pessoais ditados aqui.
+  - type: input
+    id: version
+    attributes:
+      label: Oruri version / Versão do Oruri
+      description: Settings › Updates
+      placeholder: "0.6.1"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and chip / Versão do macOS e chip
+      placeholder: "macOS 26.1, Apple M2"
+    validations:
+      required: true
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Transcription engine / Motor de transcrição
+      options: ["On-device / No Mac", "Groq", "Don't know / Não sei"]
+  - type: input
+    id: app
+    attributes:
+      label: App you were dictating into / App onde você estava ditando
+      placeholder: "Notes, Slack, Chrome…"
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / Como reproduzir
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs. what happened / O que você esperava e o que aconteceu
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or details / Prints ou detalhes

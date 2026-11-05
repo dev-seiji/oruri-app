@@ -1,0 +1,26 @@
+name: Suggestion / Sugestão
+description: Idea for an improvement or new feature / Ideia de melhoria ou função nova
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve? / Qual problema isso resolve?
+      description: Describe when you missed it. / Conte a situação em que você sentiu falta disso.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea / Sua ideia
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: How do you work around it today? / Hoje você contorna como?
+  - type: markdown
+    attributes:
+      value: |
+        Code pull requests aren't accepted for now, only ideas like this one. See CONTRIBUTING.md.
+        Por enquanto não aceito pull requests de código, só ideias como esta. Veja o CONTRIBUTING.md.

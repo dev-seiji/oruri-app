@@ -28,10 +28,13 @@ if build=$(./build-app.sh 2>&1); then ok "$(defaults read "$PWD/build/Oruri.app/
 else print -r -- "$build" | grep -E "error" | head; bad "build falhou"; fi
 for f in es pt ja; do [[ -f build/Oruri.app/Contents/Resources/$f.json ]] || bad "falta $f.json no app"; done
 
+# ORURI_QA_NO_LAUNCH=1 pula esta etapa (usado na cópia pública, para não abrir um segundo Oruri de outra pasta).
+if [[ -z "${ORURI_QA_NO_LAUNCH:-}" ]]; then
 step "App abre"
 pkill -x Oruri 2>/dev/null; sleep 1
 open build/Oruri.app; sleep 4
 if pgrep -x Oruri >/dev/null; then ok "Oruri rodando"; else bad "o app fechou sozinho"; fi
+fi
 
 print
 if (( fail )); then print -P "%F{red}%BQA reprovado%b%f"; exit 1; else print -P "%F{green}%BQA aprovado%b%f"; fi

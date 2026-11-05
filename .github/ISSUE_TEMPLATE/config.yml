@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security issue / Falha de segurança
+    url: https://github.com/dev-seiji/oruri-app/security/advisories/new
+    about: Report privately, not as a public issue. / Relate em privado, não em issue pública.
