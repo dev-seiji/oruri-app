@@ -11,7 +11,7 @@ It's a personal portfolio project: a voice-to-text app for the Mac, vibe coded w
 work in a real app, from speech recognition to AI text cleanup with safety checks. It isn't distributed as a ready-made app;
 to use it, build it from the source (see Build below).
 
-**Current version: 0.6.5** — see Settings › Updates in the app for the full release notes.
+**Current version: 0.6.6** — see Settings › Updates in the app for the full release notes.
 
 Oruri is named after the ōruri (オオルリ), a blue songbird from Japan whose name means "great lapis lazuli".
 

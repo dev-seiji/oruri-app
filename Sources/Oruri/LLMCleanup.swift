@@ -331,6 +331,9 @@ enum LLMCleanup {
     }
 
     /// Limpeza pela Groq, com a mesma chave da transcrição.
+    /// Avisado a cada pedido de limpeza aceito pela Groq: pedidos restantes e limite do dia.
+    @MainActor static var onGroqCleanup: ((Int?, Int?) -> Void)?
+
     private static func groq(_ text: String, system: String) async throws -> String {
         guard let key = Keychain.get(TranscriptionProvider.groq.keychainAccount), !key.isEmpty else {
             throw CleanupError.bad(T("Add your Groq API key in Settings › Models to clean up with Groq."))
@@ -353,6 +356,10 @@ enum LLMCleanup {
             groqModel = nil // na próxima vez pergunta de novo quais modelos existem
             throw CleanupError.bad(message)
         }
+        let headers = response as? HTTPURLResponse
+        let remaining = headers?.value(forHTTPHeaderField: "x-ratelimit-remaining-requests").flatMap { Int($0) }
+        let limit = headers?.value(forHTTPHeaderField: "x-ratelimit-limit-requests").flatMap { Int($0) }
+        await MainActor.run { onGroqCleanup?(remaining, limit) }
         let message = ((json?["choices"] as? [[String: Any]])?.first?["message"] as? [String: Any])
         return message?["content"] as? String ?? ""
     }

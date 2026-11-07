@@ -758,12 +758,20 @@ struct UsagePane: View {
             UsageBar(title: "Requests · daily allowance",
                      detail: T("%@ of %@", r.used.formatted(), r.limit.formatted()),
                      fraction: g.dayRequestsFraction)
+            if !(g.cleanups ?? []).isEmpty {
+                let c = g.cleanupRequestsUsed()
+                UsageBar(title: "AI cleanup requests · daily allowance",
+                         detail: T("%@ of %@", c.used.formatted(), c.limit.formatted()),
+                         fraction: g.cleanupRequestsFraction)
+            }
             Text(T("Groq counts requests as an allowance that refills: each one comes back about 43 seconds later. That's why it can be almost empty even after many requests this month."))
                 .font(.system(size: 11))
                 .foregroundStyle(Theme.tertiaryText)
                 .fixedSize(horizontal: false, vertical: true)
             Rectangle().fill(Theme.divider).frame(height: 1)
-            UsageMonthRow(detail: T("%@ of audio · %ld requests", UsageFormat.duration(monthSeconds), month.count),
+            UsageMonthRow(detail: g.cleanupsThisMonth > 0
+                              ? T("%@ of audio · %ld requests · %ld AI cleanup requests", UsageFormat.duration(monthSeconds), month.count, g.cleanupsThisMonth)
+                              : T("%@ of audio · %ld requests", UsageFormat.duration(monthSeconds), month.count),
                           amount: "$0.00",
                           note: T("Free plan. On the paid plan this would be about %@.", UsageFormat.dollars(g.monthCost)))
         }
@@ -1095,6 +1103,9 @@ struct UpdatesPane: View {
 
     /// Notas de versão do Oruri, da mais nova para a mais antiga.
     private let releases: [(version: String, date: String, notes: [String])] = [
+        ("0.6.6", "November 2026", [
+            "Settings › Usage now counts AI cleanup with Groq: its own daily allowance and the month total, and the Home warning covers it too.",
+        ]),
         ("0.6.5", "November 2026", [
             "With Groq, \"Improve sentences\" lets the AI reword confusing sentences while keeping numbers, names and meaning.",
             "Groq cleanup works again: Oruri now picks a Groq model that is available.",

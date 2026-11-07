@@ -2218,3 +2218,28 @@ ja: Groqでは「Improve sentences」で、数字・名前・意味はそのま�
 es: La limpieza con Groq vuelve a funcionar: Oruri ahora elige un modelo de Groq disponible.
 pt: A limpeza pela Groq voltou a funcionar: o Oruri agora escolhe um modelo da Groq que esteja disponível.
 ja: Groqでの整形が再び動くようになりました。Oruriが利用できるGroqのモデルを選びます。
+
+@ Groq free limit reached for today's AI cleanups
+es: Se alcanzó el límite gratuito de Groq para las limpiezas con IA de hoy
+pt: Acabou o limite grátis da Groq para as limpezas por IA de hoje
+ja: 今日のAIによる整形のGroq無料枠を使い切りました
+
+@ Groq free limit almost used: %ld%% of today's AI cleanups left
+es: Límite gratuito de Groq casi agotado: queda un %ld%% de las limpiezas con IA de hoy
+pt: Limite grátis da Groq quase no fim: sobra %ld%% das limpezas por IA de hoje
+ja: Groqの無料枠がもうすぐ上限です: 今日のAIによる整形は残り%ld%%
+
+@ %@ of audio · %ld requests · %ld AI cleanup requests
+es: %@ de audio · %ld solicitudes · %ld solicitudes de limpieza con IA
+pt: %@ de áudio · %ld pedidos · %ld pedidos de limpeza por IA
+ja: 音声 %@ · リクエスト %ld 件 · AIによる整形のリクエスト %ld 件
+
+@ AI cleanup requests · daily allowance
+es: Solicitudes de limpieza con IA · cupo diario
+pt: Pedidos de limpeza por IA · saldo diário
+ja: AIによる整形のリクエスト · 1日の枠
+
+@ Settings › Usage now counts AI cleanup with Groq: its own daily allowance and the month total, and the Home warning covers it too.
+es: Ajustes › Uso ahora cuenta la limpieza con IA por Groq: su propio cupo diario y el total del mes, y el aviso de Inicio también la incluye.
+pt: Ajustes › Uso agora conta a limpeza por IA pela Groq: um saldo diário próprio e o total do mês, e o aviso do Início também vale para ela.
+ja: 設定 › 使用状況で、GroqによるAI整形も数えるようになりました。専用の1日の枠と今月の合計を表示し、ホームの警告にも反映します。

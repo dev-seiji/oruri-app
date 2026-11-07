@@ -99,6 +99,18 @@ import AVFoundation
         #expect(abs(Double(out.length) / out.processingFormat.sampleRate - 30) < 0.2)
     }
 
+    /// Item 27: as limpezas pela Groq contam num saldo próprio, entram no aviso e abrem dados salvos antes da 0.6.6.
+    @Test func groqCleanupIsCounted() throws {
+        let old = try JSONDecoder().decode(GroqUsage.self, from: Data(#"{"entries":[]}"#.utf8))
+        #expect(old.cleanups == nil && old.cleanupRequestsUsed().used == 0)
+        var u = GroqUsage()
+        let now = Date()
+        u.recordCleanup(remaining: 50, limit: 1000, at: now)
+        #expect(u.cleanupsThisMonth == 1)
+        #expect(u.cleanupRequestsUsed(at: now) == (950, 1000))
+        #expect(u.tightest.name == "cleanup" && u.tightest.fraction >= GroqLimits.warningFraction)
+    }
+
     /// A parte aberta não tem chave própria da OpenAI nem do Claude (só nomes de apps onde o texto é colado).
     @Test func noOpenAIOrClaudeKeys() throws {
         let root = URL(fileURLWithPath: #filePath)

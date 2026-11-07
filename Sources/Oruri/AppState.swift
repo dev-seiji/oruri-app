@@ -124,7 +124,7 @@ struct Settings: Codable, Equatable {
 /// Informações do app lidas do Info.plist.
 enum AppInfo {
     static var version: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.5"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.6"
     }
 
     /// E-mail de suporte, mostrado em Settings › Help › Contact.
@@ -188,16 +188,19 @@ final class AppState {
     }
 
     var groqLimitWarning: String? {
-        guard settings.engine == TranscriptionProvider.groq.rawValue else { return nil }
+        let groqCleanup = settings.llmCleanup && settings.cleanupEngine == "Groq"
+        guard settings.engine == TranscriptionProvider.groq.rawValue || groqCleanup else { return nil }
         let t = groqUsage.tightest
         guard t.fraction >= GroqLimits.warningFraction else { return nil }
         let left = Int(((1 - t.fraction) * 100).rounded(.down))
         switch (t.name, left <= 0) {
         case ("day", true): return T("Groq free limit reached for today's audio")
         case ("hour", true): return T("Groq free limit reached for this hour's audio")
+        case ("cleanup", true): return T("Groq free limit reached for today's AI cleanups")
         case (_, true): return T("Groq free limit reached for today's requests")
         case ("day", false): return T("Groq free limit almost used: %ld%% of today's audio left", left)
         case ("hour", false): return T("Groq free limit almost used: %ld%% of this hour's audio left", left)
+        case ("cleanup", false): return T("Groq free limit almost used: %ld%% of today's AI cleanups left", left)
         default: return T("Groq free limit almost used: %ld%% of today's requests left", left)
         }
     }
@@ -214,6 +217,9 @@ final class AppState {
         dictionary = Store.loadDictionary()
         recordings = Store.loadHistory()
         groqUsage = Store.loadGroqUsage()
+        LLMCleanup.onGroqCleanup = { [weak self] remaining, limit in
+            self?.groqUsage.recordCleanup(remaining: remaining, limit: limit)
+        }
         Transcriber.onGroqUsage = { [weak self] seconds, model, remaining, limit in
             self?.groqUsage.record(seconds: seconds, model: model, remaining: remaining, limit: limit)
         }

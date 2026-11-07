@@ -13,6 +13,12 @@ struct GroqUsage: Codable, Equatable {
     var remainingRequests: Int?
     var limitRequests: Int?
     var headersDate: Date?
+    /// Limpezas pela Groq (desde a 0.6.6). O modelo de texto tem um saldo de pedidos próprio, separado do Whisper.
+    /// Opcionais para os dados salvos antes continuarem abrindo.
+    var cleanups: [Date]?
+    var cleanupRemaining: Int?
+    var cleanupLimit: Int?
+    var cleanupHeadersDate: Date?
 
     func seconds(since date: Date) -> Double {
         entries.filter { $0.date >= date }.reduce(0) { $0 + $1.seconds }
@@ -42,22 +48,45 @@ struct GroqUsage: Codable, Equatable {
     /// "pedidos nas últimas 24 h", e sim um saldo que recarrega. Cada pedido gasta 1, e cada 1 volta depois de
     /// 24 h ÷ limite (43,2 s com 2.000). Por isso o saldo pode estar quase cheio mesmo com muitos pedidos no mês.
     func requestsUsed(at now: Date = .now) -> (used: Int, limit: Int) {
-        if let remainingRequests, let limitRequests, limitRequests > 0, let headersDate {
-            let refill = 86_400 / Double(limitRequests)
-            let used = Double(limitRequests - remainingRequests) - now.timeIntervalSince(headersDate) / refill
-            return (max(0, Int(used.rounded(.up))), limitRequests)
+        Self.allowance(remaining: remainingRequests, limit: limitRequests, headersDate: headersDate,
+                       dates: entries.map(\.date), fallbackLimit: GroqLimits.requestsPerDay, now: now)
+    }
+
+    /// Saldo diário de pedidos das limpezas (modelo de texto da Groq).
+    func cleanupRequestsUsed(at now: Date = .now) -> (used: Int, limit: Int) {
+        Self.allowance(remaining: cleanupRemaining, limit: cleanupLimit, headersDate: cleanupHeadersDate,
+                       dates: cleanups ?? [], fallbackLimit: GroqLimits.cleanupRequestsPerDay, now: now)
+    }
+
+    var cleanupRequestsFraction: Double {
+        let r = cleanupRequestsUsed()
+        return Double(r.used) / Double(max(r.limit, 1))
+    }
+
+    /// Limpezas do mês corrente.
+    var cleanupsThisMonth: Int {
+        let start = Calendar.current.dateInterval(of: .month, for: .now)?.start ?? .distantPast
+        return (cleanups ?? []).filter { $0 >= start }.count
+    }
+
+    private static func allowance(remaining: Int?, limit: Int?, headersDate: Date?, dates: [Date],
+                                  fallbackLimit: Int, now: Date) -> (used: Int, limit: Int) {
+        if let remaining, let limit, limit > 0, let headersDate {
+            let refill = 86_400 / Double(limit)
+            let used = Double(limit - remaining) - now.timeIntervalSince(headersDate) / refill
+            return (max(0, Int(used.rounded(.up))), limit)
         }
         // Sem resposta da Groq ainda: o mesmo saldo, calculado pelos pedidos feitos neste Mac.
-        let refill = 86_400 / Double(GroqLimits.requestsPerDay)
+        let refill = 86_400 / Double(fallbackLimit)
         var used = 0.0
         var last: Date?
-        for entry in entries.sorted(by: { $0.date < $1.date }) {
-            if let last { used = max(0, used - entry.date.timeIntervalSince(last) / refill) }
+        for date in dates.sorted() {
+            if let last { used = max(0, used - date.timeIntervalSince(last) / refill) }
             used += 1
-            last = entry.date
+            last = date
         }
         if let last { used = max(0, used - now.timeIntervalSince(last) / refill) }
-        return (Int(used.rounded(.up)), GroqLimits.requestsPerDay)
+        return (Int(used.rounded(.up)), fallbackLimit)
     }
 
     var dayRequests: (used: Int, limit: Int) { requestsUsed() }
@@ -70,9 +99,20 @@ struct GroqUsage: Codable, Equatable {
     /// O limite mais perto de acabar (é ele que dispara o aviso na Home).
     /// `name` diz qual limite: "day", "hour" ou "requests".
     var tightest: (fraction: Double, name: String) {
-        [(dayAudioFraction, "day"), (hourAudioFraction, "hour"), (dayRequestsFraction, "requests")]
+        [(dayAudioFraction, "day"), (hourAudioFraction, "hour"), (dayRequestsFraction, "requests"),
+         (cleanupRequestsFraction, "cleanup")]
             .max { $0.0 < $1.0 }
             .map { (min($0.0, 1), $0.1) } ?? (0, "")
+    }
+
+    mutating func recordCleanup(remaining: Int?, limit: Int?, at now: Date = .now) {
+        let cutoff = now.addingTimeInterval(-40 * 86_400)
+        cleanups = ((cleanups ?? []) + [now]).filter { $0 >= cutoff }
+        if let remaining, let limit {
+            cleanupRemaining = remaining
+            cleanupLimit = limit
+            cleanupHeadersDate = now
+        }
     }
 
     mutating func record(seconds: Double, model: String, remaining: Int?, limit: Int?) {
@@ -93,6 +133,8 @@ enum GroqLimits {
     static let audioSecondsPerDay = 28_800.0   // 8 h
     static let audioSecondsPerHour = 7_200.0   // 2 h
     static let requestsPerDay = 2_000
+    /// Saldo dos modelos de texto quando a Groq ainda não informou (o certo vem nos cabeçalhos da resposta).
+    static let cleanupRequestsPerDay = 1_000
     /// A Groq cobra no mínimo 10 s por pedido.
     static let minimumBilledSeconds = 10.0
     /// O aviso na Home aparece quando sobra 15% ou menos de algum limite.
