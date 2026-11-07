@@ -7,7 +7,7 @@
 Oruri is a macOS dictation app written in SwiftUI: hold a key, talk, and the text lands in whatever app you're using.
 It also transcribes audio and video files you drop on it, one after another.
 
-**Current version: 0.6.2** — see Settings › Updates in the app for the full release notes.
+**Current version: 0.6.3** — see Settings › Updates in the app for the full release notes.
 
 Oruri is named after the ōruri (オオルリ), a blue songbird from Japan whose name means "great lapis lazuli".
 
@@ -36,7 +36,7 @@ The name "Oruri" and the icon identify the official app. If you fork it, please 
 - **Spoken corrections** — say the wrong part, a correction phrase and the right part ("pro Pedro, errei, pro Paulo",
   "na quinta, quer dizer, na sexta", "…amanhã, né? Não, amanhã, depois de amanhã") and only the corrected version is kept.
   Several corrections in a row work too; the last one wins. Simple cases are handled by fixed rules, with no AI.
-- **AI cleanup (optional)** — a local Ollama model cleans every dictated text. It may only fix punctuation, capitals and spelling and apply spoken
+- **AI cleanup (optional)** — Groq (fast, in the cloud, same key as transcription) or a local Ollama model cleans every dictated text. It may only fix punctuation, capitals and spelling and apply spoken
   corrections; if it changes a number, name, negation or word, drops part of the sentence or rewrites it, the transcript is kept.
 - **Delivery** — paste with ⌘V or type into any app you can write in, including Electron and Chromium apps
   (Claude, ChatGPT, Chrome, Slack); keep or restore the clipboard; a "Copied · ⌘V" notice in the recording bubble
@@ -81,7 +81,7 @@ During development you can also use `swift run`.
 | `Sources/Oruri/Usage.swift` | Groq usage counted on this Mac, free-plan limits and prices |
 | `Sources/Oruri/Transcription.swift` | On-device and cloud transcription, audio/video file conversion |
 | `Sources/Oruri/TextPipeline.swift` | Spoken punctuation, fillers, dictionary, number words |
-| `Sources/Oruri/LLMCleanup.swift` | Optional Ollama cleanup with a safety check |
+| `Sources/Oruri/LLMCleanup.swift` | Optional Groq or Ollama cleanup with a safety check |
 | `Sources/Oruri/Delivery.swift` | Paste/type into the focused app, media keys, launch at login, post-record hook |
 | `Sources/Oruri/HotkeyMonitor.swift` | Global hold-to-talk / double-tap trigger keys |
 | `Sources/Oruri/DictationController.swift` | Orchestrates record → transcribe → clean → deliver → history |

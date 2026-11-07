@@ -493,10 +493,10 @@ es: Puedes elegir cualquier tecla o combinación más tarde en Ajustes.
 pt: Você pode escolher qualquer tecla ou combinação depois em Ajustes.
 ja: キーや組み合わせはあとから設定で変更できます。
 
-@ On: dictations come out tidy with Ollama. Set it up in Settings › Output.
-es: Activado: los dictados salen limpios con Ollama. Configúralo en Ajustes › Salida.
-pt: Ligado: os ditados saem caprichados com o Ollama. Configure em Ajustes › Saída.
-ja: オン: Ollamaで音声入力がきれいに整います。設定 › 出力 で設定してください。
+@ On: dictations come out tidy. Pick Groq or Ollama in Settings › Output.
+es: Activado: los dictados salen limpios. Elige Groq u Ollama en Ajustes › Salida.
+pt: Ligado: os ditados saem caprichados. Escolha Groq ou Ollama em Ajustes › Saída.
+ja: オン: 音声入力がきれいに整います。設定 › 出力 でGroqかOllamaを選んでください。
 
 @ Off: dictations are inserted exactly as transcribed. You can turn this on later in Settings.
 es: Desactivado: los dictados se insertan tal como se transcriben. Puedes activarlo más tarde en Ajustes.
@@ -568,10 +568,10 @@ es: Puntuación y limpieza
 pt: Pontuação e limpeza
 ja: 句読点と整形
 
-@ Optionally tidy punctuation and formatting with a local Ollama model. Spoken punctuation, numbers and your dictionary always work, with no AI.
-es: Si quieres, ordena la puntuación y el formato con un modelo local de Ollama. La puntuación dictada, los números y tu diccionario funcionan siempre, sin IA.
-pt: Se quiser, arrume a pontuação e a formatação com um modelo local do Ollama. Pontuação falada, números e o seu dicionário sempre funcionam, sem IA.
-ja: 必要に応じて、ローカルのOllamaモデルで句読点や書式を整えます。読み上げた句読点、数字、辞書はAIなしでいつでも使えます。
+@ Optionally tidy punctuation and formatting with Groq (fast, in the cloud) or a local Ollama model. Spoken punctuation, numbers and your dictionary always work, with no AI.
+es: Si quieres, ordena la puntuación y el formato con Groq (rápido, en la nube) o con un modelo local de Ollama. La puntuación dictada, los números y tu diccionario funcionan siempre, sin IA.
+pt: Se quiser, arrume a pontuação e a formatação com a Groq (rápida, na nuvem) ou com um modelo local do Ollama. Pontuação falada, números e o seu dicionário sempre funcionam, sem IA.
+ja: 必要に応じて、Groq（高速、クラウド）またはローカルのOllamaモデルで句読点や書式を整えます。読み上げた句読点、数字、辞書はAIなしでいつでも使えます。
 
 @ Clean up dictations with AI
 es: Limpiar los dictados con IA
@@ -1573,10 +1573,10 @@ es: ¿Cómo activo Ollama y lo uso también en apps de IA?
 pt: Como ligo o Ollama e uso ele também em apps de IA?
 ja: Ollamaをオンにして、AIアプリでも使うには？
 
-@ Turn it on in Settings › Output › AI cleanup and pick Ollama: it then cleans every text you dictate. In AI apps and terminals (Claude, ChatGPT, Terminal, Cursor) the text skips cleanup and arrives exactly as spoken. To clean those too, turn off "Verbatim in AI & terminal apps" in Settings › Advanced; turn it back on to keep them word for word.
-es: Actívalo en Ajustes › Salida › Limpieza con IA y elige Ollama: a partir de ahí limpia todo lo que dictes. En las apps de IA y las terminales (Claude, ChatGPT, Terminal, Cursor) el texto no se limpia y llega tal como lo dijiste. Para limpiarlo también ahí, desactiva "Literal en apps de IA y terminal" en Ajustes › Avanzado; vuelve a activarlo para que lleguen palabra por palabra.
-pt: Ligue em Ajustes › Saída › Limpeza com IA e escolha Ollama: a partir daí ele limpa todo texto que você ditar. Em apps de IA e terminais (Claude, ChatGPT, Terminal, Cursor) o texto pula a limpeza e chega exatamente como você falou. Para limpar ali também, desligue "Literal em apps de IA e terminal" em Ajustes › Avançado; ligue de novo para eles voltarem a chegar palavra por palavra.
-ja: 設定 › 出力 › AIによる整形 でオンにしてOllamaを選ぶと、音声入力したすべての文章を整えます。AIアプリやターミナル（Claude、ChatGPT、ターミナル、Cursor）では整形せず、話したとおりに入力します。そこでも整えたい場合は、設定 › 詳細設定 の「AIアプリとターミナルではそのまま入力」をオフにしてください。オンに戻すと、また話したとおりに入力されます。
+@ Turn it on in Settings › Output › AI cleanup and pick Groq (fast, in the cloud) or Ollama (on this Mac): it then cleans every text you dictate. In AI apps and terminals (Claude, ChatGPT, Terminal, Cursor) the text skips cleanup and arrives exactly as spoken. To clean those too, turn off "Verbatim in AI & terminal apps" in Settings › Advanced; turn it back on to keep them word for word.
+es: Actívalo en Ajustes › Salida › Limpieza con IA y elige Groq (rápido, en la nube) u Ollama (en este Mac): a partir de ahí limpia todo lo que dictes. En las apps de IA y las terminales (Claude, ChatGPT, Terminal, Cursor) el texto no se limpia y llega tal como lo dijiste. Para limpiarlo también ahí, desactiva "Literal en apps de IA y terminal" en Ajustes › Avanzado; vuelve a activarlo para que lleguen palabra por palabra.
+pt: Ligue em Ajustes › Saída › Limpeza com IA e escolha Groq (rápida, na nuvem) ou Ollama (neste Mac): a partir daí ele limpa todo texto que você ditar. Em apps de IA e terminais (Claude, ChatGPT, Terminal, Cursor) o texto pula a limpeza e chega exatamente como você falou. Para limpar ali também, desligue "Literal em apps de IA e terminal" em Ajustes › Avançado; ligue de novo para eles voltarem a chegar palavra por palavra.
+ja: 設定 › 出力 › AIによる整形 でオンにしてGroq（高速、クラウド）かOllama（このMac）を選ぶと、音声入力したすべての文章を整えます。AIアプリやターミナル（Claude、ChatGPT、ターミナル、Cursor）では整形せず、話したとおりに入力します。そこでも整えたい場合は、設定 › 詳細設定 の「AIアプリとターミナルではそのまま入力」をオフにしてください。オンに戻すと、また話したとおりに入力されます。
 
 @ How do I keep Ollama running for AI cleanup?
 es: ¿Cómo dejo Ollama siempre en marcha para la limpieza con IA?
@@ -1613,10 +1613,10 @@ es: ¿Dónde se guardan mis datos?
 pt: Onde ficam os meus dados?
 ja: データはどこに保存される？
 
-@ Everything stays on this Mac: history and audio in ~/Library/Application Support/Oruri and API keys in the Keychain. Audio only leaves the Mac if you choose Groq.
-es: Todo se queda en este Mac: el historial y el audio en ~/Library/Application Support/Oruri y las claves de API en el Llavero. El audio solo sale del Mac si eliges Groq.
-pt: Tudo fica neste Mac: histórico e áudio em ~/Library/Application Support/Oruri e as chaves de API no Keychain. O áudio só sai do Mac se você escolher a Groq.
-ja: すべてこのMacに保存されます。履歴と音声は ~/Library/Application Support/Oruri、APIキーはキーチェーンです。音声がMacの外に出るのは、Groqを選んだときだけです。
+@ Everything stays on this Mac: history and audio in ~/Library/Application Support/Oruri and API keys in the Keychain. Audio and text only leave the Mac if you choose Groq.
+es: Todo se queda en este Mac: el historial y el audio en ~/Library/Application Support/Oruri y las claves de API en el Llavero. El audio y el texto solo salen del Mac si eliges Groq.
+pt: Tudo fica neste Mac: histórico e áudio em ~/Library/Application Support/Oruri e as chaves de API no Keychain. O áudio e o texto só saem do Mac se você escolher a Groq.
+ja: すべてこのMacに保存されます。履歴と音声は ~/Library/Application Support/Oruri、APIキーはキーチェーンです。音声と文章がMacの外に出るのは、Groqを選んだときだけです。
 
 @ Record with the microphone button, see your stats and search your history. Drop audio or video files here, or click the folder button at the bottom right to choose them, and they're transcribed one by one.
 es: Graba con el botón del micrófono, mira tus estadísticas y busca en tu historial. Suelta aquí archivos de audio o vídeo, o haz clic en el botón de carpeta abajo a la derecha para elegirlos, y se transcriben uno por uno.
@@ -2163,3 +2163,33 @@ ja: 設定 › ヘルプ › お問い合わせに正式なサポート用メー
 es: Cuando no hay ningún cuadro de texto seleccionado, el texto se copia y vuelve a aparecer "Copied · ⌘V", también en Chrome, Claude y otras apps de Electron.
 pt: Quando nenhuma caixa de texto está selecionada, o texto é copiado e o aviso "Copied · ⌘V" volta a aparecer, inclusive no Chrome, no Claude e em outros apps Electron.
 ja: テキストボックスが選択されていないときは、テキストをコピーして「Copied · ⌘V」を再び表示します。Chrome、Claude などの Electron アプリでも同様です。
+
+@ Add your Groq API key in Settings › Models to clean up with Groq.
+es: Añade tu clave de API de Groq en Ajustes › Modelos para limpiar con Groq.
+pt: Coloque a sua chave de API da Groq em Ajustes › Modelos para limpar com a Groq.
+ja: Groqで整形するには、設定 › モデル でGroqのAPIキーを入力してください。
+
+@ Groq cleanup failed
+es: Falló la limpieza con Groq
+pt: A limpeza pela Groq falhou
+ja: Groqでの整形に失敗しました
+
+@ AI engine
+es: Motor de IA
+pt: Motor de IA
+ja: AIエンジン
+
+@ Groq is fast and free with your Groq key, but the text goes to Groq's servers. Ollama runs on this Mac and is slower.
+es: Groq es rápido y gratuito con tu clave de Groq, pero el texto va a los servidores de Groq. Ollama funciona en este Mac y es más lento.
+pt: A Groq é rápida e grátis com a sua chave da Groq, mas o texto vai para os servidores da Groq. O Ollama roda neste Mac e é mais lento.
+ja: Groqは高速で、GroqのAPIキーがあれば無料ですが、文章はGroqのサーバーに送られます。OllamaはこのMacで動き、より時間がかかります。
+
+@ Ollama
+es: Ollama
+pt: Ollama
+ja: Ollama
+
+@ AI cleanup can now use Groq: much faster than Ollama, free with the same Groq key. Pick it in Settings › Output.
+es: La limpieza con IA ahora puede usar Groq: mucho más rápida que Ollama y gratuita con la misma clave de Groq. Elígela en Ajustes › Salida.
+pt: A limpeza por IA agora pode usar a Groq: bem mais rápida que o Ollama e grátis com a mesma chave da Groq. Escolha em Ajustes › Saída.
+ja: AIによる整形でGroqを使えるようになりました。Ollamaよりずっと速く、同じGroqのキーで無料です。設定 › 出力 で選べます。

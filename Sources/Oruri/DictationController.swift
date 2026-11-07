@@ -99,7 +99,7 @@ final class DictationController {
             }
         }
         // Com o Ollama, já carrega o modelo enquanto você fala (frio, ele leva ~20 s para responder).
-        if s.llmCleanup {
+        if s.usesOllama {
             LLMCleanup.warmUpOllama(endpoint: s.ollamaEndpoint, model: s.ollamaModel)
         }
     }

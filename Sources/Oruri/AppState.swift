@@ -83,6 +83,7 @@ struct Settings: Codable, Equatable {
     var numberFormatting = "Smart"
     var removeFillers = false
     var llmCleanup = false
+    var cleanupEngine = "Ollama" // "Ollama" (no Mac) ou "Groq" (nuvem, mesma chave da transcrição)
     var ollamaEndpoint = "http://localhost:11434"
     var ollamaModel = "llama3.2"
     var smartFormatting = false
@@ -114,12 +115,15 @@ struct Settings: Codable, Equatable {
     var holdLongRecordings = true
     var postHookEnabled = false
     var postHookCommand = ""
+
+    /// A limpeza por IA está ligada e roda no Ollama (aviso, carregar e liberar o modelo só valem nesse caso).
+    var usesOllama: Bool { llmCleanup && cleanupEngine != "Groq" }
 }
 
 /// Informações do app lidas do Info.plist.
 enum AppInfo {
     static var version: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.2"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.3"
     }
 
     /// E-mail de suporte, mostrado em Settings › Help › Contact.
@@ -169,13 +173,13 @@ final class AppState {
     var ollamaStatus: OllamaStatus = .unknown
 
     var ollamaWarning: String? {
-        OllamaService.warning(cleanupOn: settings.llmCleanup, status: ollamaStatus)
+        OllamaService.warning(cleanupOn: settings.usesOllama, status: ollamaStatus)
     }
 
     /// Confere o Ollama agora (ao abrir, ao mudar as opções e de tempos em tempos).
     func refreshOllamaStatus() {
         let s = settings
-        guard s.llmCleanup else { ollamaStatus = .unknown; return }
+        guard s.usesOllama else { ollamaStatus = .unknown; return }
         Task { @MainActor in
             let status = await OllamaService.check(endpoint: s.ollamaEndpoint)
             if self.ollamaStatus != status { self.ollamaStatus = status }

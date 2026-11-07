@@ -64,6 +64,17 @@ import Testing
         #expect(Delivery.isTextInput(role: "AXGroup", valueSettable: true))
     }
 
+    /// Item 21: com a Groq na limpeza, o Ollama não é carregado nem gera aviso; o padrão continua Ollama.
+    @Test func cleanupEngineChoice() {
+        var s = Settings()
+        #expect(s.cleanupEngine == "Ollama" && !s.usesOllama)
+        s.llmCleanup = true
+        #expect(s.usesOllama)
+        s.cleanupEngine = "Groq"
+        #expect(!s.usesOllama)
+        #expect(OllamaService.warning(cleanupOn: s.usesOllama, status: .stopped) == nil)
+    }
+
     /// A parte aberta não tem chave própria da OpenAI nem do Claude (só nomes de apps onde o texto é colado).
     @Test func noOpenAIOrClaudeKeys() throws {
         let root = URL(fileURLWithPath: #filePath)

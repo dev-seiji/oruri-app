@@ -1,7 +1,9 @@
 import Foundation
+import os
 
 /// Limpeza opcional do texto por um LLM (pontuação, formatação, correções faladas).
 enum LLMCleanup {
+    private static let log = Logger(subsystem: "com.seiji.oruri", category: "cleanup")
     enum CleanupError: LocalizedError {
         case unreachable(String), bad(String)
         var errorDescription: String? {
@@ -61,10 +63,14 @@ enum LLMCleanup {
     }
 
     static func clean(_ text: String, settings: Settings) async throws -> String {
-        // Ollama roda no Mac e não tem custo: limpa todo texto. A trava `isSafe` devolve o original se a IA mudar o que foi dito.
+        // Limpa todo texto, no Ollama (Mac) ou na Groq (nuvem, bem mais rápida). A trava `isSafe` devolve o original se a IA mudar o que foi dito.
         let prompt = systemPrompt(language: settings.transcriptionLanguage,
                                   smartFormatting: settings.smartFormatting, spokenEdits: settings.spokenEdits)
-        let output = try await ollama(userMessage(text), system: prompt, endpoint: settings.ollamaEndpoint, model: settings.ollamaModel)
+        let start = Date()
+        let output = settings.cleanupEngine == "Groq"
+            ? try await groq(userMessage(text), system: prompt)
+            : try await ollama(userMessage(text), system: prompt, endpoint: settings.ollamaEndpoint, model: settings.ollamaModel)
+        log.notice("cleanup: \(settings.cleanupEngine, privacy: .public) took \(Int(Date().timeIntervalSince(start) * 1000)) ms")
         let cleaned = unwrap(output)
         return isSafe(original: text, cleaned: cleaned, allowEdits: settings.spokenEdits) ? cleaned : text
     }
@@ -252,6 +258,32 @@ enum LLMCleanup {
         let done = DispatchSemaphore(value: 0)
         URLSession.shared.dataTask(with: request) { _, _, _ in done.signal() }.resume()
         _ = done.wait(timeout: .now() + 1)
+    }
+
+    static let groqCleanupModel = "llama-3.3-70b-versatile"
+
+    /// Limpeza pela Groq, com a mesma chave da transcrição.
+    private static func groq(_ text: String, system: String) async throws -> String {
+        guard let key = Keychain.get(TranscriptionProvider.groq.keychainAccount), !key.isEmpty else {
+            throw CleanupError.bad(T("Add your Groq API key in Settings › Models to clean up with Groq."))
+        }
+        var request = URLRequest(url: URL(string: "https://api.groq.com/openai/v1/chat/completions")!)
+        request.httpMethod = "POST"
+        request.timeoutInterval = 30
+        request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "content-type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: [
+            "model": groqCleanupModel,
+            "temperature": 0,
+            "messages": [["role": "system", "content": system], ["role": "user", "content": text]],
+        ])
+        let (data, response) = try await URLSession.shared.data(for: request)
+        let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw CleanupError.bad((json?["error"] as? [String: Any])?["message"] as? String ?? T("Groq cleanup failed"))
+        }
+        let message = ((json?["choices"] as? [[String: Any]])?.first?["message"] as? [String: Any])
+        return message?["content"] as? String ?? ""
     }
 
     private static func ollama(_ text: String, system: String, endpoint: String, model: String) async throws -> String {

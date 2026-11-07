@@ -262,7 +262,7 @@ private struct CleanupStep: View {
         @Bindable var state = state
         VStack(alignment: .leading, spacing: 10) {
             StepTitle(title: "Punctuation & cleanup",
-                      subtitle: "Optionally tidy punctuation and formatting with a local Ollama model. Spoken punctuation, numbers and your dictionary always work, with no AI.")
+                      subtitle: "Optionally tidy punctuation and formatting with Groq (fast, in the cloud) or a local Ollama model. Spoken punctuation, numbers and your dictionary always work, with no AI.")
             SettingsSection {
                 ToggleRow(title: "Clean up dictations with AI", isOn: $state.settings.llmCleanup)
             }
@@ -270,7 +270,7 @@ private struct CleanupStep: View {
                 Image(systemName: state.settings.llmCleanup ? "checkmark.circle.fill" : "minus.circle")
                     .foregroundStyle(state.settings.llmCleanup ? Theme.success : Theme.tertiaryText)
                 Text(T(state.settings.llmCleanup
-                     ? "On: dictations come out tidy with Ollama. Set it up in Settings › Output."
+                     ? "On: dictations come out tidy. Pick Groq or Ollama in Settings › Output."
                      : "Off: dictations are inserted exactly as transcribed. You can turn this on later in Settings."))
                     .fixedSize(horizontal: false, vertical: true)
             }

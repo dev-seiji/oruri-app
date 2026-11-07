@@ -57,7 +57,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     /// Com a limpeza pelo Ollama ligada, deixa o modelo carregado desde já (e ao trocar de modelo).
     private func warmUpOllamaIfUsed(_ s: Settings) {
-        guard s.llmCleanup else { return }
+        guard s.usesOllama else { return }
         LLMCleanup.warmUpOllama(endpoint: s.ollamaEndpoint, model: s.ollamaModel)
     }
 
@@ -76,7 +76,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 guard let self else { return }
                 let after = self.state.settings
                 self.dictation?.applySettings()
-                if after.llmCleanup != before.llmCleanup
+                if before.usesOllama && !after.usesOllama {
+                    // Trocou para a Groq ou desligou: libera a memória que o modelo ocupava.
+                    LLMCleanup.unloadOllama(endpoint: before.ollamaEndpoint, model: before.ollamaModel)
+                }
+                if after.usesOllama != before.usesOllama
                     || after.ollamaModel != before.ollamaModel || after.ollamaEndpoint != before.ollamaEndpoint {
                     self.warmUpOllamaIfUsed(after)
                     self.state.refreshOllamaStatus()

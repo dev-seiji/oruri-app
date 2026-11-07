@@ -448,6 +448,15 @@ struct OutputPane: View {
             ToggleRow(title: "Remove filler words", subtitle: "Strip um, uh, hã, né… before inserting", isOn: $state.settings.removeFillers)
             ToggleRow(title: "Clean up with an LLM", subtitle: "Fix punctuation and obvious errors after transcribing. If the result drops or invents too much, the original is kept.", isOn: $state.settings.llmCleanup)
             if state.settings.llmCleanup {
+                PickerRow(title: "AI engine", subtitle: "Groq is fast and free with your Groq key, but the text goes to Groq's servers. Ollama runs on this Mac and is slower.",
+                          options: ["Groq", "Ollama"], selection: $state.settings.cleanupEngine, width: 130)
+                    .padding(.leading, 12)
+                ToggleRow(title: "Smart formatting", subtitle: "Lists become bullets; emails and messages get greeting, paragraphs and sign-off on their own lines.",
+                          isOn: $state.settings.smartFormatting).padding(.leading, 12)
+                ToggleRow(title: "Spoken edits", subtitle: "Say \"scratch that\" or \"quer dizer\" and only the corrected version is inserted.",
+                          isOn: $state.settings.spokenEdits).padding(.leading, 12)
+            }
+            if state.settings.usesOllama {
                 VStack(alignment: .leading, spacing: 10) {
                     OllamaStatusRow()
                     HStack {
@@ -468,10 +477,6 @@ struct OutputPane: View {
                     }
                 }
                 .padding(.leading, 12)
-                ToggleRow(title: "Smart formatting", subtitle: "Lists become bullets; emails and messages get greeting, paragraphs and sign-off on their own lines.",
-                          isOn: $state.settings.smartFormatting).padding(.leading, 12)
-                ToggleRow(title: "Spoken edits", subtitle: "Say \"scratch that\" or \"quer dizer\" and only the corrected version is inserted.",
-                          isOn: $state.settings.spokenEdits).padding(.leading, 12)
             }
         }
 
@@ -931,7 +936,7 @@ enum HelpContent {
         HelpItem(title: "Which transcription engine should I use?",
                  body: "On-device is free, private and works offline. Groq is very fast and has a free plan; whisper-large-v3-turbo is the default and the quickest. Groq needs your own API key and accepts files up to about 25 MB (around 12 minutes)."),
         HelpItem(title: "How do I turn Ollama on, and use it in AI apps too?",
-                 body: "Turn it on in Settings › Output › AI cleanup and pick Ollama: it then cleans every text you dictate. In AI apps and terminals (Claude, ChatGPT, Terminal, Cursor) the text skips cleanup and arrives exactly as spoken. To clean those too, turn off \"Verbatim in AI & terminal apps\" in Settings › Advanced; turn it back on to keep them word for word."),
+                 body: "Turn it on in Settings › Output › AI cleanup and pick Groq (fast, in the cloud) or Ollama (on this Mac): it then cleans every text you dictate. In AI apps and terminals (Claude, ChatGPT, Terminal, Cursor) the text skips cleanup and arrives exactly as spoken. To clean those too, turn off \"Verbatim in AI & terminal apps\" in Settings › Advanced; turn it back on to keep them word for word."),
         HelpItem(title: "Why does AI cleanup sometimes leave my text as it was?",
                  body: "The AI may only tidy punctuation, capitals and spelling, and apply your spoken corrections. If it changes a number, a name, a \"not\" or a word, drops part of what you said or rewrites the sentence, Oruri keeps your original text instead, so the meaning never changes."),
         HelpItem(title: "Why does Ollama use memory while Oruri is open?",
@@ -943,7 +948,7 @@ enum HelpContent {
         HelpItem(title: "How do I change the app's language?",
                  body: "Go to Settings › Advanced › Language and pick English, Español, Português or 日本語. Oruri switches right away. This only changes the screens: the language you dictate in is set in Settings › Output › Transcription language."),
         HelpItem(title: "Where is my data stored?",
-                 body: "Everything stays on this Mac: history and audio in ~/Library/Application Support/Oruri and API keys in the Keychain. Audio only leaves the Mac if you choose Groq."),
+                 body: "Everything stays on this Mac: history and audio in ~/Library/Application Support/Oruri and API keys in the Keychain. Audio and text only leave the Mac if you choose Groq."),
     ]
 
     static let manual: [HelpItem] = [
@@ -1086,6 +1091,9 @@ struct UpdatesPane: View {
 
     /// Notas de versão do Oruri, da mais nova para a mais antiga.
     private let releases: [(version: String, date: String, notes: [String])] = [
+        ("0.6.3", "November 2026", [
+            "AI cleanup can now use Groq: much faster than Ollama, free with the same Groq key. Pick it in Settings › Output.",
+        ]),
         ("0.6.2", "November 2026", [
             "When no text box is selected, the text is copied and \"Copied · ⌘V\" appears again, including in Chrome, Claude and other Electron apps.",
         ]),

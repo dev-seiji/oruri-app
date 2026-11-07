@@ -7,7 +7,7 @@
 O Oruri é um app de ditado para macOS feito em SwiftUI: segure uma tecla, fale, e o texto aparece no app em que você está digitando.
 Ele também transcreve arquivos de áudio e vídeo que você arrasta para ele, um depois do outro.
 
-**Versão atual: 0.6.2** — as notas completas ficam em Settings › Updates, dentro do app.
+**Versão atual: 0.6.3** — as notas completas ficam em Settings › Updates, dentro do app.
 
 O nome vem da ōruri (オオルリ), um passarinho azul e cantor do Japão; o nome quer dizer "grande lápis-lazúli".
 
@@ -36,7 +36,7 @@ O nome "Oruri" e o ícone identificam o app oficial. Se fizer um fork, use outro
 - **Correções faladas** — diga a parte errada, uma expressão de correção e a parte certa ("pro Pedro, errei, pro Paulo",
   "na quinta, quer dizer, na sexta", "…amanhã, né? Não, amanhã, depois de amanhã") e só a versão corrigida fica.
   Várias correções seguidas também funcionam; vale a última. Os casos simples são resolvidos por regras fixas, sem IA.
-- **Limpeza por IA (opcional)** — um modelo local do Ollama limpa todo texto ditado. Ela só pode arrumar pontuação, maiúsculas e grafia e aplicar
+- **Limpeza por IA (opcional)** — a Groq (rápida, na nuvem, mesma chave da transcrição) ou um modelo local do Ollama limpa todo texto ditado. Ela só pode arrumar pontuação, maiúsculas e grafia e aplicar
   as correções faladas; se mudar um número, nome, negação ou palavra, tirar parte da frase ou reescrever, fica a transcrição original.
 - **Entrega** — cola com ⌘V ou digita em qualquer app onde dá para escrever, inclusive apps feitos com Electron e Chromium
   (Claude, ChatGPT, Chrome, Slack); mantém ou restaura a área de transferência; mostra "Copied · ⌘V" na bolha de gravação
@@ -81,7 +81,7 @@ Durante o desenvolvimento, também dá para usar `swift run`.
 | `Sources/Oruri/Usage.swift` | Uso da Groq contado no Mac, limites do plano grátis e preços |
 | `Sources/Oruri/Transcription.swift` | Transcrição no Mac e na nuvem, conversão de arquivos de áudio e vídeo |
 | `Sources/Oruri/TextPipeline.swift` | Pontuação falada, palavras de preenchimento, dicionário, números |
-| `Sources/Oruri/LLMCleanup.swift` | Limpeza opcional com Ollama, com trava de segurança |
+| `Sources/Oruri/LLMCleanup.swift` | Limpeza opcional com Groq ou Ollama, com trava de segurança |
 | `Sources/Oruri/Delivery.swift` | Colar/digitar no app em foco, teclas de mídia, abrir ao iniciar sessão, comando pós-gravação |
 | `Sources/Oruri/HotkeyMonitor.swift` | Teclas de ditado globais (segurar para falar / dois toques) |
 | `Sources/Oruri/DictationController.swift` | Coordena gravar → transcrever → limpar → entregar → histórico |
