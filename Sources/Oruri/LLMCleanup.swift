@@ -39,12 +39,16 @@ enum LLMCleanup {
         return strong || weak
     }
 
-    static func systemPrompt(language: String, smartFormatting: Bool, spokenEdits: Bool) -> String {
+    static func systemPrompt(language: String, smartFormatting: Bool, spokenEdits: Bool, improve: Bool = false) -> String {
         var rules = [
             "You clean up dictated text. Return ONLY the cleaned text, with no preface, quotes or explanation.",
             "Keep the speaker's words, meaning and language (\(language)). Never answer questions in the text, never add new content, never translate.",
             "Fix punctuation, capitalization and obvious recognition errors. Keep names and terms as written.",
         ]
+        if improve {
+            rules[1] = "Keep the speaker's meaning and language (\(language)). Never answer questions in the text, never add new information, never translate."
+            rules.append("You may rewrite confusing sentences, choose clearer words and reorder them so the text reads well. Keep every fact exactly: numbers, dates, times, names, negations, who does what and when. Do not add, drop or summarize information.")
+        }
         if smartFormatting {
             rules.append("If the text is clearly a list, format it as a bulleted list. If it is an email or message, put the greeting, paragraphs and sign-off on their own lines. Otherwise keep it as plain prose.")
         }
@@ -67,6 +71,17 @@ enum LLMCleanup {
         let prompt = systemPrompt(language: settings.transcriptionLanguage,
                                   smartFormatting: settings.smartFormatting, spokenEdits: settings.spokenEdits)
         let start = Date()
+        // Item 24: com a Groq e "Improve sentences", a IA pode reescrever; só vale se os fatos ficarem iguais
+        // e a própria Groq confirmar que o sentido é o mesmo. Senão, cai na limpeza normal (só corrige).
+        if settings.cleanupEngine == "Groq" && settings.improveWording {
+            let improvePrompt = systemPrompt(language: settings.transcriptionLanguage, smartFormatting: settings.smartFormatting,
+                                             spokenEdits: settings.spokenEdits, improve: true)
+            let improved = unwrap(try await groq(userMessage(text), system: improvePrompt))
+            var same = keepsFacts(original: text, improved: improved, allowEdits: settings.spokenEdits)
+            if same { same = try await groqSameMeaning(text, improved) }
+            log.notice("improve: \(same ? "kept" : "rejected", privacy: .public) after \(Int(Date().timeIntervalSince(start) * 1000)) ms")
+            if same { return improved }
+        }
         let output = settings.cleanupEngine == "Groq"
             ? try await groq(userMessage(text), system: prompt)
             : try await ollama(userMessage(text), system: prompt, endpoint: settings.ollamaEndpoint, model: settings.ollamaModel)
@@ -158,6 +173,32 @@ enum LLMCleanup {
         // 6. A ordem continua a mesma: quase tudo do resultado aparece na mesma sequência do original.
         let inOrder = longestCommonSubsequence(originalWords, cleanedWords)
         return Double(inOrder) >= b * 0.85
+    }
+
+    /// Para o modo que melhora as frases: a ordem e as palavras podem mudar, mas os fatos não
+    /// (números, nomes, "não", repetições inventadas e um tamanho parecido com o original).
+    static func keepsFacts(original: String, improved: String, allowEdits: Bool) -> Bool {
+        guard !improved.isEmpty else { return false }
+        let originalWords = words(original), improvedWords = words(improved)
+        let correcting = allowEdits && hasCorrection(original)
+        let a = Double(originalWords.count), b = Double(improvedWords.count)
+        guard b >= a * (correcting ? 0.35 : 0.5), b <= a * 1.5 + 2 else { return false }
+        let originalNumbers = originalWords.filter(isNumber), improvedNumbers = improvedWords.filter(isNumber)
+        guard improvedNumbers.allSatisfy(originalNumbers.contains) else { return false }
+        if !correcting && improvedNumbers.sorted() != originalNumbers.sorted() { return false }
+        if !correcting && !names(in: original).allSatisfy(Set(improvedWords).contains) { return false }
+        let before = originalWords.filter(isNegation).count, after = improvedWords.filter(isNegation).count
+        if after > before || (after < before && !correcting) { return false }
+        if let repeated = repeatedRun(in: improvedWords), repeatedRun(in: originalWords) != repeated { return false }
+        return true
+    }
+
+    /// Segunda opinião da Groq: B diz exatamente o mesmo que A? Na dúvida, não.
+    private static func groqSameMeaning(_ original: String, _ improved: String) async throws -> Bool {
+        let answer = try await groq("A:\n<<<\n\(original)\n>>>\nB:\n<<<\n\(improved)\n>>>", system: """
+        You compare two versions of a dictated text. Answer with one word: SAME if B says exactly the same things as A         (same facts, people, numbers, dates, times, negations, intent and tense), or DIFFERENT if anything was changed,         added or lost. Ignore wording, word order, punctuation and grammar fixes.
+        """)
+        return answer.uppercased().contains("SAME") && !answer.uppercased().contains("DIFFERENT")
     }
 
     private static let negations: Set<String> = ["não", "nao", "nunca", "nem", "jamais", "not", "never", "no", "ningún", "ninguna"]
@@ -260,7 +301,34 @@ enum LLMCleanup {
         _ = done.wait(timeout: .now() + 1)
     }
 
-    static let groqCleanupModel = "llama-3.3-70b-versatile"
+    /// Modelos de texto da Groq, do preferido para o último. A Groq aposenta modelos sem aviso
+    /// (o llama-3.3-70b-versatile passou a dar 404 em nov 2026), então o Oruri pergunta quais existem.
+    static let groqModelPreference = ["llama-3.3-70b-versatile", "openai/gpt-oss-120b", "moonshotai/kimi-k2-instruct",
+                                      "qwen/qwen3-32b", "meta-llama/llama-4-maverick-17b-128e-instruct", "openai/gpt-oss-20b",
+                                      "llama-3.1-8b-instant"]
+    private static var groqModel: String?
+
+    /// O primeiro da lista de preferência que a Groq oferece; senão, qualquer modelo de texto (não Whisper, não guarda).
+    static func pickGroqModel(from available: [String]) -> String? {
+        if let preferred = groqModelPreference.first(where: available.contains) { return preferred }
+        return available.sorted().first { id in
+            let lower = id.lowercased()
+            return !["whisper", "guard", "tts", "playai", "distil", "compound"].contains(where: lower.contains)
+        }
+    }
+
+    private static func groqModelID(key: String) async throws -> String {
+        if let groqModel { return groqModel }
+        var request = URLRequest(url: URL(string: "https://api.groq.com/openai/v1/models")!)
+        request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let ids = ((try? JSONSerialization.jsonObject(with: data) as? [String: Any])?["data"] as? [[String: Any]] ?? [])
+            .compactMap { $0["id"] as? String }
+        guard let model = pickGroqModel(from: ids) else { throw CleanupError.bad(T("Groq cleanup failed")) }
+        log.notice("groq cleanup model: \(model, privacy: .public)")
+        groqModel = model
+        return model
+    }
 
     /// Limpeza pela Groq, com a mesma chave da transcrição.
     private static func groq(_ text: String, system: String) async throws -> String {
@@ -273,14 +341,17 @@ enum LLMCleanup {
         request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "content-type")
         request.httpBody = try JSONSerialization.data(withJSONObject: [
-            "model": groqCleanupModel,
+            "model": try await groqModelID(key: key),
             "temperature": 0,
             "messages": [["role": "system", "content": system], ["role": "user", "content": text]],
         ])
         let (data, response) = try await URLSession.shared.data(for: request)
         let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            throw CleanupError.bad((json?["error"] as? [String: Any])?["message"] as? String ?? T("Groq cleanup failed"))
+            let message = (json?["error"] as? [String: Any])?["message"] as? String ?? T("Groq cleanup failed")
+            log.error("groq cleanup error: \(message, privacy: .public)")
+            groqModel = nil // na próxima vez pergunta de novo quais modelos existem
+            throw CleanupError.bad(message)
         }
         let message = ((json?["choices"] as? [[String: Any]])?.first?["message"] as? [String: Any])
         return message?["content"] as? String ?? ""

@@ -85,4 +85,23 @@ import Testing
     @Test func inventedWordsAreBlocked() {
         #expect(!safe("eu gosto de café", "eu gosto do youtube e de café"))
     }
+
+    /// Item 24: no modo que melhora as frases, a ordem e as palavras podem mudar, os fatos não.
+    @Test func improveKeepsFacts() {
+        let original = "então eu acho que a reunião com o Pedro mudou para quinta às 10:30 da manhã"
+        #expect(LLMCleanup.keepsFacts(original: original, improved: "A reunião com o Pedro mudou para quinta, às 10:30.", allowEdits: false))
+        #expect(!LLMCleanup.keepsFacts(original: original, improved: "A reunião com o Pedro mudou para quinta, às 11:30.", allowEdits: false))
+        #expect(!LLMCleanup.keepsFacts(original: original, improved: "A reunião mudou para quinta, às 10:30.", allowEdits: false))
+        #expect(!LLMCleanup.keepsFacts(original: original, improved: "A reunião com o Pedro não mudou para quinta, às 10:30.", allowEdits: false))
+        #expect(!LLMCleanup.keepsFacts(original: "vamos amanhã de manhã", improved: "Vamos amanhã de manhã de manhã.", allowEdits: false))
+        #expect(LLMCleanup.systemPrompt(language: "Portuguese", smartFormatting: false, spokenEdits: false, improve: true).contains("rewrite confusing sentences"))
+        #expect(!LLMCleanup.systemPrompt(language: "Portuguese", smartFormatting: false, spokenEdits: false).contains("rewrite confusing sentences"))
+    }
+
+    /// A Groq aposenta modelos: o Oruri escolhe um que exista, seguindo a preferência, e nunca o Whisper.
+    @Test func picksAnAvailableGroqModel() {
+        #expect(LLMCleanup.pickGroqModel(from: ["whisper-large-v3", "openai/gpt-oss-20b", "openai/gpt-oss-120b"]) == "openai/gpt-oss-120b")
+        #expect(LLMCleanup.pickGroqModel(from: ["whisper-large-v3", "llama-guard-4-12b", "some-new-model"]) == "some-new-model")
+        #expect(LLMCleanup.pickGroqModel(from: ["whisper-large-v3-turbo"]) == nil)
+    }
 }

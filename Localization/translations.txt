@@ -2198,3 +2198,23 @@ ja: AIによる整形でGroqを使えるようになりました。Ollamaより�
 es: Los archivos largos se comprimen antes de ir a Groq, así que cada archivo puede durar hasta 1 h 40 min más o menos, en lugar de 12 min.
 pt: Arquivos longos são comprimidos antes de ir para a Groq, então cada arquivo pode ter até cerca de 1 h 40 min, em vez de 12 min.
 ja: 長いファイルはGroqに送る前に圧縮するので、1ファイルあたり12分ではなく約1時間40分まで扱えます。
+
+@ Improve sentences
+es: Mejorar las frases
+pt: Melhorar as frases
+ja: 文章を改善
+
+@ The AI may reword confusing sentences, keeping what you meant. If numbers, names or the meaning change, Oruri only fixes the text instead.
+es: La IA puede reescribir frases confusas manteniendo lo que quisiste decir. Si cambian números, nombres o el sentido, Oruri solo corrige el texto.
+pt: A IA pode reescrever frases confusas, mantendo o que você quis dizer. Se números, nomes ou o sentido mudarem, o Oruri só corrige o texto.
+ja: AIがわかりにくい文を、言いたいことはそのままに書き直します。数字や名前、意味が変わる場合は、文章の修正だけを行います。
+
+@ With Groq, "Improve sentences" lets the AI reword confusing sentences while keeping numbers, names and meaning.
+es: Con Groq, "Improve sentences" permite que la IA reescriba frases confusas manteniendo números, nombres y sentido.
+pt: Com a Groq, "Improve sentences" deixa a IA reescrever frases confusas, mantendo números, nomes e sentido.
+ja: Groqでは「Improve sentences」で、数字・名前・意味はそのままに、AIがわかりにくい文を書き直せます。
+
+@ Groq cleanup works again: Oruri now picks a Groq model that is available.
+es: La limpieza con Groq vuelve a funcionar: Oruri ahora elige un modelo de Groq disponible.
+pt: A limpeza pela Groq voltou a funcionar: o Oruri agora escolhe um modelo da Groq que esteja disponível.
+ja: Groqでの整形が再び動くようになりました。Oruriが利用できるGroqのモデルを選びます。

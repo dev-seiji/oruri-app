@@ -7,17 +7,19 @@
 Oruri is a macOS dictation app written in SwiftUI: hold a key, talk, and the text lands in whatever app you're using.
 It also transcribes audio and video files you drop on it, one after another.
 
-**Current version: 0.6.4** — see Settings › Updates in the app for the full release notes.
+It's a personal portfolio project: a voice-to-text app for the Mac, vibe coded with Claude (Claude Code) to learn how AI tools
+work in a real app, from speech recognition to AI text cleanup with safety checks. It isn't distributed as a ready-made app;
+to use it, build it from the source (see Build below).
+
+**Current version: 0.6.5** — see Settings › Updates in the app for the full release notes.
 
 Oruri is named after the ōruri (オオルリ), a blue songbird from Japan whose name means "great lapis lazuli".
 
-## Open source and the official app
+## About this project
 
-This repository is the open part of Oruri, under the GPL-3.0. It builds and runs on its own with the free engines:
-on-device transcription, Groq with your own API key, and a local Ollama model for the optional AI cleanup.
-An official Oruri app with extra paid features is planned; those features are not part of this repository.
-
-The name "Oruri" and the icon identify the official app. If you fork it, please use a different name and icon.
+Oruri is open source under the GPL-3.0. It builds and runs with free engines: on-device transcription, Groq with your own
+API key, and Groq or a local Ollama model for the optional AI cleanup. There is no signed download and no paid version:
+build it with `./build-app.sh`.
 
 ## Features
 

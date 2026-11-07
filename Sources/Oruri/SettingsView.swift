@@ -451,6 +451,10 @@ struct OutputPane: View {
                 PickerRow(title: "AI engine", subtitle: "Groq is fast and free with your Groq key, but the text goes to Groq's servers. Ollama runs on this Mac and is slower.",
                           options: ["Groq", "Ollama"], selection: $state.settings.cleanupEngine, width: 130)
                     .padding(.leading, 12)
+                if state.settings.cleanupEngine == "Groq" {
+                    ToggleRow(title: "Improve sentences", subtitle: "The AI may reword confusing sentences, keeping what you meant. If numbers, names or the meaning change, Oruri only fixes the text instead.",
+                              isOn: $state.settings.improveWording).padding(.leading, 12)
+                }
                 ToggleRow(title: "Smart formatting", subtitle: "Lists become bullets; emails and messages get greeting, paragraphs and sign-off on their own lines.",
                           isOn: $state.settings.smartFormatting).padding(.leading, 12)
                 ToggleRow(title: "Spoken edits", subtitle: "Say \"scratch that\" or \"quer dizer\" and only the corrected version is inserted.",
@@ -1091,6 +1095,10 @@ struct UpdatesPane: View {
 
     /// Notas de versão do Oruri, da mais nova para a mais antiga.
     private let releases: [(version: String, date: String, notes: [String])] = [
+        ("0.6.5", "November 2026", [
+            "With Groq, \"Improve sentences\" lets the AI reword confusing sentences while keeping numbers, names and meaning.",
+            "Groq cleanup works again: Oruri now picks a Groq model that is available.",
+        ]),
         ("0.6.4", "November 2026", [
             "Long files are compressed before going to Groq, so one file can be up to about 1 h 40 min instead of 12 min.",
         ]),

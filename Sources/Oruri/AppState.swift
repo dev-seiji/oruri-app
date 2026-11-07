@@ -84,6 +84,7 @@ struct Settings: Codable, Equatable {
     var removeFillers = false
     var llmCleanup = false
     var cleanupEngine = "Ollama" // "Ollama" (no Mac) ou "Groq" (nuvem, mesma chave da transcrição)
+    var improveWording = false // item 24: com a Groq, a IA pode reescrever frases confusas mantendo o sentido
     var ollamaEndpoint = "http://localhost:11434"
     var ollamaModel = "llama3.2"
     var smartFormatting = false
@@ -123,7 +124,7 @@ struct Settings: Codable, Equatable {
 /// Informações do app lidas do Info.plist.
 enum AppInfo {
     static var version: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.4"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.5"
     }
 
     /// E-mail de suporte, mostrado em Settings › Help › Contact.

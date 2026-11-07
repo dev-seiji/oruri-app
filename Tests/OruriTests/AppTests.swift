@@ -107,7 +107,7 @@ import AVFoundation
         var files = try FileManager.default.contentsOfDirectory(at: sources, includingPropertiesForKeys: nil)
             .filter { $0.pathExtension == "swift" }
         files.append(root.appendingPathComponent("Localization/translations.txt"))
-        let allowed = ["com.anthropic.claudefordesktop", "com.openai.chat", "api.groq.com/openai/"]
+        let allowed = ["com.anthropic.claudefordesktop", "com.openai.chat", "api.groq.com/openai/", "openai/gpt-oss"] // gpt-oss: modelo aberto hospedado na Groq
         var leftovers: [String] = []
         for file in files {
             for line in try String(contentsOf: file, encoding: .utf8).components(separatedBy: .newlines) {
