@@ -7,7 +7,7 @@
 Oruri is a macOS dictation app written in SwiftUI: hold a key, talk, and the text lands in whatever app you're using.
 It also transcribes audio and video files you drop on it, one after another.
 
-**Current version: 0.6.3** — see Settings › Updates in the app for the full release notes.
+**Current version: 0.6.4** — see Settings › Updates in the app for the full release notes.
 
 Oruri is named after the ōruri (オオルリ), a blue songbird from Japan whose name means "great lapis lazuli".
 

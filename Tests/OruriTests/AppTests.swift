@@ -1,6 +1,7 @@
 import Foundation
 import AppKit
 import Testing
+import AVFoundation
 @testable import Oruri
 
 /// Uso da Groq, formatação e idiomas.
@@ -73,6 +74,29 @@ import Testing
         s.cleanupEngine = "Groq"
         #expect(!s.usesOllama)
         #expect(OllamaService.warning(cleanupOn: s.usesOllama, status: .stopped) == nil)
+    }
+
+    /// Item 23: áudio grande vira AAC menor antes de ir para a Groq, com a mesma duração.
+    @Test func largeAudioIsCompressedForGroq() throws {
+        let wav = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".wav")
+        defer { try? FileManager.default.removeItem(at: wav) }
+        let format = AudioRecorder.targetFormat
+        do {
+            let file = try AVAudioFile(forWriting: wav, settings: format.settings, commonFormat: format.commonFormat, interleaved: format.isInterleaved)
+            let buffer = try #require(AVAudioPCMBuffer(pcmFormat: format, frameCapacity: AVAudioFrameCount(format.sampleRate * 30)))
+            buffer.frameLength = buffer.frameCapacity
+            for i in 0..<Int(buffer.frameLength) { buffer.int16ChannelData?[0][i] = Int16(sin(Double(i) / 8) * 8000) }
+            try file.write(from: buffer)
+        }
+        #expect(try Transcriber.compressedIfLarge(wav) == wav) // pequeno: vai como está
+        let m4a = try Transcriber.compressedIfLarge(wav, limit: 1)
+        defer { try? FileManager.default.removeItem(at: m4a) }
+        #expect(m4a.pathExtension == "m4a")
+        let wavSize = try #require(try wav.resourceValues(forKeys: [.fileSizeKey]).fileSize)
+        let m4aSize = try #require(try m4a.resourceValues(forKeys: [.fileSizeKey]).fileSize)
+        #expect(m4aSize * 4 < wavSize)
+        let out = try AVAudioFile(forReading: m4a)
+        #expect(abs(Double(out.length) / out.processingFormat.sampleRate - 30) < 0.2)
     }
 
     /// A parte aberta não tem chave própria da OpenAI nem do Claude (só nomes de apps onde o texto é colado).

@@ -934,7 +934,7 @@ enum HelpContent {
         HelpItem(title: "How does a shortcut with Caps Lock work?",
                  body: "Caps Lock works as on/off: tap the shortcut to start recording and tap it again to stop. With Caps Lock you can only combine ⌃ ⌥ ⇧ ⌘ fn, not letters."),
         HelpItem(title: "Which transcription engine should I use?",
-                 body: "On-device is free, private and works offline. Groq is very fast and has a free plan; whisper-large-v3-turbo is the default and the quickest. Groq needs your own API key and accepts files up to about 25 MB (around 12 minutes)."),
+                 body: "On-device is free, private and works offline. Groq is very fast and has a free plan; whisper-large-v3-turbo is the default and the quickest. Groq needs your own API key. Long files are compressed before sending, so it takes up to about 1 h 40 min per file."),
         HelpItem(title: "How do I turn Ollama on, and use it in AI apps too?",
                  body: "Turn it on in Settings › Output › AI cleanup and pick Groq (fast, in the cloud) or Ollama (on this Mac): it then cleans every text you dictate. In AI apps and terminals (Claude, ChatGPT, Terminal, Cursor) the text skips cleanup and arrives exactly as spoken. To clean those too, turn off \"Verbatim in AI & terminal apps\" in Settings › Advanced; turn it back on to keep them word for word."),
         HelpItem(title: "Why does AI cleanup sometimes leave my text as it was?",
@@ -1091,6 +1091,9 @@ struct UpdatesPane: View {
 
     /// Notas de versão do Oruri, da mais nova para a mais antiga.
     private let releases: [(version: String, date: String, notes: [String])] = [
+        ("0.6.4", "November 2026", [
+            "Long files are compressed before going to Groq, so one file can be up to about 1 h 40 min instead of 12 min.",
+        ]),
         ("0.6.3", "November 2026", [
             "AI cleanup can now use Groq: much faster than Ollama, free with the same Groq key. Pick it in Settings › Output.",
         ]),

@@ -192,9 +192,11 @@ enum Transcriber {
             // O "prompt" ajuda o modelo a grafar nomes e jargões do dicionário.
             form.add("prompt", request.vocabulary.prefix(60).joined(separator: ", "))
         }
-        let audio = try Data(contentsOf: request.audioURL)
-        form.addFile("file", filename: request.audioURL.lastPathComponent,
-                     mimeType: mimeType(for: request.audioURL), data: audio)
+        let upload = try compressedIfLarge(request.audioURL)
+        defer { if upload != request.audioURL { try? FileManager.default.removeItem(at: upload) } }
+        let audio = try Data(contentsOf: upload)
+        form.addFile("file", filename: upload.lastPathComponent,
+                     mimeType: mimeType(for: upload), data: audio)
 
         var http = URLRequest(url: endpoint)
         http.httpMethod = "POST"
@@ -226,6 +228,31 @@ enum Transcriber {
                                   confidence: ($0["avg_logprob"] as? NSNumber)?.doubleValue ?? 0)
         }
         return Hallucination.isLikely(text, segments: segments) ? "" : text
+    }
+
+    /// A Groq recusa arquivos acima de 25 MB (WAV ≈ 12 min). Acima disso, manda em AAC mono de 32 kbps (≈ 100 min em 24 MB).
+    // shortcut: acima de ~100 min ainda passa do limite; dividir em partes quando alguém precisar.
+    static func compressedIfLarge(_ url: URL, limit: Int = 24_000_000) throws -> URL {
+        let size = (try? url.resourceValues(forKeys: [.fileSizeKey]).fileSize) ?? 0
+        guard size > limit else { return url }
+        let input = try AVAudioFile(forReading: url)
+        let format = input.processingFormat
+        let dest = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".m4a")
+        do {
+            let output = try AVAudioFile(forWriting: dest, settings: [
+                AVFormatIDKey: kAudioFormatMPEG4AAC,
+                AVSampleRateKey: format.sampleRate,
+                AVNumberOfChannelsKey: format.channelCount,
+                AVEncoderBitRateKey: 32_000,
+            ], commonFormat: format.commonFormat, interleaved: format.isInterleaved)
+            guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: 65_536) else { return url }
+            while input.framePosition < input.length {
+                try input.read(into: buffer)
+                if buffer.frameLength == 0 { break }
+                try output.write(from: buffer)
+            }
+        } // o arquivo AAC é fechado aqui, antes de ser lido para o envio
+        return dest
     }
 
     private static func audioSeconds(_ url: URL) -> Double {

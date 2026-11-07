@@ -1563,10 +1563,10 @@ es: ¿Qué motor de transcripción uso?
 pt: Qual motor de transcrição devo usar?
 ja: どの文字起こしエンジンを使えばいい？
 
-@ On-device is free, private and works offline. Groq is very fast and has a free plan; whisper-large-v3-turbo is the default and the quickest. Groq needs your own API key and accepts files up to about 25 MB (around 12 minutes).
-es: En el dispositivo es gratis, privado y funciona sin conexión. Groq es muy rápido y tiene plan gratuito; whisper-large-v3-turbo es el predeterminado y el más rápido. Groq necesita tu propia clave de API y acepta archivos de hasta unos 25 MB (unos 12 minutos).
-pt: No dispositivo é grátis, privado e funciona sem internet. A Groq é muito rápida e tem plano grátis; o whisper-large-v3-turbo é o padrão e o mais rápido. A Groq precisa da sua própria chave de API e aceita arquivos de até uns 25 MB (cerca de 12 minutos).
-ja: オンデバイスは無料でプライベート、オフラインでも使えます。Groqはとても速く、無料プランがあります。whisper-large-v3-turboが標準で、最も高速です。Groqには自分のAPIキーが必要で、ファイルは約25MB（約12分）まで対応します。
+@ On-device is free, private and works offline. Groq is very fast and has a free plan; whisper-large-v3-turbo is the default and the quickest. Groq needs your own API key. Long files are compressed before sending, so it takes up to about 1 h 40 min per file.
+es: En el dispositivo es gratis, privado y funciona sin conexión. Groq es muy rápido y tiene plan gratuito; whisper-large-v3-turbo es el predeterminado y el más rápido. Groq necesita tu propia clave de API. Los archivos largos se comprimen antes de enviarse, así que acepta hasta 1 h 40 min por archivo, más o menos.
+pt: No dispositivo é grátis, privado e funciona sem internet. A Groq é muito rápida e tem plano grátis; o whisper-large-v3-turbo é o padrão e o mais rápido. A Groq precisa da sua própria chave de API. Arquivos longos são comprimidos antes do envio, então ela aceita até cerca de 1 h 40 min por arquivo.
+ja: オンデバイスは無料でプライベート、オフラインでも使えます。Groqはとても速く、無料プランがあります。whisper-large-v3-turboが標準で、最も高速です。Groqには自分のAPIキーが必要です。長いファイルは送信前に圧縮するので、1ファイルあたり約1時間40分まで対応します。
 
 @ How do I turn Ollama on, and use it in AI apps too?
 es: ¿Cómo activo Ollama y lo uso también en apps de IA?
@@ -2193,3 +2193,8 @@ ja: Ollama
 es: La limpieza con IA ahora puede usar Groq: mucho más rápida que Ollama y gratuita con la misma clave de Groq. Elígela en Ajustes › Salida.
 pt: A limpeza por IA agora pode usar a Groq: bem mais rápida que o Ollama e grátis com a mesma chave da Groq. Escolha em Ajustes › Saída.
 ja: AIによる整形でGroqを使えるようになりました。Ollamaよりずっと速く、同じGroqのキーで無料です。設定 › 出力 で選べます。
+
+@ Long files are compressed before going to Groq, so one file can be up to about 1 h 40 min instead of 12 min.
+es: Los archivos largos se comprimen antes de ir a Groq, así que cada archivo puede durar hasta 1 h 40 min más o menos, en lugar de 12 min.
+pt: Arquivos longos são comprimidos antes de ir para a Groq, então cada arquivo pode ter até cerca de 1 h 40 min, em vez de 12 min.
+ja: 長いファイルはGroqに送る前に圧縮するので、1ファイルあたり12分ではなく約1時間40分まで扱えます。
