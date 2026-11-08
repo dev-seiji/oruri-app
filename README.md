@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/built%20with-Claude%20Code-C99A1E" alt="Built with Claude Code">
 </p>
 
-<p align="center">🇺🇸 English · <a href="README.pt-BR.md">🇧🇷 Português</a></p>
+<p align="center">🇺🇸 English · <a href="README.es.md">🇪🇸 Español</a> · <a href="README.pt-BR.md">🇧🇷 Português</a> · <a href="README.ja.md">🇯🇵 日本語</a></p>
 
 Oruri is a macOS dictation app written in SwiftUI: hold a key, talk, and the text lands in whatever app you're using.
 It also transcribes audio and video files you drop on it, one after another.

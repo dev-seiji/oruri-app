@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/built%20with-Claude%20Code-C99A1E" alt="Feito com o Claude Code">
 </p>
 
-<p align="center"><a href="README.md">🇺🇸 English</a> · 🇧🇷 Português</p>
+<p align="center"><a href="README.md">🇺🇸 English</a> · <a href="README.es.md">🇪🇸 Español</a> · 🇧🇷 Português · <a href="README.ja.md">🇯🇵 日本語</a></p>
 
 O Oruri é um app de ditado para macOS feito em SwiftUI: segure uma tecla, fale, e o texto aparece no app em que você está digitando.
 Ele também transcreve arquivos de áudio e vídeo que você arrasta para ele, um depois do outro.
