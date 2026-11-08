@@ -278,7 +278,6 @@ enum Transcriber {
     /// Converte qualquer áudio/vídeo (MP4, MOV, M4A, MP3…) para WAV 16 kHz mono, pronto para transcrever.
     static func prepareAudio(from source: URL) async throws -> (url: URL, duration: TimeInterval) {
         let asset = AVURLAsset(url: source)
-        let duration = try await asset.load(.duration).seconds
         guard let track = try await asset.loadTracks(withMediaType: .audio).first else {
             throw NSError(domain: "Oruri", code: 1, userInfo: [NSLocalizedDescriptionKey: "This file has no audio track."])
         }
@@ -298,9 +297,11 @@ enum Transcriber {
         let dest = Store.recordingsDirectory.appendingPathComponent("\(UUID().uuidString).wav")
         let file = try AVAudioFile(forWriting: dest, settings: AudioRecorder.targetFormat.settings,
                                    commonFormat: .pcmFormatInt16, interleaved: true)
+        var totalFrames = 0
         while let sample = output.copyNextSampleBuffer() {
             guard let block = CMSampleBufferGetDataBuffer(sample) else { continue }
             let frames = AVAudioFrameCount(CMSampleBufferGetNumSamples(sample))
+            totalFrames += Int(frames)
             guard let buffer = AVAudioPCMBuffer(pcmFormat: AudioRecorder.targetFormat, frameCapacity: frames) else { continue }
             buffer.frameLength = frames
             let length = CMBlockBufferGetDataLength(block)
@@ -309,7 +310,8 @@ enum Transcriber {
             try file.write(from: buffer)
         }
         if reader.status == .failed { throw reader.error ?? NSError(domain: "Oruri", code: 2) }
-        return (dest, duration)
+        // A duração vem do áudio que de fato saiu, não do cabeçalho do arquivo (que pode mentir: NaN ou gigante).
+        return (dest, Double(totalFrames) / 16_000)
     }
 }
 

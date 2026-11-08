@@ -712,8 +712,11 @@ struct AdvancedPane: View {
         }
         SettingsSection("Post-record hook") {
             ToggleRow(title: "Run a command after each transcription", subtitle: "Runs via /bin/sh -c in the background.", isOn: $state.settings.postHookEnabled)
+                .onChange(of: state.settings.postHookEnabled) { _, on in if on { SystemIntegration.approveHook(state.settings.postHookCommand) } }
             if state.settings.postHookEnabled {
                 TextField(T("echo \"$ORURI_TEXT\" >> ~/dictations.txt"), text: $state.settings.postHookCommand)
+                    // Só o que a pessoa digita aqui (ou liga no botão acima) vale como comando aprovado.
+                    .onChange(of: state.settings.postHookCommand) { _, command in SystemIntegration.approveHook(command) }
                     .textFieldStyle(.roundedBorder)
                     .font(.system(size: 12, design: .monospaced))
                 Text(T("Available: ORURI_TEXT, ORURI_AUDIO_PATH, ORURI_TIMESTAMP, ORURI_DURATION (also as JSON on stdin)."))
@@ -1103,6 +1106,9 @@ struct UpdatesPane: View {
 
     /// Notas de versão do Oruri, da mais nova para a mais antiga.
     private let releases: [(version: String, date: String, notes: [String])] = [
+        ("0.7.1", "November 2026", [
+            "Security fixes: the post-record command only runs if it's the one you approved in Settings, and a file with a fake duration can no longer crash the app.",
+        ]),
         ("0.7.0", "November 2026", [
             "New look: a side rail with Home, History, Usage and Help opens on hover and shows the names; the menu button keeps it open.",
             "Home shows a song line that moves with your voice (click it to record), and your dictations appear like a notebook.",

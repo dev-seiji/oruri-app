@@ -2258,3 +2258,13 @@ ja: 新しいデザイン: ホーム・履歴・使用状況・ヘルプのサ�
 es: Inicio muestra una línea de canto que se mueve con tu voz (haz clic en ella para grabar), y tus dictados aparecen como un cuaderno.
 pt: O Início mostra uma linha de canto que se mexe com a sua voz (clique nela para gravar), e os seus ditados aparecem como um caderno.
 ja: ホームには声に合わせて動く「さえずりの線」が表示されます（クリックで録音）。音声入力した文章はノートのように並びます。
+
+@ The post-record command changed outside Oruri, so it didn't run. Review it in Settings › Advanced.
+es: El comando posterior a la grabación cambió fuera de Oruri, así que no se ejecutó. Revísalo en Ajustes › Avanzado.
+pt: O comando pós-gravação foi alterado fora do Oruri, então não rodou. Confira em Ajustes › Avançado.
+ja: 録音後のコマンドがOruriの外で変更されたため、実行しませんでした。設定 › 詳細 で確認してください。
+
+@ Security fixes: the post-record command only runs if it's the one you approved in Settings, and a file with a fake duration can no longer crash the app.
+es: Correcciones de seguridad: el comando posterior a la grabación solo se ejecuta si es el que aprobaste en Ajustes, y un archivo con una duración falsa ya no puede cerrar la app.
+pt: Correções de segurança: o comando pós-gravação só roda se for o que você aprovou em Ajustes, e um arquivo com duração falsa não consegue mais fechar o app.
+ja: セキュリティの修正: 録音後のコマンドは設定で承認したものと同じときだけ実行します。また、長さを偽ったファイルでアプリが落ちることはなくなりました。

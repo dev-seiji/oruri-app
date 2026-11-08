@@ -230,7 +230,13 @@ final class DictationController {
                     state.showToast(T("Copied — press ⌘V to paste"))
                 }
             }
-            if s.postHookEnabled { SystemIntegration.runPostHook(command: s.postHookCommand, recording: recording) }
+            if s.postHookEnabled {
+                if SystemIntegration.isHookApproved(s.postHookCommand, approved: Keychain.get(SystemIntegration.hookApprovalAccount)) {
+                    SystemIntegration.runPostHook(command: s.postHookCommand, recording: recording)
+                } else {
+                    state.showToast(T("The post-record command changed outside Oruri, so it didn't run. Review it in Settings › Advanced."))
+                }
+            }
         } catch TranscriptionError.emptyResult {
             state.recordings.removeAll { $0.id == recording.id }
             Store.deleteAudio(for: recording)

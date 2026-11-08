@@ -2,6 +2,10 @@
 
 All notable changes to Oruri, newest first. The same notes are in the app under Settings › Updates.
 
+## 0.7.1 — November 2026
+
+- Security fixes: the post-record command only runs if it's the one you approved in Settings, and a file with a fake duration can no longer crash the app.
+
 ## 0.7.0 — November 2026
 
 - New look: a side rail with Home, History, Usage and Help opens on hover and shows the names; the menu button keeps it open.

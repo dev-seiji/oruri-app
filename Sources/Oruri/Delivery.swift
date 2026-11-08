@@ -1,4 +1,5 @@
 import AppKit
+import CryptoKit
 import ApplicationServices
 import ServiceManagement
 import os
@@ -325,6 +326,23 @@ enum SystemIntegration {
         ]
         if let audio = Store.audioURL(for: recording) { env["ORURI_AUDIO_PATH"] = audio.path }
         return env
+    }
+
+    /// O comando pós-gravação fica nas preferências, que qualquer programa do mesmo usuário consegue editar
+    /// (Claude Security, 8 nov 2026). Por isso ele só roda se for igual ao que a pessoa aprovou em Settings:
+    /// a impressão digital do comando aprovado fica no Keychain.
+    static let hookApprovalAccount = "post-hook.approved"
+
+    static func hookFingerprint(_ command: String) -> String {
+        SHA256.hash(data: Data(command.utf8)).map { String(format: "%02x", $0) }.joined()
+    }
+
+    static func approveHook(_ command: String) {
+        Keychain.set(hookFingerprint(command), for: hookApprovalAccount)
+    }
+
+    static func isHookApproved(_ command: String, approved: String?) -> Bool {
+        approved == hookFingerprint(command)
     }
 
     /// Roda o comando do usuário via /bin/sh -c, com o texto em variáveis de ambiente e JSON no stdin.

@@ -11,7 +11,7 @@ Ele também transcreve arquivos de áudio e vídeo que você arrasta para ele, u
 para aprender como as ferramentas de IA funcionam num app de verdade, do reconhecimento de fala à limpeza do texto por IA com
 travas de segurança. Ele não é distribuído como app pronto; para usar, compile a partir do código (veja Como compilar abaixo).
 
-**Versão atual: 0.7.0** — as notas completas ficam no [CHANGELOG.md](CHANGELOG.md) (em inglês) e em Settings › Updates, dentro do app.
+**Versão atual: 0.7.1** — as notas completas ficam no [CHANGELOG.md](CHANGELOG.md) (em inglês) e em Settings › Updates, dentro do app.
 
 O nome vem da ōruri (オオルリ), um passarinho azul e cantor do Japão; o nome quer dizer "grande lápis-lazúli".
 

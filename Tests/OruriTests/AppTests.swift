@@ -111,6 +111,17 @@ import AVFoundation
         #expect(u.tightest.name == "cleanup" && u.tightest.fraction >= GroqLimits.warningFraction)
     }
 
+    /// Claude Security (8 nov): o comando pós-gravação só roda se for o aprovado em Settings,
+    /// e uma duração inválida vinda de um arquivo não derruba a soma da Home.
+    @Test func securityFixesFromNovemberScan() {
+        let approved = SystemIntegration.hookFingerprint("echo hi")
+        #expect(SystemIntegration.isHookApproved("echo hi", approved: approved))
+        #expect(!SystemIntegration.isHookApproved("/tmp/payload", approved: approved))
+        #expect(!SystemIntegration.isHookApproved("echo hi", approved: nil))
+        #expect(AppState.totalSeconds([10, .nan, .infinity, -5, 2]) == 12)
+        #expect(AppState.totalSeconds([1e300]) == 1_000_000_000_000)
+    }
+
     /// A parte aberta não tem chave própria da OpenAI nem do Claude (só nomes de apps onde o texto é colado).
     @Test func noOpenAIOrClaudeKeys() throws {
         let root = URL(fileURLWithPath: #filePath)

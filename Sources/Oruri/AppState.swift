@@ -130,7 +130,7 @@ struct Settings: Codable, Equatable {
 /// Informações do app lidas do Info.plist.
 enum AppInfo {
     static var version: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.7.0"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.7.1"
     }
 
     /// E-mail de suporte, mostrado em Settings › Help › Contact.
@@ -244,7 +244,14 @@ final class AppState {
     var dictatedWords: Int {
         recordings.filter { $0.status == .done }.reduce(0) { $0 + $1.text.split(whereSeparator: \.isWhitespace).count }
     }
-    var dictationSeconds: Int { Int(recordings.filter { $0.status == .done }.reduce(0) { $0 + $1.duration }) }
+    var dictationSeconds: Int { Self.totalSeconds(recordings.filter { $0.status == .done }.map(\.duration)) }
+
+    /// Soma segura: ignora durações inválidas (NaN, infinitas, negativas) e limita o total, para nunca travar
+    /// na conversão para Int (histórico salvo por versões antigas pode ter uma dessas).
+    nonisolated static func totalSeconds(_ durations: [Double]) -> Int {
+        let total = durations.filter { $0.isFinite && $0 >= 0 }.reduce(0, +)
+        return Int(min(total, 1e12))
+    }
     /// Tempo economizado: digitar a ~40 palavras/min menos o tempo falando.
     var secondsSaved: Int { max(0, dictatedWords * 60 / 40 - dictationSeconds) }
 

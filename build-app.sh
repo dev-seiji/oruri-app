@@ -25,8 +25,8 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
     <key>CFBundleIconFile</key><string>AppIcon</string>
     <key>CFBundleDisplayName</key><string>Oruri</string>
     <key>CFBundlePackageType</key><string>APPL</string>
-    <key>CFBundleShortVersionString</key><string>0.7.0</string>
-    <key>CFBundleVersion</key><string>31</string>
+    <key>CFBundleShortVersionString</key><string>0.7.1</string>
+    <key>CFBundleVersion</key><string>32</string>
     <key>CFBundleDocumentTypes</key>
     <array>
         <dict>
