@@ -1,25 +1,43 @@
 <p align="center"><img src="Icon/oruri-1024.png" width="160" alt="Oruri icon: a blue ōruri singing on a branch"></p>
 
-<p align="center">🇺🇸 English · <a href="README.pt-BR.md">🇧🇷 Português</a></p>
+<h1 align="center">Oruri</h1>
 
-# Oruri
+<p align="center">Hold a key, talk, and the text lands in whatever Mac app you're using.</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/macOS-14%2B-1E50A2" alt="macOS 14 or later">
+  <img src="https://img.shields.io/badge/Swift-5.9-1E50A2" alt="Swift 5.9">
+  <img src="https://img.shields.io/badge/license-GPL--3.0-1E50A2" alt="GPL-3.0 license">
+  <img src="https://img.shields.io/badge/built%20with-Claude%20Code-C99A1E" alt="Built with Claude Code">
+</p>
+
+<p align="center">🇺🇸 English · <a href="README.pt-BR.md">🇧🇷 Português</a></p>
 
 Oruri is a macOS dictation app written in SwiftUI: hold a key, talk, and the text lands in whatever app you're using.
 It also transcribes audio and video files you drop on it, one after another.
 
-It's a personal portfolio project: a voice-to-text app for the Mac, vibe coded with Claude (Claude Code) to learn how AI tools
-work in a real app, from speech recognition to AI text cleanup with safety checks. It isn't distributed as a ready-made app;
-to use it, build it from the source (see Build below).
+A personal portfolio project, vibe coded with Claude Code. It isn't distributed as a ready-made app: build it from the
+source (see Get started below).
 
 **Current version: 0.7.1** — full release notes in [CHANGELOG.md](CHANGELOG.md) and in the app under Settings › Updates.
 
 Oruri is named after the ōruri (オオルリ), a blue songbird from Japan whose name means "great lapis lazuli".
 
-## About this project
+## How it was built
 
-Oruri is open source under the GPL-3.0. It builds and runs with free engines: on-device transcription, Groq with your own
-API key, and Groq or a local Ollama model for the optional AI cleanup. There is no signed download and no paid version:
-build it with `./build-app.sh`.
+Oruri is a personal portfolio project, vibe coded with Claude ([Claude Code](https://claude.com/claude-code)) to learn how AI
+tools behave inside a real app. I described what I wanted in plain language, tested every version on my own Mac and
+approved each change; Claude wrote the code. Along the way:
+
+- a roadmap of 29 items, taken one at a time from idea to release (versions 0.1.0 to 0.7.1, see [CHANGELOG.md](CHANGELOG.md));
+- every change goes through `./qa.sh`: 59 automated tests (number words, spoken corrections, AI safety checks, silence
+  detection…), a translation check for the 4 interface languages, the build and a launch check;
+- two Claude Security scans, with every confirmed finding fixed (in 0.5.7 and 0.7.1);
+- decisions backed by real measurements, such as Groq's rate-limit headers and Ollama's speed on an 8 GB Mac.
+
+It's open source under the GPL-3.0 and runs with free engines: on-device transcription, Groq with your own API key, and
+Groq or a local Ollama model for the optional AI cleanup. There is no signed download and no paid version: build it from
+source (see Get started).
 
 ## Features
 
@@ -53,16 +71,36 @@ build it with `./build-app.sh`.
   on the spot; English by default. Translations live in `Localization/translations.txt`.
 - **History** — shows what the recognizer heard ("Heard: …") when it differs from the final text; saved locally, searchable, retry failed transcriptions, retention limits, post-record shell hook.
 
-## Requirements
+## Privacy
+
+- With the on-device engine and Ollama, nothing leaves your Mac.
+- With Groq, the recorded audio (and, for AI cleanup, the text) is sent to Groq with your own API key.
+- API keys live in the macOS Keychain, never in files or in the code. History and recordings stay in
+  `~/Library/Application Support/Oruri`, with retention limits and a delete-all button.
+
+## Get started
+
+### Requirements
 
 - macOS 14 or later, Apple silicon recommended
 - Swift 5.9+ (Xcode or the Command Line Tools)
 
-## Build
+### Build and run
 
-```bash
-./build-app.sh && open build/Oruri.app
-```
+1. Clone the repository and build the app:
+
+   ```bash
+   git clone https://github.com/dev-seiji/oruri-app.git
+   cd oruri-app
+   ./build-app.sh && open build/Oruri.app
+   ```
+
+2. Follow the onboarding: allow Microphone, Accessibility (so Oruri can paste) and Speech Recognition, then pick your dictation key.
+3. Optional: add a free [Groq API key](https://console.groq.com/keys) in Settings › Models for fast cloud transcription and AI cleanup,
+   or install [Ollama](https://ollama.com) for AI cleanup that stays on your Mac.
+4. Hold fn and talk.
+
+To check everything after a change, run `./qa.sh`: tests, the translation check, the build and a launch check.
 
 macOS ties Microphone, Speech Recognition and Accessibility permissions to the app's signature. `build-app.sh` signs
 with the first local code-signing certificate whose name ends in **Local Signing** (for example *Oruri Local Signing*) when one exists in your keychain, so permissions survive rebuilds;
@@ -117,6 +155,13 @@ Based on ruri-iro (瑠璃色), the traditional Japanese lapis lazuli blue the ō
 | Primary text | `primaryText` | `#1A1F2B` / `#E8ECF4` |
 | Secondary text | `secondaryText` | `#5D6573` / `#A2ABBC` |
 | Recording | `recording` | `#D94A3D` / `#E5675B` |
+
+## Acknowledgments
+
+- Apple's Speech framework (`SpeechAnalyzer` and `SFSpeechRecognizer`) for on-device transcription
+- [Groq](https://groq.com) for fast Whisper transcription and text models
+- [Ollama](https://ollama.com) for running AI cleanup locally
+- [Claude Code](https://claude.com/claude-code), the AI pair programmer this app was vibe coded with
 
 ## Contributing
 
