@@ -1,25 +1,14 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-/// Home no layout "Palco": o microfone grande no centro, microfone e modelo logo abaixo,
-/// os números numa linha e as últimas transcrições em cartões embaixo.
+/// Home (0.7.0, "Canto"): a linha do canto no centro (reage à voz; clicar grava), microfone e modelo
+/// logo abaixo, os números numa linha e os últimos ditados em serifa, como um caderno.
 struct HomeView: View {
     @Environment(AppState.self) private var state
     @LocalState private var dropTargeted = false
-    @LocalState private var showAll = false
 
     var body: some View {
-        ZStack {
-            if showAll {
-                HistoryPage { showAll = false }
-                    .transition(.move(edge: .trailing).combined(with: .opacity))
-            } else {
-                stage
-                    .transition(.move(edge: .leading).combined(with: .opacity))
-            }
-        }
-        .clipped()
-        .animation(.easeInOut(duration: 0.28), value: showAll)
+        stage
         .overlay {
             if dropTargeted {
                 RoundedRectangle(cornerRadius: 18)
@@ -51,7 +40,7 @@ struct HomeView: View {
                     .transition(.move(edge: .top).combined(with: .opacity))
             }
             Spacer(minLength: 8)
-            RecordButton(isRecording: state.isRecording) { state.toggleRecording() }
+            SongLine(isRecording: state.isRecording, level: state.audioLevel) { state.toggleRecording() }
                 .disabled(state.phase == .transcribing)
             StageHint()
                 .padding(.top, 30)
@@ -63,7 +52,7 @@ struct HomeView: View {
             StatsLine()
                 .padding(.top, 12)
             Spacer(minLength: 16)
-            RecentStrip { showAll = true }
+            RecentStrip { withAnimation(.easeInOut(duration: 0.22)) { state.selectedTab = .history } }
             StageFooter()
                 .padding(.top, 10)
         }
@@ -153,7 +142,7 @@ struct StatsLine: View {
     }
 }
 
-/// Faixa "Recent": as 3 transcrições mais novas em cartões, e "See all" para a lista completa.
+/// Faixa "Recent": as 3 transcrições mais novas em linhas, e "See all" para o Histórico.
 struct RecentStrip: View {
     @Environment(AppState.self) private var state
     let onSeeAll: () -> Void
@@ -186,16 +175,11 @@ struct RecentStrip: View {
                 .frame(maxWidth: .infinity, minHeight: 104)
                 .background(RoundedRectangle(cornerRadius: 14).stroke(Theme.statsBorder, style: StrokeStyle(lineWidth: 1, dash: [4, 4])))
             } else {
-                let recent = Array(state.recordings.prefix(3))
-                HStack(alignment: .top, spacing: 10) {
-                    ForEach(0..<3, id: \.self) { i in
-                        if i < recent.count {
-                            RecentCard(recording: recent[i])
-                                .id(recent[i].id)
-                                .transition(.scale(scale: 0.94).combined(with: .opacity))
-                        } else {
-                            Color.clear.frame(maxWidth: .infinity, minHeight: 104, maxHeight: 104)
-                        }
+                VStack(spacing: 0) {
+                    ForEach(state.recordings.prefix(3)) { recording in
+                        RecentCard(recording: recording)
+                            .id(recording.id)
+                            .transition(.opacity)
                     }
                 }
             }
@@ -210,53 +194,45 @@ struct RecentCard: View {
     @LocalState private var hovering = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            HStack(spacing: 6) {
-                Text(recording.date, format: .dateTime.hour().minute())
-                    .font(.system(size: 10.5, weight: .bold, design: .rounded))
-                    .foregroundStyle(Theme.accent)
-                if let name = recording.fileName {
-                    Label(name, systemImage: "doc")
-                        .font(.system(size: 10.5))
-                        .foregroundStyle(Theme.tertiaryText)
-                        .lineLimit(1)
-                }
-                Spacer(minLength: 4)
-                if hovering && recording.status != .processing {
-                    RecordingActions(recording: recording)
-                        .transition(.opacity)
+        HStack(alignment: .firstTextBaseline, spacing: 12) {
+            Text(recording.date, format: .dateTime.hour().minute())
+                .font(.system(size: 11, weight: .semibold, design: .rounded))
+                .foregroundStyle(Theme.tertiaryText)
+                .monospacedDigit()
+                .frame(width: 42, alignment: .leading)
+            Group {
+                switch recording.status {
+                case .processing:
+                    HStack(spacing: 6) {
+                        ProgressView().controlSize(.small)
+                        Text(T("Transcribing…")).foregroundStyle(Theme.secondaryText)
+                    }
+                    .font(.system(size: 12))
+                case .failed:
+                    Label(T(recording.error ?? "Transcription failed"), systemImage: "exclamationmark.triangle")
+                        .font(.system(size: 12))
+                        .foregroundStyle(Theme.recording)
+                        .lineLimit(2)
+                case .done:
+                    (recording.fileName.map { Text($0 + " — ").foregroundStyle(Theme.secondaryText) } ?? Text(""))
+                        + Text(recording.text).foregroundStyle(Theme.primaryText)
                 }
             }
-            .frame(height: 16)
-            .animation(.easeOut(duration: 0.15), value: hovering)
-
-            switch recording.status {
-            case .processing:
-                HStack(spacing: 6) {
-                    ProgressView().controlSize(.small)
-                    Text(T("Transcribing…")).foregroundStyle(Theme.secondaryText)
-                }
-                .font(.system(size: 12))
-            case .failed:
-                Label(T(recording.error ?? "Transcription failed"), systemImage: "exclamationmark.triangle")
-                    .font(.system(size: 12))
-                    .foregroundStyle(Theme.recording)
-                    .lineLimit(4)
-            case .done:
-                Text(recording.text)
-                    .font(.system(size: 12))
-                    .foregroundStyle(Theme.primaryText)
-                    .lineLimit(4)
+            .font(.system(size: 13.5, design: .serif))
+            .lineLimit(2)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            if hovering && recording.status != .processing {
+                RecordingActions(recording: recording)
+                    .transition(.opacity)
             }
-            Spacer(minLength: 0)
         }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 10)
-        .frame(maxWidth: .infinity, minHeight: 104, maxHeight: 104, alignment: .topLeading)
-        .background(RoundedRectangle(cornerRadius: 14).fill(hovering ? Theme.statsBackground : Theme.card))
-        .overlay(RoundedRectangle(cornerRadius: 14).stroke(Theme.cardBorder))
-        .contentShape(RoundedRectangle(cornerRadius: 14))
+        .padding(.vertical, 9)
+        .padding(.horizontal, 6)
+        .background(RoundedRectangle(cornerRadius: 8).fill(hovering ? Theme.statsBackground : Color.clear))
+        .overlay(alignment: .top) { Rectangle().fill(Theme.divider).frame(height: 1) }
+        .contentShape(Rectangle())
         .onHover { hovering = $0 }
+        .animation(.easeOut(duration: 0.15), value: hovering)
         .help(recording.status == .done ? recording.text : "")
     }
 }
@@ -340,25 +316,14 @@ struct ChooseFilesButton: View {
     }
 }
 
-/// Lista completa do histórico, aberta por "See all".
+/// Lista completa do histórico (aba da barra lateral; "See all" na Home também abre).
 struct HistoryPage: View {
     @Environment(AppState.self) private var state
-    let onBack: () -> Void
 
     var body: some View {
         @Bindable var state = state
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 12) {
-                Button(action: onBack) {
-                    HStack(spacing: 3) {
-                        Image(systemName: "chevron.left").font(.system(size: 11, weight: .bold))
-                        Text(T("Back")).font(.system(size: 13, weight: .semibold))
-                    }
-                    .foregroundStyle(Theme.accent)
-                    .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .keyboardShortcut(.cancelAction)
                 Text(T("History"))
                     .font(.system(size: 22, weight: .bold, design: .rounded))
                     .foregroundStyle(Theme.primaryText)
@@ -501,7 +466,7 @@ struct RecordingRow: View {
                     .foregroundStyle(Theme.recording)
             case .done:
                 Text(recording.text)
-                    .font(.system(size: 13))
+                    .font(.system(size: 14, design: .serif))
                     .foregroundStyle(Theme.primaryText)
                     .textSelection(.enabled)
                 if let raw = recording.rawText, raw != recording.text.trimmingCharacters(in: .whitespaces) {
@@ -520,52 +485,48 @@ struct RecordingRow: View {
     }
 }
 
-/// O microfone grande do centro, com anéis em volta. Gravando, fica vermelho com um quadrado de parar.
-struct RecordButton: View {
+/// A linha do canto (0.7.0): desenha a voz como o canto da ōruri. Parada, é um traço calmo; gravando,
+/// ondula com o volume do microfone e o ponto dourado corre por ela. Clicar grava ou para.
+struct SongLine: View {
     let isRecording: Bool
+    let level: Float
     let action: () -> Void
-    @LocalState private var pulse = false
     @LocalState private var hovering = false
-
-    private let size: CGFloat = 112
 
     var body: some View {
         Button(action: action) {
-            ZStack {
-                Circle().fill(isRecording ? Theme.recording.opacity(0.06) : Theme.stageRingOuter)
-                    .frame(width: size + 56, height: size + 56)
-                Circle().fill(isRecording ? Theme.recording.opacity(0.12) : Theme.stageRing)
-                    .frame(width: size + 26, height: size + 26)
-                Circle()
-                    .fill(LinearGradient(
-                        colors: isRecording ? [Theme.recordingTop, Theme.recording] : [Theme.recordTop, Theme.recordBottom],
-                        startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .frame(width: size, height: size)
-                    .shadow(color: (isRecording ? Theme.recording : Theme.recordBottom).opacity(0.35), radius: 14, y: 6)
-                if isRecording {
-                    RoundedRectangle(cornerRadius: 6).fill(.white).frame(width: 30, height: 30)
-                    Circle()
-                        .stroke(Theme.recording.opacity(0.45), lineWidth: 2)
-                        .frame(width: size, height: size)
-                        .scaleEffect(pulse ? 1.5 : 1)
-                        .opacity(pulse ? 0 : 1)
-                        .onAppear {
-                            withAnimation(.easeOut(duration: 1.2).repeatForever(autoreverses: false)) { pulse = true }
-                        }
-                        .onDisappear { pulse = false }
-                } else {
-                    Image(systemName: "mic.fill")
-                        .font(.system(size: 40, weight: .medium))
-                        .foregroundStyle(.white)
+            TimelineView(.animation(paused: !isRecording)) { timeline in
+                let t = timeline.date.timeIntervalSinceReferenceDate
+                Canvas { context, size in
+                    let mid = size.height / 2
+                    let amp = isRecording ? mid * (0.25 + 0.7 * Double(level)) : mid * (hovering ? 0.42 : 0.32)
+                    let phase = isRecording ? t * 2.4 : 0
+                    var path = Path()
+                    var dot = CGPoint(x: size.width / 2, y: mid)
+                    for step in 0...160 {
+                        let x = size.width * Double(step) / 160
+                        let u = Double(step) / 160
+                        let envelope = sin(.pi * u)   // as pontas descansam no meio, como um canto que começa e termina
+                        let y = mid - amp * envelope * (sin(u * 13 + phase) * 0.7 + sin(u * 29 - phase * 1.3) * 0.3)
+                        let point = CGPoint(x: x, y: y)
+                        if step == 0 { path.move(to: point) } else { path.addLine(to: point) }
+                        if step == (isRecording ? Int((t * 30).truncatingRemainder(dividingBy: 160)) : 72) { dot = point }
+                    }
+                    context.stroke(path, with: .color(Theme.accent),
+                                   style: StrokeStyle(lineWidth: isRecording ? 4 : 3, lineCap: .round, lineJoin: .round))
+                    context.fill(Path(ellipseIn: CGRect(x: dot.x - 5, y: dot.y - 5, width: 10, height: 10)),
+                                 with: .color(isRecording ? Theme.recording : Theme.highlight))
                 }
             }
-            .scaleEffect(hovering && !isRecording ? 1.03 : 1)
-            .animation(.easeOut(duration: 0.15), value: hovering)
-            .contentShape(Circle())
+            .frame(maxWidth: 520)
+            .frame(height: 120)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .onHover { hovering = $0 }
+        .animation(.easeOut(duration: 0.2), value: hovering)
         .help(T(isRecording ? "Stop" : "Record"))
+        .accessibilityLabel(T(isRecording ? "Stop" : "Record"))
     }
 }
 

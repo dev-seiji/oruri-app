@@ -11,7 +11,7 @@ It's a personal portfolio project: a voice-to-text app for the Mac, vibe coded w
 work in a real app, from speech recognition to AI text cleanup with safety checks. It isn't distributed as a ready-made app;
 to use it, build it from the source (see Build below).
 
-**Current version: 0.6.6** — see Settings › Updates in the app for the full release notes.
+**Current version: 0.7.0** — see Settings › Updates in the app for the full release notes.
 
 Oruri is named after the ōruri (オオルリ), a blue songbird from Japan whose name means "great lapis lazuli".
 
@@ -45,9 +45,10 @@ build it with `./build-app.sh`.
   when there's nowhere to paste or Accessibility is off; very long recordings are only copied; verbatim mode in AI and terminal apps.
 - **Blank audio** — recordings and files with no speech are detected by their volume and dropped instead of transcribed.
 - **Start in the menu bar** — optional: open without the window, staying in the Dock and the menu bar.
-- **Interface** — the microphone in the middle of the window, with microphone and model pickers below it, recent
-  transcriptions as cards and a full history behind See all; Settings in a drawer with expandable sections;
-  an appearance button (System, Light, Dark) in the top bar; a Usage section with limit bars and costs; a Help section with FAQ, a guide to each screen, search and contact; animations on open and close.
+- **Interface** — a side rail with Home, History, Usage and Help (opens on hover with names; the menu button keeps it open);
+  on Home, a song line that moves with your voice (click it to record), microphone and model pickers, and the latest
+  dictations in serif like a notebook; Settings in a drawer with expandable sections; Dictionary, Pro, appearance (System,
+  Light, Dark) and Settings in the top bar; Usage with limit bars and costs; Help with FAQ, a guide to each screen, search and contact.
 - **Languages** — the interface in English, Español, Português or 日本語 (Settings › Advanced › Language), switching
   on the spot; English by default. Translations live in `Localization/translations.txt`.
 - **History** — shows what the recognizer heard ("Heard: …") when it differs from the final text; saved locally, searchable, retry failed transcriptions, retention limits, post-record shell hook.

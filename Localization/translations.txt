@@ -2243,3 +2243,18 @@ ja: AIによる整形のリクエスト · 1日の枠
 es: Ajustes › Uso ahora cuenta la limpieza con IA por Groq: su propio cupo diario y el total del mes, y el aviso de Inicio también la incluye.
 pt: Ajustes › Uso agora conta a limpeza por IA pela Groq: um saldo diário próprio e o total do mês, e o aviso do Início também vale para ela.
 ja: 設定 › 使用状況で、GroqによるAI整形も数えるようになりました。専用の1日の枠と今月の合計を表示し、ホームの警告にも反映します。
+
+@ Menu
+es: Menú
+pt: Menu
+ja: メニュー
+
+@ New look: a side rail with Home, History, Usage and Help opens on hover and shows the names; the menu button keeps it open.
+es: Nuevo aspecto: una barra lateral con Inicio, Historial, Uso y Ayuda se abre al pasar el mouse y muestra los nombres; el botón de menú la deja abierta.
+pt: Visual novo: uma barra lateral com Início, Histórico, Uso e Ajuda abre ao passar o mouse e mostra os nomes; o botão de menu deixa ela aberta.
+ja: 新しいデザイン: ホーム・履歴・使用状況・ヘルプのサイドバーは、マウスを乗せると開いて名前を表示します。メニューボタンで開いたままにできます。
+
+@ Home shows a song line that moves with your voice (click it to record), and your dictations appear like a notebook.
+es: Inicio muestra una línea de canto que se mueve con tu voz (haz clic en ella para grabar), y tus dictados aparecen como un cuaderno.
+pt: O Início mostra uma linha de canto que se mexe com a sua voz (clique nela para gravar), e os seus ditados aparecem como um caderno.
+ja: ホームには声に合わせて動く「さえずりの線」が表示されます（クリックで録音）。音声入力した文章はノートのように並びます。

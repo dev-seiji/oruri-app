@@ -11,7 +11,7 @@ Ele também transcreve arquivos de áudio e vídeo que você arrasta para ele, u
 para aprender como as ferramentas de IA funcionam num app de verdade, do reconhecimento de fala à limpeza do texto por IA com
 travas de segurança. Ele não é distribuído como app pronto; para usar, compile a partir do código (veja Como compilar abaixo).
 
-**Versão atual: 0.6.6** — as notas completas ficam em Settings › Updates, dentro do app.
+**Versão atual: 0.7.0** — as notas completas ficam em Settings › Updates, dentro do app.
 
 O nome vem da ōruri (オオルリ), um passarinho azul e cantor do Japão; o nome quer dizer "grande lápis-lazúli".
 
@@ -45,9 +45,11 @@ paga: compile com `./build-app.sh`.
   quando não há onde colar ou falta a Acessibilidade; gravações muito longas são só copiadas e o texto vai literal em apps de IA e terminais.
 - **Áudio sem fala** — gravações e arquivos sem fala são detectados pelo volume e descartados, em vez de transcritos.
 - **Iniciar na barra de menus** — opcional: abre sem a janela e fica no Dock e na barra de menus.
-- **Interface** — o microfone no meio da janela, com seletores de microfone e de modelo logo abaixo, as transcrições
-  recentes em cartões e o histórico completo em See all; Settings numa gaveta com seções que abrem; botão de aparência
-  (System, Light, Dark) na barra do topo; seção Usage com barrinhas de limite e custos; seção Help com perguntas frequentes, guia de cada tela, busca e contato; animações ao abrir e fechar.
+- **Interface** — barra lateral com Início, Histórico, Uso e Ajuda (abre ao passar o mouse, com os nomes; o botão de menu
+  deixa aberta); no Início, uma linha de canto que se mexe com a sua voz (clique para gravar), seletores de microfone e de
+  modelo e os últimos ditados em serifa, como um caderno; Settings numa gaveta com seções que abrem; Dictionary, Pro,
+  aparência (System, Light, Dark) e Settings na barra do topo; Uso com barrinhas de limite e custos; Ajuda com perguntas
+  frequentes, guia de cada tela, busca e contato.
 - **Idiomas** — a interface em English, Español, Português ou 日本語 (Settings › Advanced › Language), mudando na
   hora; inglês por padrão. As traduções ficam em `Localization/translations.txt`.
 - **Histórico** — mostra o que o reconhecedor ouviu ("Heard: …") quando é diferente do texto final; salvo no Mac, com busca, opção de retentar transcrições que falharam, limites de retenção e um comando de shell pós-gravação.

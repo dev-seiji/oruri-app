@@ -9,7 +9,7 @@ struct SettingsView: View {
     @LocalState private var open: SettingsPane? = nil
 
     private var panes: [SettingsPane] {
-        SettingsPane.allCases.filter { search.isEmpty || T($0.rawValue).localizedCaseInsensitiveContains(search) || $0.rawValue.localizedCaseInsensitiveContains(search) }
+        SettingsPane.allCases.filter { $0 != .usage && $0 != .help }.filter { search.isEmpty || T($0.rawValue).localizedCaseInsensitiveContains(search) || $0.rawValue.localizedCaseInsensitiveContains(search) }
     }
 
     var body: some View {
@@ -1103,6 +1103,10 @@ struct UpdatesPane: View {
 
     /// Notas de versão do Oruri, da mais nova para a mais antiga.
     private let releases: [(version: String, date: String, notes: [String])] = [
+        ("0.7.0", "November 2026", [
+            "New look: a side rail with Home, History, Usage and Help opens on hover and shows the names; the menu button keeps it open.",
+            "Home shows a song line that moves with your voice (click it to record), and your dictations appear like a notebook.",
+        ]),
         ("0.6.6", "November 2026", [
             "Settings › Usage now counts AI cleanup with Groq: its own daily allowance and the month total, and the Home warning covers it too.",
         ]),

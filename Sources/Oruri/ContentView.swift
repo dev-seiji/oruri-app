@@ -1,8 +1,8 @@
 import AppKit
 import SwiftUI
 
-/// Janela principal no layout "Palco": sem barra lateral, o microfone no centro,
-/// uma barra fina no topo e Settings numa gaveta que desliza da direita.
+/// Janela principal (0.7.0, "Canto"): barra lateral fina com Home, Histórico, Uso e Ajuda,
+/// a linha do canto no centro da Home, uma barra fina no topo e Settings numa gaveta que desliza da direita.
 struct ContentView: View {
     @Environment(AppState.self) private var state
     @Environment(\.openWindow) private var openWindow
@@ -15,20 +15,30 @@ struct ContentView: View {
 
             VStack(spacing: 0) {
                 TopBar()
-                ZStack {
-                    // Home sai pela esquerda e o Dictionary entra pela direita (e o contrário ao voltar).
-                    switch state.selectedTab {
-                    case .home:
-                        HomeView()
-                            .transition(.move(edge: .leading).combined(with: .opacity))
-                    case .dictionary:
-                        DictionaryView()
-                            .transition(.move(edge: .trailing).combined(with: .opacity))
+                HStack(spacing: 0) {
+                    SideRail()
+                        .zIndex(1)
+                    ZStack {
+                        switch state.selectedTab {
+                        case .home: HomeView()
+                        case .history: HistoryPage()
+                        case .usage: RailPage(title: "Usage") { UsagePane() }
+                        case .help: RailPage(title: "Help") { HelpPane() }
+                        case .dictionary: DictionaryView()
+                        }
+                    }
+                    .transition(.opacity)
+                    .id(state.selectedTab)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .clipped()
+                    .overlay {
+                        // Barra presa aberta: clicar fora dela fecha.
+                        if state.railPinned {
+                            Color.clear.contentShape(Rectangle()).onTapGesture { state.railPinned = false }
+                        }
                     }
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .clipped()
-                .animation(.easeInOut(duration: 0.28), value: state.selectedTab)
+                .animation(.easeInOut(duration: 0.22), value: state.selectedTab)
             }
 
             if state.showPro {
@@ -106,7 +116,7 @@ struct TopBar: View {
 
     var body: some View {
         HStack(spacing: 8) {
-            if state.selectedTab != .home {
+            if state.selectedTab == .dictionary {
                 TopIconButton(icon: "chevron.left") { go(.home) }
                     .help(T("Back to Home"))
                     .keyboardShortcut("[", modifiers: .command)
@@ -118,12 +128,12 @@ struct TopBar: View {
             Text(T("Oruri"))
                 .font(.system(size: 14, weight: .bold, design: .rounded))
                 .foregroundStyle(Theme.primaryText)
-            if state.selectedTab == .dictionary {
+            if state.selectedTab != .home {
                 HStack(spacing: 6) {
                     Image(systemName: "chevron.right")
                         .font(.system(size: 9, weight: .bold))
                         .foregroundStyle(Theme.tertiaryText)
-                    Text(T("Dictionary"))
+                    Text(T(state.selectedTab.rawValue))
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
                         .foregroundStyle(Theme.accent)
                 }
@@ -132,7 +142,7 @@ struct TopBar: View {
             Spacer()
             // Botões da direita um pouco abaixo e longe da borda (pedido do usuário); a esquerda fica alinhada aos botões da janela.
             HStack(spacing: 8) {
-            if state.selectedTab == .home {
+            if state.selectedTab != .dictionary {
                 TopPill(icon: "character.book.closed", title: "Dictionary") { go(.dictionary) }
             } else {
                 TopPill(icon: "mic", title: "Home") { go(.home) }
@@ -160,6 +170,86 @@ struct TopBar: View {
 
     private func go(_ tab: MainTab) {
         withAnimation(.easeInOut(duration: 0.28)) { state.selectedTab = tab }
+    }
+}
+
+/// Barra lateral: fina, só ícones; ao passar o mouse abre por cima do conteúdo e mostra os nomes.
+/// O botão de menu (três linhas) deixa ela aberta até clicar nele de novo ou fora dela.
+struct SideRail: View {
+    @Environment(AppState.self) private var state
+    @LocalState private var hovering = false
+
+    static let collapsedWidth: CGFloat = 56
+    private var open: Bool { hovering || state.railPinned }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            item(icon: "line.3.horizontal", title: "Menu", selected: state.railPinned) {
+                state.railPinned.toggle()
+            }
+            .padding(.bottom, 4)
+            ForEach([MainTab.home, .history, .usage, .help]) { tab in
+                item(icon: tab.icon, title: tab.rawValue, selected: state.selectedTab == tab) {
+                    withAnimation(.easeInOut(duration: 0.22)) { state.selectedTab = tab }
+                }
+            }
+            Spacer()
+        }
+        .padding(.top, 10)
+        .padding(.horizontal, 10)
+        .frame(width: open ? 190 : Self.collapsedWidth, alignment: .leading)
+        .frame(maxHeight: .infinity)
+        .background(open ? Theme.settingsBackground : Color.clear)
+        .overlay(alignment: .trailing) { Rectangle().fill(Theme.divider).frame(width: 1) }
+        .shadow(color: .black.opacity(open ? 0.18 : 0), radius: 12, x: 4)
+        .onHover { hovering = $0 }
+        .animation(.spring(response: 0.3, dampingFraction: 0.88), value: open)
+        .frame(width: Self.collapsedWidth, alignment: .leading) // aberta, passa por cima do conteúdo sem empurrar
+    }
+
+    private func item(icon: String, title: String, selected: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 10) {
+                Image(systemName: icon)
+                    .font(.system(size: 15, weight: .medium))
+                    .frame(width: 36, height: 36)
+                if open {
+                    Text(T(title))
+                        .font(.system(size: 13, weight: .semibold))
+                        .lineLimit(1)
+                        .fixedSize()
+                        .transition(.opacity)
+                }
+                Spacer(minLength: 0)
+            }
+            .foregroundStyle(selected ? Theme.accent : Theme.secondaryText)
+            .background(RoundedRectangle(cornerRadius: 10).fill(selected ? Theme.accentSoft : Color.clear))
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .help(T(title))
+        .accessibilityLabel(T(title))
+    }
+}
+
+/// Página da barra lateral com título e rolagem (Uso e Ajuda, que antes ficavam na gaveta de Settings).
+struct RailPage<Content: View>: View {
+    let title: String
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 14) {
+                Text(T(title))
+                    .font(.system(size: 22, weight: .bold, design: .rounded))
+                    .foregroundStyle(Theme.primaryText)
+                content
+            }
+            .frame(maxWidth: 560, alignment: .leading)
+            .padding(.horizontal, 28)
+            .padding(.vertical, 16)
+            .frame(maxWidth: .infinity)
+        }
     }
 }
 

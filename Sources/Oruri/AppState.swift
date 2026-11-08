@@ -3,12 +3,18 @@ import Observation
 
 enum MainTab: String, CaseIterable, Identifiable {
     case home = "Home"
+    case history = "History"
+    case usage = "Usage"
+    case help = "Help"
     case dictionary = "Dictionary"
     var id: String { rawValue }
 
     var icon: String {
         switch self {
-        case .home: "house"
+        case .home: "mic"
+        case .history: "clock.arrow.circlepath"
+        case .usage: "chart.bar"
+        case .help: "questionmark.circle"
         case .dictionary: "character.book.closed"
         }
     }
@@ -124,7 +130,7 @@ struct Settings: Codable, Equatable {
 /// Informações do app lidas do Info.plist.
 enum AppInfo {
     static var version: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.6.6"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.7.0"
     }
 
     /// E-mail de suporte, mostrado em Settings › Help › Contact.
@@ -145,6 +151,8 @@ final class AppState {
     var selectedTab: MainTab = .home
     var showSettings = false
     var settingsPane: SettingsPane = .dictation
+    /// Barra lateral presa aberta pelo botão de menu (fecha clicando nele de novo ou fora dela).
+    var railPinned = false
     var showPro = false
 
     var phase: DictationPhase = .idle
@@ -245,6 +253,12 @@ final class AppState {
     }
 
     func openSettings(_ pane: SettingsPane = .dictation) {
+        // Uso e Ajuda moraram na gaveta até a 0.7.0; agora ficam na barra lateral.
+        if pane == .usage || pane == .help {
+            showSettings = false
+            selectedTab = pane == .usage ? .usage : .help
+            return
+        }
         settingsPane = pane
         showSettings = true
     }
